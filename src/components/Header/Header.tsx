@@ -1,5 +1,6 @@
 import './Header.scss';
 
+import { NavLink } from 'react-router-dom';
 import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
@@ -10,8 +11,8 @@ export const Header = () => {
     <header className="header">
       <div className="header__content">
         <div className="nav_container">
-          <a
-            href="/"
+          <NavLink
+            to="/"
             className="logo"
           >
             <img
@@ -19,26 +20,41 @@ export const Header = () => {
               src={logo_main}
               alt="Logo link"
             />
-          </a>
+          </NavLink>
 
           <nav className="nav">
             <ul className="nav__list">
               <li className="nav__item">
-                <a className="nav__item__link is-active" href="/home">home</a>
+                <NavLink
+                  to="/"
+                  className="nav__item__link"
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="nav__item">
-                <a className="nav__item__link" href="/phones">phones</a>
+                <NavLink
+                  to="/phones"
+                  className="nav__item__link"
+                >
+                  phones
+                </NavLink>
               </li>
               <li className="nav__item">
-                <a className="nav__item__link" href="/tablets">tablets</a>
+                <NavLink
+                  to="/tablets"
+                  className="nav__item__link"
+                >
+                  tablets
+                </NavLink>
               </li>
               <li className="nav__item" data-qa="hover">
-                <a
+                <NavLink
+                  to="/accessories"
                   className="nav__item__link"
-                  href="/accessories"
                 >
                   accessories
-                </a>
+                </NavLink>
               </li>
             </ul>
           </nav>
