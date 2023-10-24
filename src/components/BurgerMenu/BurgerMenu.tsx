@@ -1,9 +1,9 @@
 import './BurgerMenu.scss';
 
-import HeaderLogo from '../../images/logo.svg';
-import CloseIcon from '../../images/close.svg';
-import FavouriteIcon from '../../images/favourite.svg';
-import CartIcon from '../../images/cart.svg';
+import HeaderLogo from './images/logo.svg';
+import CloseIcon from './images/close.svg';
+import FavouriteIcon from './images/favourite.svg';
+import CartIcon from './images/cart.svg';
 
 export const BurgerMenu = () => (
   <>
