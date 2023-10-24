@@ -1,4 +1,5 @@
 import './App.scss';
+import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import { Slider } from './components/Slider/Slider';
 import { ByCategories } from './components/byCategoriesSection/ByCategories';
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Outlet />
       <Slider />
       <ByCategories />
       <Footer />
