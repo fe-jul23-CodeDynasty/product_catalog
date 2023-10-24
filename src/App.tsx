@@ -1,10 +1,18 @@
 import './App.scss';
-import { CartMenu } from './components/CartMenu/CartMenu';
+import { Outlet } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
+import { Slider } from './components/Slider/Slider';
+import { ByCategories } from './components/byCategoriesSection/ByCategories';
+import { Header } from './components/Header/Header';
 
 function App() {
   return (
     <div className="App">
-      <CartMenu />
+      <Header />
+      <Outlet />
+      <Slider />
+      <ByCategories />
+      <Footer />
     </div>
   );
 }
