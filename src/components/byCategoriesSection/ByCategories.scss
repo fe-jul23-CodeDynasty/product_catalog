@@ -1,0 +1,62 @@
+@import "../../utils/variables.scss";
+* {
+  box-sizing: border-box;
+}
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  max-width: 1168px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.row > .column {
+  padding: 10px;
+}
+
+.width-1-3 {
+  width: 33.33%;
+}
+
+.section-by-category {
+  &__title {
+    font-family: Mont;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 41px;
+    letter-spacing: -0.32px;
+    color: $white;
+  }
+}
+.category-card {
+  &__title {
+    font-family: Mont;
+    font-size: 20px;
+    font-weight: 700;
+    color: $white;
+  }
+
+  &__subtitle {
+    color: $secondary;
+    font-family: Mont;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+  }
+  &__image {
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
