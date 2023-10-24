@@ -22,5 +22,9 @@
     "experimentalDecorators": true,
     "noFallthroughCasesInSwitch": true
   },
+//  "include": [
+//    "src/resources/**/*.ts",
+//    "src/resources/images/*.svg",
+//  ],
   "exclude": ["node_modules"]
 }
