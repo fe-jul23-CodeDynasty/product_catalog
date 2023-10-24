@@ -1,10 +1,10 @@
 import './App.scss';
-import { BurgerMenu } from './components/Burger_menu/Burger_menu';
+import { CartMenu } from './components/CartMenu/CartMenu';
 
 function App() {
   return (
     <div className="App">
-      <BurgerMenu />
+      <CartMenu />
     </div>
   );
 }
