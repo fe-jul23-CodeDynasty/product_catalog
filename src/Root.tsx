@@ -9,10 +9,7 @@ export const Root = () => (
   <HashRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route
-          index
-          element={<Home />}
-        />
+        <Route index element={<Home />} />
         <Route path="/phones" element={<Phones />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/tablets" element={<Tablets />} />

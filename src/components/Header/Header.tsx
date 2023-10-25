@@ -11,15 +11,8 @@ export const Header = () => {
     <header className="header">
       <div className="header__content">
         <div className="nav_container">
-          <NavLink
-            to="/"
-            className="logo"
-          >
-            <img
-              className="logo__img"
-              src={logo_main}
-              alt="Logo link"
-            />
+          <NavLink to="/" className="logo">
+            <img className="logo__img" src={logo_main} alt="Logo link" />
           </NavLink>
 
           <nav className="nav">
@@ -27,32 +20,23 @@ export const Header = () => {
               <li className="nav__item">
                 <NavLink
                   to="/"
-                  className="nav__item__link is-active"
+                  className="nav__item__link"
                 >
                   Home
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink
-                  to="/phones"
-                  className="nav__item__link"
-                >
+                <NavLink to="/phones" className="nav__item__link">
                   phones
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink
-                  to="/tablets"
-                  className="nav__item__link"
-                >
+                <NavLink to="/tablets" className="nav__item__link">
                   tablets
                 </NavLink>
               </li>
               <li className="nav__item" data-qa="hover">
-                <NavLink
-                  to="/accessories"
-                  className="nav__item__link"
-                >
+                <NavLink to="/accessories" className="nav__item__link">
                   accessories
                 </NavLink>
               </li>
@@ -61,16 +45,10 @@ export const Header = () => {
         </div>
 
         <div className="container_heart-like-shopping-bag">
-          <a
-            className="heart_like"
-            href="/"
-          >
+          <a className="heart_like" href="/">
             <img src={favourites_heart_like} alt="heart like" />
           </a>
-          <a
-            className="shopping-bag"
-            href="/"
-          >
+          <a className="shopping-bag" href="/">
             <img src={shopping_bag} alt="shopping bag" />
           </a>
         </div>

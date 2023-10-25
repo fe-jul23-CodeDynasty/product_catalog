@@ -1,3 +1,3 @@
 export const Tablets = () => {
-  return (<h1>Tablets pages</h1>);
+  return <h1>Tablets pages</h1>;
 };

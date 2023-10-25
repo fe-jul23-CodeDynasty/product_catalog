@@ -1,0 +1,302 @@
+$backgroundColor: #0f1121;
+$borderColor: #3b3e4a;
+$textColor: #F1F2F9;
+$cardColor: #161827;
+$secondaryTextColor: #75767F;
+$buttonCheckoutColor: #905BFF;
+$buttonCheckoutHoverColor: #A378FF;
+$tablet-min-width: 639px;
+$desktop-min-width: 1200px;
+
+@mixin onTablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin onDesktop{
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+}
+
+.back--icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px
+}
+
+.back--link {
+  text-decoration: none;
+  color: $textColor;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  padding-top: 24px;
+
+  @include onDesktop() {
+    padding-top: 40px;
+  }
+}
+
+.container {
+  margin: auto;
+  max-width: 1200px;
+}
+
+.page {
+  background-color: $backgroundColor;
+  padding-bottom: 56px ;
+  
+  @include onTablet() {
+    padding-bottom: 64px;
+  }
+
+  @include onDesktop() {
+    padding-bottom: 60px;
+  }
+
+  &__body {
+   margin: 0 16px 0 16px;
+
+    @include onTablet() {
+      margin: 0 24px 0 24px;
+    }
+
+    @include onDesktop() {
+      margin: 0 32px 0 32px;
+    }
+  }
+}
+
+.title {
+  color: $textColor;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 41px;
+  margin-top: 24px;
+
+  @include onDesktop() {
+    font-size: 48px;
+    line-height: 56px;
+    margin-top: 16px;
+  }
+}
+
+.button {
+  &-delete {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+  }
+
+  &-counter {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+  }
+
+  &-checkout {
+    width: 320px;
+    height: 48px;
+    cursor: pointer;
+    color: $textColor;
+    background-color: $buttonCheckoutColor;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      background-color: $buttonCheckoutHoverColor;
+    }
+  }
+}
+
+.total-cost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 32px;
+  width: 100%;
+  height: 206px;
+  border: 2px solid $borderColor;
+  padding: 0 24px 0 24px;
+
+  &__price {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 23px 0 0 0;
+    color: $textColor;
+  }
+
+  &__items {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    margin: 0;
+    color: $secondaryTextColor;
+  }
+
+  &__button {
+    width: 100%;
+    position: relative;
+    margin-top: 49px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $borderColor;
+    }
+  }
+
+  grid-column: 1 / -1; 
+
+  @include onDesktop() {
+    grid-column: 17 / -2; 
+  }
+}
+
+.cards {
+  margin-top: 16px;
+  grid-column: 1 / -1; 
+
+  @include onDesktop() {
+    grid-column: 1 / -9; 
+  }
+}
+
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $cardColor;
+  margin-top: 16px;
+  padding: 16px 16px 0 16px;
+
+  @include onTablet() {
+   flex-direction: row;
+  }
+
+  @include onDesktop() {
+    padding: 24px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 16px;
+    margin-left: 16px;
+
+    @include onDesktop() {
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+
+    @include onDesktop() {
+      padding-bottom: 0;
+    }
+
+  }
+
+  &__close {
+    margin-right: 16px;
+
+    @include onTablet() {
+      margin-right: 24px;
+    }
+  }
+
+  &__photo {
+    width: 80px;
+
+    @include onDesktop() {
+      margin-right: 24px;
+    }
+  }
+
+  &__text {
+    color: $textColor;
+    font-weight: 600;
+    min-width: 128px;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 16px;
+    column-gap: 24px;
+
+    @include onTablet() {
+      max-width: 176px;
+    }
+
+    @include onDesktop() {
+      padding: 0;
+      column-gap: 0;
+      max-width: 336px;
+    }
+  }
+
+  &__counter {
+    display: flex;
+
+    &--count {
+      margin: 6px 14px 0 13px;
+      color: $textColor;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+
+  &__price {
+    margin-left: 24px;
+    color: $textColor;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 30.8px;
+  }
+
+  grid-column: 1 / -1;
+}
+
+.cards__container {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+
+  @include onTablet() {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  @include onDesktop() {
+    grid-template-columns: repeat(24, 1fr);
+  }
+}
