@@ -1,9 +1,14 @@
 @import '~normalize.css';
 @import "src/utils/variables";
+@import "src/utils/mixins";
 
 .icon--heart {
   width: 16px;
   height: 16px;
+}
+
+.container {
+  @include contentPaddingInline;
 }
 
 .card {

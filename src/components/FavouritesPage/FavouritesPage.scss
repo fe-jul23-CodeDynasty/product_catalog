@@ -1,36 +1,5 @@
-$backgroundColor: #0f1121;
-$borderColor: #3b3e4a;
-$textColor: #f1f2f9;
-$cardColor: #161827;
-$secondaryTextColor: #75767f;
-$buttonCheckoutColor: #905bff;
-$buttonCheckoutHoverColor: #a378ff;
-$tablet-min-width: 639px;
-$desktop-min-width: 1200px;
-
-@mixin onTablet {
-  @media (min-width: $tablet-min-width) {
-    @content;
-  }
-}
-
-@mixin onDesktop {
-  @media (min-width: $desktop-min-width) {
-    @content;
-  }
-}
-
-h1 {
-  margin: 0;
-}
-
-p {
-  margin: 0;
-}
-
-button {
-  padding: 0;
-}
+@import "src/utils/variables";
+@import "src/utils/mixins";
 
 .container {
   margin: auto;
@@ -65,10 +34,8 @@ button {
 
 .link--favourites {
   display: flex;
-  flex-direction: center;
   align-items: center;
   text-decoration: none;
-  color: $textColor;
   tab-size: 12px;
   font-weight: 600;
   color: $secondaryTextColor;

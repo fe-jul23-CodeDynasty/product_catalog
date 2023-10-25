@@ -1,8 +1,10 @@
 @import '~normalize.css';
+@import "src/utils/variables";
+@import "src/utils/mixins";
 
 .header {
   background: #0F1121;
-  @media (min-width: 640px) {
+  @mixin onTablet {
     gap: 24px;
   }
 
@@ -54,7 +56,6 @@
       justify-content: center;
       align-items: center;
       height: 100%;
-      text-decoration: none;
       font-family: Mont, sans-serif;
       font-size: 12px;
       font-style: normal;
