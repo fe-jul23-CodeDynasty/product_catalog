@@ -1,50 +1,20 @@
-$backgroundColor: #0f1121;
-$borderColor: #3b3e4a;
-$textColor: #F1F2F9;
-$cardColor: #161827;
-$secondaryTextColor: #75767F;
-$buttonCheckoutColor: #905BFF;
-$buttonCheckoutHoverColor: #A378FF;
-$tablet-min-width: 639px;
-$desktop-min-width: 1200px;
-
-@mixin onTablet {
-  @media (min-width: $tablet-min-width) {
-    @content;
-  }
-}
-
-@mixin onDesktop{
-  @media (min-width: $desktop-min-width) {
-    @content;
-  }
-}
-
-h1 {
-  margin: 0;
-}
-
-p {
-  margin: 0;
-}
-
-button {
-  padding: 0;
-}
+@import '~normalize.css';
+@import "src/utils/variables";
+@import "src/utils/mixins";
 
 .back--icon {
   width: 16px;
   height: 16px;
-  margin-right: 4px
+  margin-right: 4px;
 }
 
 .back--link {
+  display: flex;
+  padding-top: 24px;
   text-decoration: none;
   color: $textColor;
   font-size: 12px;
   font-weight: 700;
-  display: flex;
-  padding-top: 24px;
 
   @include onDesktop() {
     padding-top: 40px;
@@ -57,9 +27,9 @@ button {
 }
 
 .page {
+  padding-bottom: 56px;
   background-color: $backgroundColor;
-  padding-bottom: 56px ;
-  
+
   @include onTablet() {
     padding-bottom: 64px;
   }
@@ -168,19 +138,19 @@ button {
     }
   }
 
-  grid-column: 1 / -1; 
+  grid-column: 1 / -1;
 
   @include onDesktop() {
-    grid-column: 17 / -2; 
+    grid-column: 17 / -2;
   }
 }
 
 .cards {
   margin-top: 16px;
-  grid-column: 1 / -1; 
+  grid-column: 1 / -1;
 
   @include onDesktop() {
-    grid-column: 1 / -9; 
+    grid-column: 1 / -9;
   }
 }
 
@@ -295,7 +265,7 @@ button {
   @include onTablet() {
     grid-template-columns: repeat(12, 1fr);
   }
-  
+
   @include onDesktop() {
     grid-template-columns: repeat(24, 1fr);
   }

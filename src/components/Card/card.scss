@@ -1,22 +1,5 @@
-@import './mixins.scss';
-
-$backgroundColor: #0f1121;
-$borderColor: #3b3e4a;
-$textColor: #f1f2f9;
-$cardColor: #161827;
-$secondaryTextColor: #75767f;
-$buttonCheckoutColor: #905bff;
-$buttonCheckoutHoverColor: #a378ff;
-$tablet-min-width: 639px;
-$desktop-min-width: 1200px;
-
-p,
-ul,
-li,
-hr {
-  margin: 0;
-  padding: 0;
-}
+@import '~normalize.css';
+@import "src/utils/variables";
 
 .icon--heart {
   width: 16px;
@@ -68,9 +51,8 @@ hr {
   }
 
   &__hr {
-    margin: 8px 0 16px 0;
+    margin: 8px 0 8px;
     width: 100%;
-    margin-bottom: 8px;
     background-color: #3b3e4a;
     height: 1px;
     border: 0;
@@ -128,13 +110,12 @@ hr {
       }
     }
 
-    display: flex;
     &__heart {
       display: flex;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
-      border: 0;
+      //border: 0; ???
 
       text-decoration: none;
       width: 50px;

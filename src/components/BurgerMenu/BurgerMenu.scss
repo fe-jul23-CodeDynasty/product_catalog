@@ -1,7 +1,5 @@
-$backgroundColor: #0f1121;
-$borderColor: #3b3e4a;
-$textColor: #75767f;
-$selectedTextColor: #ffff;
+@import '~normalize.css';
+@import "src/utils/variables";
 
 ul {
   padding: 0;
@@ -41,7 +39,6 @@ ul {
 
 .nav {
   &__list {
-    list-style-type: none;
     text-align: center;
   }
 
@@ -90,7 +87,6 @@ ul {
     width: 48px;
     height: 48px;
     border-left: 2px solid $borderColor;
-    box-sizing: border-box;
   }
 
   &__favourite {
