@@ -1,7 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
   "extends": [
     "plugin:react/recommended",
@@ -22,24 +23,42 @@
   "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "rules": {
     // JS
-    "semi": "off",
+    "semi": ["error", "always"],
     "@typescript-eslint/semi": ["error", "always"],
-    "prefer-const": 2,
-    "curly": [2, "all"],
+    "space-before-function-paren": ["error", "never"],
+    "comma-dangle": ["error", "always-multiline"],
+    "no-shadow": [
+      "error",
+      { "builtinGlobals": true, "hoist": "all", "allow": [] }
+    ],
+    "no-var": "error",
+    "prefer-const": "error",
+    "curly": ["error", "all"],
     "max-len": [
       "error",
       {
+        "code": 80,
+        "comments": 80,
         "ignoreTemplateLiterals": true,
         "ignoreComments": true
       }
     ],
-    "no-redeclare": [2, { "builtinGlobals": true }],
-    "no-console": 2,
-    "operator-linebreak": [2, "before"],
-    "brace-style": [2, "1tbs"],
+    "no-redeclare": ["error", { "builtinGlobals": true }],
+    "no-console": "error",
+    "operator-linebreak": ["error", "before"],
+    "brace-style": ["error", "1tbs"],
     "arrow-body-style": 0,
+    "object-curly-newline": [
+      2,
+      {
+        "ObjectExpression": {
+          "consistent": true,
+          "minProperties": 4
+        }
+      }
+    ],
     "arrow-parens": 0,
-    "no-param-reassign": [2, { "props": true }],
+    "no-param-reassign": "error",
     "padding-line-between-statements": [
       2,
       { "blankLine": "always", "prev": "*", "next": "return" },
