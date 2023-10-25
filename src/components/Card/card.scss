@@ -1,14 +1,19 @@
 @import '~normalize.css';
+@import "src/utils/variables";
+
+.icon--heart {
+  width: 16px;
+  height: 16px;
+}
 
 .card {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 272px;
   padding: 32px;
   background: #161827;
-  color: #F1F2F9;
+  color: #f1f2f9;
   transition: transform 300ms;
 
   &:hover {
@@ -41,17 +46,16 @@
       margin-left: 8px;
       text-decoration: line-through;
       font-weight: 600;
-      color: #75767F;
+      color: #75767f;
     }
   }
 
-  &__hr{
-    margin: 8px 0 16px 0;
+  &__hr {
+    margin: 8px 0 8px;
     width: 100%;
-    background-color: #3B3E4A;
+    background-color: #3b3e4a;
     height: 1px;
     border: 0;
-
   }
 
   &__properties {
@@ -68,15 +72,17 @@
       display: flex;
       justify-content: space-between;
       font-size: 12px;
-      font-weight: 700;
-      color: #F1F2F9;
+      font-weight: 600;
+      margin-top: 8px;
+      color: #f1f2f9;
 
       &__property {
-        color: #75767F;
+        color: #75767f;
       }
     }
   }
-  &__buttons{
+  &__buttons {
+    width: 100%;
     display: flex;
     gap: 8px;
 
@@ -84,18 +90,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      border: 0;
 
       text-decoration: none;
-      width: 160px;
+      width: 100%;
       height: 40px;
       font-weight: 700;
       font-size: 14px;
       line-height: 21px;
-      background-color:#905BFF;
-      color: #F1F2F9;
+      background-color: #905bff;
+      color: #f1f2f9;
 
       &:hover {
-        background-color: #A378FF;
+        background-color: #a378ff;
       }
 
       &:active {
@@ -103,21 +110,24 @@
       }
     }
 
-    &__heart{
+    &__heart {
       display: flex;
       justify-content: center;
       align-items: center;
+      box-sizing: border-box;
+      //border: 0; ???
 
       text-decoration: none;
-      width: 40px;
+      width: 50px;
       height: 40px;
       font-size: 24px;
       line-height: 21px;
-      background-color:#323542;
-      color: #F1F2F9;
+      background-color: transparent;
+      color: #f1f2f9;
+      border: 1px solid $borderColor;
 
       &:hover {
-        background-color:#4A4D58;
+        background-color: #4a4d58;
       }
 
       &:active {

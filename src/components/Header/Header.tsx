@@ -18,7 +18,10 @@ export const Header = () => {
           <nav className="nav">
             <ul className="nav__list">
               <li className="nav__item">
-                <NavLink to="/" className="nav__item__link">
+                <NavLink
+                  to="/"
+                  className="nav__item__link"
+                >
                   Home
                 </NavLink>
               </li>
