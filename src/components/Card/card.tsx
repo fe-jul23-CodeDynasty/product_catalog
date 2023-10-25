@@ -1,19 +1,18 @@
 import './card.scss';
 
+import PhoneImage from './images/phone-1.svg';
+import HeartIcon from './images/heart-red.svg';
+
 export const Card = () => {
   return (
     <div className="card">
       <img
-        src="./images/iPhoneXS.png"
+        src={PhoneImage}
         alt="Apple iPhone Xs 64GB Silver (iMT9G2FS/A)"
         className="card__img"
       />
 
-      <h2 className="card__name">
-        Apple iPhone Xs 64GB Silver
-        <br />
-        (iMT9G2FS/A)
-      </h2>
+      <h2 className="card__name">Apple iPhone Xs 64GB Silver (iMT9G2FS/A)</h2>
 
       <div className="card__price">
         <div className="card__price__discount">$799</div>
@@ -50,7 +49,11 @@ export const Card = () => {
         </button>
 
         <button type="button" className="card__buttons__heart">
-          H
+          <img
+            src={HeartIcon}
+            alt="Apple iPhone Xs 64GB Silver (iMT9G2FS/A)"
+            className="icon--heart"
+          />
         </button>
       </div>
     </div>
