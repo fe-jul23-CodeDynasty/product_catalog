@@ -1,5 +1,4 @@
-$tablet-min-width: 639px;
-$desktop-min-width: 1200px;
+@import './variables.scss';
 
 @mixin onTablet {
   @media (min-width: $tablet-min-width) {
