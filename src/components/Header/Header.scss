@@ -1,6 +1,6 @@
 @import '~normalize.css';
-@import "src/utils/variables";
-@import "src/utils/mixins";
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
 
 .header {
   background: $backgroundColor;
@@ -28,10 +28,10 @@
   height: 100%;
 
   &_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   &__list {
     height: 100%;
@@ -65,7 +65,7 @@
       letter-spacing: 0.48px;
       text-transform: uppercase;
       color: $secondaryTextColor;
-     }
+    }
   }
 }
 
@@ -85,7 +85,6 @@
 }
 
 .logo {
-
   @include onTablet() {
     margin-right: 32px;
   }
@@ -97,7 +96,6 @@
   &__img {
     width: 64px;
     height: 20px;
-
 
     @include onDesktop() {
       width: 80px;
