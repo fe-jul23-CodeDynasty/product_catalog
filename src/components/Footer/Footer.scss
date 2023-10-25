@@ -1,9 +1,11 @@
 @import '~normalize.css';
+@import "src/utils/variables";
+@import "src/utils/mixins";
 
 .main__body {
   margin: 0 auto;
-  max-width: auto;
-  background-color: #0f1121;
+  //max-width: auto; ???
+  background-color: $backgroundColor;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -74,7 +76,7 @@
   &__button--text {
     font-weight: 700;
     font-size: 12px;
-    color: #f1f2f9;
+    color: $textColor;
     display: inline-block;
   }
 

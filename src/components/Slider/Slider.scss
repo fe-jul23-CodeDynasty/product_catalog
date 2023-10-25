@@ -64,6 +64,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
   @mixin onTablet {
     max-width: 592px;
     max-height: 189px;
@@ -73,6 +74,7 @@
     max-width: 1136px;
     max-height: 400px;
   }
+
   &__banner-desktop {
     display: none;
     @mixin onTablet {
@@ -84,13 +86,13 @@
       max-width: 1040px;
     }
   }
+
   &__banner-mob {
     display: block;
 
     @mixin onDesktop {
       display: none;
     }
-
   }
 }
 
