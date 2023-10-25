@@ -4,6 +4,7 @@
   background-color: #0f1121;
   background-size: cover;
   background-repeat: no-repeat;
+  border-bottom: 1px solid #3b3e4a;
 }
 
 .footer {
@@ -11,7 +12,7 @@
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
   align-items: center;
-  padding: 32px 32px;
+  padding-top: 16px 16px;
 
   @media (max-width: 639px) {
     display: flex;
@@ -54,7 +55,7 @@
 
   &__item {
     font-weight: 800;
-    font-size: 12;
+    font-size: 12px;
   }
 
   &__link {
