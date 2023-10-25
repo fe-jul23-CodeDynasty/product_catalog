@@ -1,10 +1,6 @@
 @import '~normalize.css';
 @import "src/utils/variables";
 
-ul {
-  padding: 0;
-}
-
 .menu {
   background-color: $backgroundColor;
   width: 320px;
@@ -19,8 +15,6 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  box-sizing: border-box;
   border-bottom: 2px solid $borderColor;
 }
 
@@ -49,7 +43,6 @@ ul {
   &__link {
     position: relative;
     text-transform: uppercase;
-    text-decoration: none;
     font-size: 12px;
     line-height: 11px;
     color: $textColor;
@@ -107,7 +100,6 @@ ul {
     align-items: center;
     width: 160px;
     height: 64px;
-    box-sizing: border-box;
     border-top: 2px solid $borderColor;
     border-left: 1px solid $borderColor;
   }

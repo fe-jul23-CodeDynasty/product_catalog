@@ -26,10 +26,6 @@
   }
 }
 
-.container {
-  @include contentPaddingInline;
-}
-
 @mixin pageGrid {
   --columns: 4;
   display: grid;

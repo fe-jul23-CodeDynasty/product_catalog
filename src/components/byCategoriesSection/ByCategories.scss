@@ -1,9 +1,6 @@
 @import "../../utils/variables.scss";
 @import '~normalize.css';
 
-* {
-  box-sizing: border-box;
-}
 img {
   display: block;
   width: 100%;
@@ -32,7 +29,7 @@ img {
 
 .section-by-category {
   &__title {
-    font-family: Mont;
+    font-family: Mont, sans-serif;
     font-size: 32px;
     font-weight: 800;
     line-height: 41px;
@@ -42,7 +39,7 @@ img {
 }
 .category-card {
   &__title {
-    font-family: Mont;
+    font-family: Mont, sans-serif;
     font-size: 20px;
     font-weight: 700;
     color: $white;
@@ -50,7 +47,7 @@ img {
 
   &__subtitle {
     color: $secondary;
-    font-family: Mont;
+    font-family: Mont, sans-serif;
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;
