@@ -1,6 +1,6 @@
 @import '~normalize.css';
-@import "src/utils/variables";
-@import "src/utils/mixins";
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
 
 .back--icon {
   width: 16px;
@@ -39,7 +39,7 @@
   }
 
   &__body {
-   margin: 0 16px 0 16px;
+    margin: 0 16px 0 16px;
 
     @include onTablet() {
       margin: 0 24px 0 24px;
@@ -84,7 +84,9 @@
     cursor: pointer;
     color: $textColor;
     background-color: $buttonCheckoutColor;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease;
 
     &:hover {
       background-color: $buttonCheckoutHoverColor;
@@ -164,7 +166,7 @@
   padding: 16px 16px 0 16px;
 
   @include onTablet() {
-   flex-direction: row;
+    flex-direction: row;
   }
 
   @include onDesktop() {
@@ -194,7 +196,6 @@
     @include onDesktop() {
       padding-bottom: 0;
     }
-
   }
 
   &__close {

@@ -1,5 +1,5 @@
 @import '~normalize.css';
-@import "src/utils/variables";
+@import 'src/utils/variables';
 
 .section-not-found {
   display: flex;
@@ -10,7 +10,6 @@
 }
 
 .error {
-
   &__status {
     font-size: 250px;
     font-weight: bolder;
@@ -50,7 +49,7 @@
   }
 
   &::after {
-    content: url("./images/Home.svg");
+    content: url('./images/Home.svg');
     margin-left: 10px;
   }
 
