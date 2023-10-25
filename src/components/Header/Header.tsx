@@ -27,7 +27,7 @@ export const Header = () => {
               <li className="nav__item">
                 <NavLink
                   to="/"
-                  className="nav__item__link"
+                  className="nav__item__link is-active"
                 >
                   Home
                 </NavLink>
