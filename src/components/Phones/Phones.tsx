@@ -1,5 +1,3 @@
 export const Phones = () => {
-  return (
-    <h1>Phones pages</h1>
-  );
+  return <h1>Phones pages</h1>;
 };
