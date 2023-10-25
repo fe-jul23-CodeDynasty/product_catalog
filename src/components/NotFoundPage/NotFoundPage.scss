@@ -1,3 +1,6 @@
+@import '~normalize.css';
+@import "src/utils/variables";
+
 .section-not-found {
   display: flex;
   flex-direction: column;
@@ -7,21 +10,24 @@
 }
 
 .error {
+
   &__status {
     font-size: 250px;
     font-weight: bolder;
     margin: 30px 0;
-    text-shadow: 3px 3px 3px #eb5757;
+    text-shadow: 3px 3px 3px $errorStatusColorShadow;
     animation: scale 1s alternate infinite;
   }
+
   &__message {
     font-size: 50px;
-    color: #f1f2f9;
+    color: $textColor;
   }
+
   &__type {
     font-size: 40px;
     font-weight: 600;
-    color: #f1f2f9;
+    color: $textColor;
   }
 }
 
@@ -33,18 +39,21 @@
   text-decoration: none;
   border-radius: 10px;
   padding: 15px;
-  border: 1px solid #f1f2f9;
+  border: 1px solid $textColor;
   transition: all 0.5s;
+
   &:hover {
     text-decoration: underline;
-    color: #0f1121;
-    border-color: #0f1121;
-    background-color: #f1f2f9;
+    color: $backgroundColor;
+    border-color: $backgroundColor;
+    background-color: $backgroundColor;
   }
+
   &::after {
     content: url("./images/Home.svg");
     margin-left: 10px;
   }
+
   &:hover::after {
     filter: invert(1);
   }
@@ -54,6 +63,7 @@
   0% {
     transform: scale(1);
   }
+
   0% {
     transform: scale(1.2);
   }
