@@ -1,5 +1,5 @@
 import './CardItem.scss';
-import React from 'react';
+// import React from 'react';
 import cardImage from './card-image/slider-photo1.svg';
 import centerImage from './card-image/iphoneGold.jpg';
 
@@ -124,7 +124,7 @@ export const CardItem = () => {
               </div>
               <div className="card__information--screen">
                 <p className="card__information--screen-type">Screen</p>
-                <p className="information__value">6.5” OLED</p>
+                <p className="card__information--screen-value">6.5” OLED</p>
               </div>
             </div>
           </div>
