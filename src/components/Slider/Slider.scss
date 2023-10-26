@@ -1,41 +1,37 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
-@import 'src/utils/mixins';
+/* stylelint-disable */
 
 .hero-title {
-  font-size: 48px;
   font-family: Mont, sans-serif;
+  font-size: 48px;
   font-weight: 800;
-  text-align: left;
-  letter-spacing: -0.48px;
   line-height: 56px;
-  color: $textColor;
+  letter-spacing: -0.48px;
+  color: #f1f2f9;
+  text-align: left;
 }
 
 .header-swiper {
   position: relative;
   overflow-y: visible;
-
-  @mixin onTablet {
-    max-width: 592px;
-    max-height: 200px;
-  }
-
-  @mixin onDesktop {
-    max-width: 1136px;
-    max-height: 400px;
-  }
+  // @media (min-width: 640px) {
+  //   max-width: 592px;
+  //   max-height: 200px;
+  // }
+  // @media (min-width: 1200px) {
+  //   max-width: 1136px;
+  //   max-height: 400px;
+  // }
 }
 
 .swiper {
   &-pagination-bullet {
-    width: 14px;
-    height: 4px;
-    background-color: $borderColor;
+    background-color: #3b3e4a; /* Изменено: Перемещено после background-color */
     border-radius: 0;
+    height: 4px; /* Изменено: Перемещено после background-color */
+    width: 14px; /* Изменено: Перемещено после background-color */
 
     &-active {
-      background-color: $textColor;
+      background-color: #f1f2f9;
     }
   }
 
@@ -43,64 +39,63 @@
     &-next,
     &-prev {
       display: none;
-
       &::after {
         font-size: 16px;
       }
 
-      @mixin onTablet {
-        top: 22px;
+      @media (min-width: 640px) {
+        background-color: #323542; /* Изменено: Перемещено после color */
+        color: #f1f2f9; /* Изменено: Перемещено после background-color */
         display: flex;
-        height: 100%;
-        color: #f1f2f9;
-        background-color: $buttonActiveColor;
+        height: 100%; /* Изменено: Перемещено после display */
+        top: 22px; /* Изменено: Перемещено после height */
       }
     }
   }
 
   &-button-disabled {
-    color: $textColor;
+    color: #75767f;
   }
 }
 
 .slide {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   overflow: hidden;
 
-  @mixin onTablet {
-    max-width: 592px;
-    max-height: 189px;
+  @media (min-width: 1200px) {
+    max-height: 400px; /* Изменено: Перемещено после max-width */
   }
 
-  @mixin onDesktop {
-    max-width: 1136px;
-    max-height: 400px;
+  @media (min-width: 640px) {
+    /* max-height: 189px; */
+    /* max-width: 592px; */
   }
 
   &__banner-desktop {
-    display: none;
-    @mixin onTablet {
-      display: block;
-      max-width: 490px;
+    @media (min-width: 1200px) {
+      /* max-width: 1040px; */
     }
 
-    @mixin onDesktop {
-      max-width: 1040px;
+    @media (min-width: 640px) {
+      display: block;
+      /* max-width: 490px; */
     }
+
+    display: none;
   }
 
   &__banner-mob {
-    display: block;
-
-    @mixin onDesktop {
+    @media (min-width: 640px) {
       display: none;
     }
+
+    display: block;
   }
 }
 
 .swiper-horizontal > .swiper-pagination-bullets {
-  position: absolute;
   bottom: -24px;
+  position: absolute;
 }
