@@ -5,7 +5,7 @@
 .header {
   background: $backgroundColor;
 
-  @mixin onTablet {
+  @include onTablet {
     gap: 24px;
   }
 

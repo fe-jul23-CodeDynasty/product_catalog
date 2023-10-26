@@ -16,12 +16,12 @@
   position: relative;
   overflow-y: visible;
 
-  @mixin onTablet {
+  @include onTablet {
     max-width: 592px;
     max-height: 200px;
   }
 
-  @mixin onDesktop {
+  @include onDesktop {
     max-width: 1136px;
     max-height: 400px;
   }
@@ -48,7 +48,7 @@
         font-size: 16px;
       }
 
-      @mixin onTablet {
+      @include onTablet {
         top: 22px;
         display: flex;
         height: 100%;
@@ -69,24 +69,24 @@
   justify-content: center;
   overflow: hidden;
 
-  @mixin onTablet {
+  @include onTablet {
     max-width: 592px;
     max-height: 189px;
   }
 
-  @mixin onDesktop {
+  @include onDesktop {
     max-width: 1136px;
     max-height: 400px;
   }
 
   &__banner-desktop {
     display: none;
-    @mixin onTablet {
+    @include onTablet {
       display: block;
       max-width: 490px;
     }
 
-    @mixin onDesktop {
+    @include onDesktop {
       max-width: 1040px;
     }
   }
@@ -94,7 +94,7 @@
   &__banner-mob {
     display: block;
 
-    @mixin onDesktop {
+    @include onDesktop {
       display: none;
     }
   }
