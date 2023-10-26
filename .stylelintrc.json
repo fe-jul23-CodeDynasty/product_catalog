@@ -6,6 +6,7 @@
   ],
   "plugins": ["stylelint-scss", "stylelint-order"],
   "rules": {
+    "import-notation": "string",
     "max-nesting-depth": null,
     "no-empty-source": null,
     "no-descending-specificity": null,
