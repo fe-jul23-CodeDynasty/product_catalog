@@ -1,5 +1,5 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
+@import "~normalize.css";
+@import "src/utils/variables";
 
 .section-not-found {
   display: flex;
@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: $backgroundColor;
 }
 
 .error {
@@ -49,7 +50,7 @@
   }
 
   &::after {
-    content: url('./images/Home.svg');
+    content: url("../../images/home.svg");
     margin-left: 10px;
   }
 

@@ -1,3 +1,5 @@
+import './NotFoundPage.scss';
+
 export function NotFoundPage() {
   return (
     <section className="section-not-found error">
