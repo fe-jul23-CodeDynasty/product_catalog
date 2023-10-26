@@ -1,5 +1,5 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
+@import url('~normalize.css');
+@import url('src/utils/variables');
 
 .section-not-found {
   display: flex;
@@ -11,9 +11,9 @@
 
 .error {
   &__status {
+    margin: 30px 0;
     font-size: 250px;
     font-weight: bolder;
-    margin: 30px 0;
     text-shadow: 3px 3px 3px $errorStatusColorShadow;
     animation: scale 1s alternate infinite;
   }
@@ -31,21 +31,21 @@
 }
 
 .homepage-link {
-  color: #f1f2f9;
   display: flex;
   align-items: center;
+  padding: 15px;
   font-size: 20px;
   text-decoration: none;
-  border-radius: 10px;
-  padding: 15px;
+  color: #f1f2f9;
   border: 1px solid $textColor;
+  border-radius: 10px;
   transition: all 0.5s;
 
   &:hover {
     text-decoration: underline;
     color: $backgroundColor;
-    border-color: $backgroundColor;
     background-color: $backgroundColor;
+    border-color: $backgroundColor;
   }
 
   &::after {
@@ -63,7 +63,7 @@
     transform: scale(1);
   }
 
-  0% {
+  100% {
     transform: scale(1.2);
   }
 }

@@ -1,5 +1,5 @@
-@import '../../utils/variables.scss';
-@import '~normalize.css';
+@import url('../../utils/variables.scss');
+@import url('~normalize.css');
 
 img {
   display: block;
@@ -9,9 +9,9 @@ img {
 }
 
 .container {
-  max-width: 1168px;
   margin: 0 auto;
   padding: 0 16px;
+  max-width: 1168px;
 }
 
 .row {
@@ -30,33 +30,34 @@ img {
 
 .section-by-category {
   &__title {
-    font-family: Mont, sans-serif;
     font-size: 32px;
+    font-family: Mont, sans-serif;
     font-weight: 800;
-    line-height: 41px;
     letter-spacing: -0.32px;
+    line-height: 41px;
     color: $categoryHeaderColor;
   }
 }
 
 .category-card {
   &__title {
-    font-family: Mont, sans-serif;
     font-size: 20px;
+    font-family: Mont, sans-serif;
     font-weight: 700;
     color: $categoryHeaderColor;
   }
 
   &__subtitle {
-    color: $categoryHeaderColor;
-    font-family: Mont, sans-serif;
     font-size: 14px;
+    font-family: Mont, sans-serif;
     font-weight: 600;
     line-height: 21px;
+    color: $categoryHeaderColor;
   }
 
   &__image {
     transition: transform 0.5s;
+
     &:hover {
       transform: scale(1.1);
     }

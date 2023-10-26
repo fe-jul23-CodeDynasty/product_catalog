@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 
 import './Slider.scss';
+
 import firstBanner from './images/Banner.png';
 import firstBannerMob from './images/Banner-mob.png';
 import secondBanner from './images/banner-tablets.png';
