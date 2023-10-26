@@ -19,91 +19,105 @@ export const CartMenu = () => {
           </a>
           <h1 className="title">Cart</h1>
 
-          <div className="cards__container">
+          <div className="cards-container">
             <section className="cards">
-              <div className="card">
-                <div className="card__top">
-                  <button type="button" className="card__button button-delete">
+              <div className="cart-card">
+                <div className="cart-card__top">
+                  <button
+                    type="button"
+                    className="cart-card__button button-delete"
+                  >
                     <img
                       src={CloseIcon}
                       alt="close-icon"
-                      className="card__close"
+                      className="cart-card__close"
                     />
                   </button>
 
-                  <img src={PhoneOne} alt="Phone-one" className="card__photo" />
+                  <img
+                    src={PhoneOne}
+                    alt="Phone-one"
+                    className="cart-card__photo"
+                  />
 
-                  <p className="card__text">
+                  <p className="cart-card__text">
                     Apple iPhone 14 Pro 128GB Silver (MQ023)
                   </p>
                 </div>
 
-                <div className="card__bottom">
-                  <div className="card__counter">
+                <div className="cart-card__bottom">
+                  <div className="cart-card__counter">
                     <button
                       type="button"
-                      className="button-counter card__counter--minus"
+                      className="button-counter cart-card__counter--minus"
                     >
                       <img src={CounterMinus} alt="counter-icon" />
                     </button>
 
-                    <p className="card__counter--count">1</p>
+                    <p className="cart-card__counter--count">1</p>
 
                     <button
                       type="button"
-                      className="button-counter card__counter--plus"
+                      className="button-counter cart-card__counter--plus"
                     >
                       <img src={CounterPlus} alt="counter-icon" />
                     </button>
                   </div>
 
-                  <p className="card__price">$999</p>
+                  <p className="cart-card__price">$999</p>
                 </div>
               </div>
 
-              <div className="card">
-                <div className="card__top">
-                  <button type="button" className="card__button button-delete">
+              <div className="cart-card">
+                <div className="cart-card__top">
+                  <button
+                    type="button"
+                    className="cart-card__button button-delete"
+                  >
                     <img
                       src={CloseIcon}
                       alt="close-icon"
-                      className="card__close"
+                      className="cart-card__close"
                     />
                   </button>
 
-                  <img src={PhoneTwo} alt="Phone-one" className="card__photo" />
+                  <img
+                    src={PhoneTwo}
+                    alt="Phone-one"
+                    className="cart-card__photo"
+                  />
 
-                  <p className="card__text">
+                  <p className="cart-card__text">
                     Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)
                   </p>
                 </div>
 
-                <div className="card__bottom">
-                  <div className="card__counter">
+                <div className="cart-card__bottom">
+                  <div className="cart-card__counter">
                     <button
                       type="button"
-                      className="button-counter card__counter--minus"
+                      className="button-counter cart-card__counter--minus"
                     >
                       <img src={CounterMinus} alt="counter-icon" />
                     </button>
-                    <p className="card__counter--count">1</p>
+                    <p className="cart-card__counter--count">1</p>
                     <button
                       type="button"
-                      className="button-counter card__counter--plus"
+                      className="button-counter cart-card__counter--plus"
                     >
                       <img src={CounterPlus} alt="counter-icon" />
                     </button>
                   </div>
 
-                  <p className="card__price">$859</p>
+                  <p className="cart-card__price">$859</p>
                 </div>
               </div>
 
-              <div className="card">
-                <div className="card__top">
+              <div className="cart-card">
+                <div className="cart-card__top">
                   <button
                     type="button"
-                    className="card__button button-delete card__close"
+                    className="cart-card__button button-delete cart-card__close"
                   >
                     <img src={CloseIcon} alt="close-icon" />
                   </button>
@@ -111,32 +125,32 @@ export const CartMenu = () => {
                   <img
                     src={PhoneThree}
                     alt="Phone-one"
-                    className="card__photo"
+                    className="cart-card__photo"
                   />
 
-                  <p className="card__text">
+                  <p className="cart-card__text">
                     Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
                   </p>
                 </div>
 
-                <div className="card__bottom">
-                  <div className="card__counter">
+                <div className="cart-card__bottom">
+                  <div className="cart-card__counter">
                     <button
                       type="submit"
-                      className="button-counter card__counter--minus"
+                      className="button-counter cart-card__counter--minus"
                     >
                       <img src={CounterMinus} alt="counter-icon" />
                     </button>
-                    <p className="card__counter--count">1</p>
+                    <p className="cart-card__counter--count">1</p>
                     <button
                       type="button"
-                      className="button-counter card__counter--plus"
+                      className="button-counter cart-card__counter--plus"
                     >
                       <img src={CounterPlus} alt="counter-icon" />
                     </button>
                   </div>
 
-                  <p className="card__price">$799</p>
+                  <p className="cart-card__price">$799</p>
                 </div>
               </div>
             </section>

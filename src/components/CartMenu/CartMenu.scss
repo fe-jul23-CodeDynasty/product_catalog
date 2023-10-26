@@ -1,6 +1,17 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
-@import 'src/utils/mixins';
+@import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
+
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+}
 
 .back--icon {
   margin-right: 4px;
@@ -18,6 +29,21 @@
 
   @include onDesktop() {
     padding-top: 40px;
+  }
+}
+
+.cards-container {
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+
+  @include onTablet() {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include onDesktop() {
+    grid-template-columns: repeat(24, 1fr);
   }
 }
 
@@ -106,7 +132,7 @@
   border: 2px solid $borderColor;
 
   &__price {
-    margin-top: 23px;
+    margin: 23px 0 0;
     font-size: 32px;
     font-weight: 800;
     color: $textColor;
@@ -130,7 +156,7 @@
     border: 0;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: -24px;
       left: 0;
@@ -154,24 +180,9 @@
   @include onDesktop() {
     grid-column: 1 / -9;
   }
-
-  &__container {
-    display: grid;
-    column-gap: 16px;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1200px;
-
-    @include onTablet() {
-      grid-template-columns: repeat(12, 1fr);
-    }
-
-    @include onDesktop() {
-      grid-template-columns: repeat(24, 1fr);
-    }
-  }
 }
 
-.card {
+.cart-card {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -234,8 +245,8 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;
-    color: $textColor;
     column-gap: 24px;
+    color: $textColor;
 
     @include onTablet() {
       max-width: 176px;
