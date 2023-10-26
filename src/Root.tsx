@@ -4,6 +4,7 @@ import { Phones } from './components/Phones/Phones';
 import { Tablets } from './components/Tablets/Tablets';
 import { Accessories } from './components/Accessories/Accessories';
 import App from './App';
+import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 
 export const Root = () => (
   <HashRouter>
@@ -13,7 +14,7 @@ export const Root = () => (
         <Route path="/phones" element={<Phones />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/tablets" element={<Tablets />} />
-        <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   </HashRouter>
