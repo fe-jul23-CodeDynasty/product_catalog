@@ -2,6 +2,7 @@ import './CardItem.scss';
 // import React from 'react';
 import cardImage from './card-image/slider-photo1.svg';
 import centerImage from './card-image/iphoneGold.jpg';
+import favourites_heart_like from '../../images/favourites_heart_like.svg';
 
 export const CardItem = () => {
   return (
@@ -104,7 +105,9 @@ export const CardItem = () => {
                 </button>
 
                 <button type="submit" className="card__favorite--button">
-                  <p className="card__favorite--button-sign">&#10085;</p>
+                  <a className="card__favorite--button-sign" href="/">
+                    <img src={favourites_heart_like} alt="heart like" />
+                  </a>
                 </button>
               </div>
             </div>
