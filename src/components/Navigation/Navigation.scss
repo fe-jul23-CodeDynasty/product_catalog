@@ -1,0 +1,63 @@
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
+
+.nav {
+  height: 100%;
+
+  &_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    @include onTablet() {
+      display: flex;
+      gap: 32px;
+    }
+
+    @include onDesktop() {
+      gap: 64px;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+
+    &__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-size: 12px;
+      font-family: Mont, sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: 0.48px;
+      line-height: 11px;
+      text-transform: uppercase;
+      color: $secondaryTextColor;
+      text-decoration: none;
+    }
+  }
+}
+
+.is-active {
+  position: relative;
+  color: $textColor;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $textColor;
+  }
+}

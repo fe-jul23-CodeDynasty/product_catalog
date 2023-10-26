@@ -1,11 +1,18 @@
 @import '~normalize.css';
 @import 'src/utils/variables';
 
-.menu {
-  width: 320px;
+.burger-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
   background-color: $backgroundColor;
 
   &__body {
+    height: 100%;
     margin-top: 24px;
     margin-bottom: 284px;
   }
@@ -16,39 +23,6 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid $borderColor;
-}
-
-.header {
-  &__logo {
-    margin-top: 7px;
-    margin-left: 16px;
-    width: 64px;
-    height: 22px;
-  }
-
-  &__close {
-    margin-top: 7px;
-  }
-}
-
-.nav {
-  &__list {
-    text-align: center;
-  }
-
-  &__item {
-    margin-bottom: 16px;
-  }
-
-  &__link {
-    position: relative;
-    text-transform: uppercase;
-    padding: 6px 0;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 11px;
-    color: $textColor;
-  }
 }
 
 .is-active {
@@ -66,9 +40,10 @@
 }
 
 .bottom-bar {
+  position: fixed;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
+  bottom: 0;
 }
 
 .icon-container {
@@ -87,7 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 160px;
+    flex: 1;
     height: 64px;
     box-sizing: border-box;
     border-top: 2px solid $borderColor;
@@ -98,8 +73,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 160px;
     height: 64px;
+    flex: 1;
     border-top: 2px solid $borderColor;
     border-left: 1px solid $borderColor;
   }
