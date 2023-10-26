@@ -41,16 +41,16 @@ export const Header = () => {
           </nav>
         </div>
 
-        <div className="container_heart-like-shopping-bag">
-          <a className="heart_like" href="/">
+        <div className="container__heart-like-shopping-bag">
+          <a className="container__heart-like" href="/">
             <img src={favourites_heart_like} alt="heart like" />
           </a>
-          <a className="shopping-bag" href="/">
+          <a className="container__shopping-bag" href="/">
             <img src={shopping_bag} alt="shopping bag" />
           </a>
         </div>
 
-        <a className="burger_menu" href="/">
+        <a className="burger__menu" href="/">
           <img src={burger_menu} alt="menu" />
         </a>
       </div>

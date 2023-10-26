@@ -1,5 +1,5 @@
-@import 'src/utils/variables';
-@import 'src/utils/mixins';
+@import url('src/utils/variables');
+@import url('src/utils/mixins');
 
 .container {
   margin: auto;
@@ -7,9 +7,9 @@
 }
 
 .favourite-page {
-  background-color: $backgroundColor;
-  padding-bottom: 56px;
   padding-top: 24px;
+  padding-bottom: 56px;
+  background-color: $backgroundColor;
 
   @include onTablet() {
     padding-bottom: 64px;
@@ -20,10 +20,10 @@
   }
 
   &__body {
-    margin: 0 16px 0 16px;
+    margin: 0 16px;
 
     @include onTablet() {
-      margin: 0 24px 0 24px;
+      margin: 0 24px;
     }
 
     @include onDesktop() {
@@ -35,9 +35,9 @@
 .link--favourites {
   display: flex;
   align-items: center;
+  font-weight: 600;
   text-decoration: none;
   tab-size: 12px;
-  font-weight: 600;
   color: $secondaryTextColor;
 
   &__icon {
@@ -46,11 +46,11 @@
 }
 
 .title {
-  color: $textColor;
-  font-weight: 800;
-  font-size: 32px;
-  line-height: 41px;
   margin-top: 24px;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  color: $textColor;
 
   @include onTablet() {
     margin-top: 40px;
@@ -60,21 +60,19 @@
 }
 
 .items-count {
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 600;
-  color: $secondaryTextColor;
   margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: $secondaryTextColor;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 16px;
-  row-gap: 40px;
-  column-gap: 16px;
+  gap: 40px 16px;
   margin-top: 32px;
-
   grid-column: 1 / -1;
 
   @include onTablet() {
@@ -87,7 +85,9 @@
   }
 }
 
-.card__container {
-  width: 100%;
-  grid-column: span 6;
+.card {
+  &__container {
+    width: 100%;
+    grid-column: span 6;
+  }
 }

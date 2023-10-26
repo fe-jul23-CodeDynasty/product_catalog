@@ -1,15 +1,15 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
-@import 'src/utils/mixins';
+@import url('~normalize.css');
+@import url('src/utils/variables');
+@import url('src/utils/mixins');
 
 .hero-title {
-  font-family: Mont, sans-serif;
   font-size: 48px;
+  font-family: Mont, sans-serif;
   font-weight: 800;
-  line-height: 56px;
-  letter-spacing: -0.48px;
-  color: $textColor;
   text-align: left;
+  letter-spacing: -0.48px;
+  line-height: 56px;
+  color: $textColor;
 }
 
 .header-swiper {
@@ -26,12 +26,14 @@
     max-height: 400px;
   }
 }
+
 .swiper {
   &-pagination-bullet {
     width: 14px;
     height: 4px;
-    border-radius: 0;
     background-color: $borderColor;
+    border-radius: 0;
+
     &-active {
       background-color: $textColor;
     }
@@ -41,19 +43,21 @@
     &-next,
     &-prev {
       display: none;
+
       &::after {
         font-size: 16px;
       }
 
       @mixin onTablet {
+        top: 22px;
         display: flex;
+        height: 100%;
         color: #f1f2f9;
         background-color: $buttonActiveColor;
-        height: 100%;
-        top: 22px;
       }
     }
   }
+
   &-button-disabled {
     color: $textColor;
   }
