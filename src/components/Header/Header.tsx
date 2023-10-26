@@ -1,10 +1,9 @@
-import './Header.scss';
 import { NavLink } from 'react-router-dom';
+import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import shopping_bag from '../../images/shopping_bag.svg';
 import { Navigation } from '../Navigation/Navigation';
-import logo_main from '../../images/logo_main.svg';
 
 export const Header = () => {
   return (
