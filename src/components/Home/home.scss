@@ -1,11 +1,10 @@
-@import '../../utils/mixins';
-@import '../../utils/variables.scss';
+@import "../../utils/mixins";
+@import "../../utils/variables.scss";
 
 .wallpapper {
   @include contentPaddingInline;
 
   color: $textColor;
-  background-color: $backgroundColor;
 }
 
 .container-home {
@@ -36,6 +35,18 @@
   }
 
   &__by-categories {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__promo-slider {
     grid-column: 1 / -1;
 
     @include onTablet {

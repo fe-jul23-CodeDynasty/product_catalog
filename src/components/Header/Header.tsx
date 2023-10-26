@@ -1,4 +1,3 @@
-import './Header.scss';
 import { Link, NavLink } from 'react-router-dom';
 import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
