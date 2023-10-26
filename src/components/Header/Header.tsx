@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom';
+import './Header.scss';
+import { Link, NavLink } from 'react-router-dom';
 import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
@@ -18,12 +19,12 @@ export const Header = () => {
         </div>
 
         <div className="container__heart-like-shopping-bag">
-          <a className="container__heart-like" href="/">
+          <Link className="container__heart-like" to="/favourites">
             <img src={favourites_heart_like} alt="heart like" />
-          </a>
-          <a className="container__shopping-bag" href="/">
+          </Link>
+          <Link className="container__shopping-bag" to="/cart">
             <img src={shopping_bag} alt="shopping bag" />
-          </a>
+          </Link>
         </div>
 
         <a
