@@ -1,0 +1,49 @@
+@import '../../utils/mixins';
+@import '../../utils/variables.scss';
+
+.wallpapper {
+  @include contentPaddingInline;
+
+  color: $textColor;
+  background-color: $backgroundColor;
+}
+
+.container-home {
+  @include pageGrid;
+
+  &__h1 {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__slider {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__by-categories {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / -1;
+    }
+  }
+}
