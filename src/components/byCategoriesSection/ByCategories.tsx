@@ -7,8 +7,8 @@ import accessoriesCategory from './images/category-accessories.png';
 export const ByCategories = () => (
   <section className="section section-by-category">
     <h2 className="section-by-category__title">Shop by category</h2>
-    <div className="row section-by-category__cards">
-      <div className="column width-1-3">
+    <div className="section-by-category__cards">
+      <div className="category_container grid-1">
         <div className="section-by-category__card category-card">
           <a href="/" className="section-by-category__link">
             <img className="category-card__image" src={phonesCategory} alt="" />
@@ -17,7 +17,7 @@ export const ByCategories = () => (
           <p className="category-card__subtitle">95 models</p>
         </div>
       </div>
-      <div className="column width-1-3">
+      <div className="category_container grid-2">
         <div className="section-by-category__card category-card">
           <a href="/" className="section-by-category__link">
             <img
@@ -31,7 +31,7 @@ export const ByCategories = () => (
         </div>
       </div>
 
-      <div className="column width-1-3">
+      <div className="category_container grid-3">
         <div className="section-by-category__card category-card">
           <a href="/" className="section-by-category__link">
             <img
