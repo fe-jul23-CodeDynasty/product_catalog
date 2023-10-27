@@ -1,10 +1,20 @@
 import './CardItem.scss';
-// import React from 'react';
-import cardImage from './card-image/slider-photo1.svg';
-import centerImage from './card-image/iphoneGold.jpg';
+import React, { useState } from 'react';
+import classNames from 'classnames';
+import { ProductFull } from '../../types/FullProduct';
+import { API_URL } from '../../api/api';
+// import cardImage from './card-image/slider-photo1.svg';
+// import centerImage from './card-image/iphoneGold.jpg';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
 
-export const CardItem = () => {
+type Props = {
+  product: ProductFull;
+};
+
+export const CardItem: React.FC<Props> = ({ product }) => {
+  const { images } = product;
+  const [selectImg, setSelectImg] = useState<string>(images[0]);
+
   return (
     <main>
       <div className="card">
@@ -14,7 +24,23 @@ export const CardItem = () => {
         <div className="card__top">
           <div className="card__top--container">
             <div className="card__top-left">
-              <div className="card__image">
+              {images.map(imgLink => (
+                <button
+                  key={imgLink}
+                  type="button"
+                  className={classNames('card__image', {
+                    'is-active': imgLink === selectImg,
+                  })}
+                  onClick={() => setSelectImg(imgLink)}
+                >
+                  <img
+                    src={`${API_URL}/${imgLink}`}
+                    alt={`${API_URL}/${imgLink}`}
+                    className="card__image--blocks"
+                  />
+                </button>
+              ))}
+              {/* <div className="card__image">
                 <img
                   src={cardImage}
                   alt="card__image--blocks"
@@ -48,12 +74,12 @@ export const CardItem = () => {
                   alt="card__image--blocks"
                   className="card__image--blocks"
                 />
-              </div>
+              </div> */}
             </div>
             <div className="card__top-center">
               <img
-                src={centerImage}
-                alt="card__image--blocks"
+                src={`${API_URL}/${selectImg}`}
+                alt={`${API_URL}/${selectImg}`}
                 className="card__image--center"
               />
             </div>

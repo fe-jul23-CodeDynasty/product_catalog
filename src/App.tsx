@@ -2,11 +2,13 @@ import './App.scss';
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
+import { CardItem } from './components/CardItem/CardItem';
 
 function App() {
   return (
     <div className="App">
       <Header />
+      <CardItem product={product} />
       <Outlet />
       <Footer />
     </div>
