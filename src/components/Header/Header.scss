@@ -4,13 +4,14 @@
 
 .header {
   background: $backgroundColor;
-  @include contentPaddingInline;
-  @mixin onTablet {
+
+  @include onTablet {
     gap: 24px;
   }
 
   &__content {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 16px;
     padding-left: 16px;
@@ -24,49 +25,8 @@
   }
 }
 
-.nav {
-  height: 100%;
-
-  &_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__list {
-    display: none;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-
-    @include onTablet() {
-      display: flex;
-      gap: 32px;
-    }
-
-    @include onDesktop() {
-      gap: 64px;
-    }
-  }
-
-  &__item {
-    list-style-type: none;
-
-    &__link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      font-size: 12px;
-      font-family: Mont, sans-serif;
-      font-style: normal;
-      font-weight: 800;
-      letter-spacing: 0.48px;
-      line-height: 11px;
-      text-transform: uppercase;
-      color: $secondaryTextColor;
-    }
-  }
+.header-nav-container {
+  display: flex;
 }
 
 .is-active {
@@ -95,11 +55,10 @@
 
   &__img {
     width: 64px;
-    height: 20px;
+    height: fit-content;
 
     @include onDesktop() {
       width: 80px;
-      height: 28px;
     }
   }
 }

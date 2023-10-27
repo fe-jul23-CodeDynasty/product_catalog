@@ -1,5 +1,6 @@
 import './Footer.scss';
-import footer_logo2 from './footer-image/footerLogo.svg';
+// import footer_logo2 from './footer-image/footerLogo.svg';
+import footer_logo from '../../images/logo_main.svg';
 
 function Footer() {
   return (
@@ -7,7 +8,7 @@ function Footer() {
       <footer className="footer">
         <div className="footer__image">
           <img
-            src={footer_logo2}
+            src={footer_logo}
             alt="footer__image--blocks"
             className="footer__image--blocks"
           />
