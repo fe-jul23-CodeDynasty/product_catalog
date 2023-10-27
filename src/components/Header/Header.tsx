@@ -4,6 +4,7 @@ import burger_menu from '../../images/burger_menu.svg';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import shopping_bag from '../../images/shopping_bag.svg';
 import { Navigation } from '../Navigation/Navigation';
+import './Header.scss';
 
 export const Header = () => {
   return (
