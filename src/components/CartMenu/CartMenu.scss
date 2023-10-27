@@ -1,5 +1,5 @@
-@import "../../utils/variables.scss";
-@import "../../utils/mixins.scss";
+@import '../../utils/variables.scss';
+@import '../../utils/mixins.scss';
 
 h1 {
   margin: 0;
@@ -156,7 +156,7 @@ button {
     border: 0;
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: -24px;
       left: 0;

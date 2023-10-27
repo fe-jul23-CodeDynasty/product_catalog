@@ -9,7 +9,7 @@ import './Slider.scss';
 
 import firstBanner from './images/Banner.png';
 import firstBannerMob from './images/Banner-mob.png';
-import secondBanner from './images/banner-tablets.png';
+import secondBanner from './images/banner-tablets1200.png';
 import thirdBanner from './images/banner-phones.png';
 
 export function Slider() {
@@ -18,7 +18,7 @@ export function Slider() {
       pagination={{ clickable: true }}
       navigation
       modules={[Pagination, Navigation]}
-      className="header-swiper "
+      className="header-swiper"
     >
       <SwiperSlide>
         <div className="swiper__slide slide">

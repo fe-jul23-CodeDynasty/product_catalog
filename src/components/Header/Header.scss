@@ -5,14 +5,14 @@
 .header {
   background: $backgroundColor;
 
-   @include onTablet {
+  @include onTablet {
     gap: 24px;
   }
 
   &__content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 16px;
     padding-left: 16px;
     border-bottom: 1px solid $borderColor;
@@ -45,7 +45,6 @@
 }
 
 .logo {
-
   @include onTablet() {
     margin-right: 32px;
   }
