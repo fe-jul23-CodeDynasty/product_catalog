@@ -1,0 +1,97 @@
+@import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
+
+.cart-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: $cardColor;
+
+  @include onTablet() {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include onDesktop() {
+    padding: 24px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__close {
+    margin-right: 16px;
+
+    @include onTablet() {
+      margin-right: 24px;
+    }
+  }
+
+  &__photo {
+    width: 80px;
+
+    @include onDesktop() {
+      margin-right: 24px;
+    }
+  }
+
+  &__text {
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    column-gap: 24px;
+    color: $textColor;
+  }
+
+  &__counter {
+    display: flex;
+
+    &--count {
+      margin: 6px 14px 0 13px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+      color: $textColor;
+    }
+  }
+
+  &__price {
+    margin-left: 24px;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 30.8px;
+    color: $textColor;
+  }
+
+  grid-column: 1 / -1;
+}
+
+.button {
+  &-delete {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+  }
+
+  &-counter {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+  }
+
+  &:hover {
+    background-color: $buttonCheckoutHoverColor;
+  }
+}
