@@ -1,14 +1,48 @@
+import { useEffect, useState } from 'react';
 import './CartMenu.scss';
 
 import BackIcon from './images/back.svg';
-import CloseIcon from './images/close-gray.svg';
-import PhoneOne from './images/phone-1.svg';
-import PhoneTwo from './images/phone-2.svg';
-import PhoneThree from './images/phone-3.svg';
-import CounterPlus from './images/counter-plus.svg';
-import CounterMinus from './images/counter-minus.svg';
+import { API_URL } from '../../api/api';
+import { Phone } from '../../types/Phone';
+import { CartItem } from '../CartItem/CartItem';
 
-export const CartMenu = () => {
+function getSlicedPhones() {
+  return fetch(API_URL)
+    .then(response => response.json())
+    .then(items => items.products.slice(0, 6));
+}
+
+export const CartMenu: React.FC = () => {
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    } else {
+      getSlicedPhones()
+        .then(setCart)
+        .catch(error => {
+          throw Error(error);
+        });
+    }
+  }, []);
+
+  // const addToCart = (product) => {
+  //   const updatedCart = [...cart, product];
+
+  //   setCart(updatedCart);
+  //   localStorage.setItem('cart', JSON.stringify(updatedCart));
+  // };
+
+  const removeFromCart = (product: Phone) => {
+    const updatedCart = cart.filter(item => item !== product);
+
+    setCart(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  };
+
   return (
     <div className="page">
       <div className="container">
@@ -17,148 +51,25 @@ export const CartMenu = () => {
             <img src={BackIcon} alt="back-icon" className="back--icon" />
             Back
           </a>
-          <h1 className="title">Cart</h1>
+          <h1 className="cart-title">Cart</h1>
 
           <div className="cards-container">
             <section className="cards">
-              <div className="cart-card">
-                <div className="cart-card__top">
-                  <button
-                    type="button"
-                    className="cart-card__button button-delete"
-                  >
-                    <img
-                      src={CloseIcon}
-                      alt="close-icon"
-                      className="cart-card__close"
-                    />
-                  </button>
-
-                  <img
-                    src={PhoneOne}
-                    alt="Phone-one"
-                    className="cart-card__photo"
-                  />
-
-                  <p className="cart-card__text">
-                    Apple iPhone 14 Pro 128GB Silver (MQ023)
-                  </p>
-                </div>
-
-                <div className="cart-card__bottom">
-                  <div className="cart-card__counter">
-                    <button
-                      type="button"
-                      className="button-counter cart-card__counter--minus"
-                    >
-                      <img src={CounterMinus} alt="counter-icon" />
-                    </button>
-
-                    <p className="cart-card__counter--count">1</p>
-
-                    <button
-                      type="button"
-                      className="button-counter cart-card__counter--plus"
-                    >
-                      <img src={CounterPlus} alt="counter-icon" />
-                    </button>
-                  </div>
-
-                  <p className="cart-card__price">$999</p>
-                </div>
-              </div>
-
-              <div className="cart-card">
-                <div className="cart-card__top">
-                  <button
-                    type="button"
-                    className="cart-card__button button-delete"
-                  >
-                    <img
-                      src={CloseIcon}
-                      alt="close-icon"
-                      className="cart-card__close"
-                    />
-                  </button>
-
-                  <img
-                    src={PhoneTwo}
-                    alt="Phone-one"
-                    className="cart-card__photo"
-                  />
-
-                  <p className="cart-card__text">
-                    Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)
-                  </p>
-                </div>
-
-                <div className="cart-card__bottom">
-                  <div className="cart-card__counter">
-                    <button
-                      type="button"
-                      className="button-counter cart-card__counter--minus"
-                    >
-                      <img src={CounterMinus} alt="counter-icon" />
-                    </button>
-                    <p className="cart-card__counter--count">1</p>
-                    <button
-                      type="button"
-                      className="button-counter cart-card__counter--plus"
-                    >
-                      <img src={CounterPlus} alt="counter-icon" />
-                    </button>
-                  </div>
-
-                  <p className="cart-card__price">$859</p>
-                </div>
-              </div>
-
-              <div className="cart-card">
-                <div className="cart-card__top">
-                  <button
-                    type="button"
-                    className="cart-card__button button-delete cart-card__close"
-                  >
-                    <img src={CloseIcon} alt="close-icon" />
-                  </button>
-
-                  <img
-                    src={PhoneThree}
-                    alt="Phone-one"
-                    className="cart-card__photo"
-                  />
-
-                  <p className="cart-card__text">
-                    Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
-                  </p>
-                </div>
-
-                <div className="cart-card__bottom">
-                  <div className="cart-card__counter">
-                    <button
-                      type="submit"
-                      className="button-counter cart-card__counter--minus"
-                    >
-                      <img src={CounterMinus} alt="counter-icon" />
-                    </button>
-                    <p className="cart-card__counter--count">1</p>
-                    <button
-                      type="button"
-                      className="button-counter cart-card__counter--plus"
-                    >
-                      <img src={CounterPlus} alt="counter-icon" />
-                    </button>
-                  </div>
-
-                  <p className="cart-card__price">$799</p>
-                </div>
-              </div>
+              {cart.map((product: Phone) => (
+                <CartItem
+                  key={product.id}
+                  product={product}
+                  removeFromCart={removeFromCart}
+                />
+              ))}
             </section>
 
             <div className="total-cost">
               <p className="total-cost__price">$2657</p>
 
-              <p className="total-cost__items">Total for 3 items</p>
+              <p className="total-cost__items">
+                {`Total for ${cart.length} items`}
+              </p>
 
               <button
                 type="button"
