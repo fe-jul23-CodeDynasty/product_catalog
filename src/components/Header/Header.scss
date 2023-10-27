@@ -55,7 +55,7 @@
 
   &__img {
     width: 64px;
-    height: fit-content;
+
 
     @include onDesktop() {
       width: 80px;
