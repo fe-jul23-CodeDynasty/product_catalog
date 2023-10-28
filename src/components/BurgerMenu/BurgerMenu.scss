@@ -3,10 +3,9 @@
 
 .burger-menu {
   position: fixed;
-  display: none;
   inset: 0;
   background-color: $backgroundColor;
-  z-index: 1;
+  z-index: 999;
 
   &__body {
     margin-bottom: 284px;

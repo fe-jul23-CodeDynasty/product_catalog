@@ -29,6 +29,15 @@
   display: flex;
 }
 
+//.no-scroll {
+//  overflow: hidden;
+//}
+
+.header__icon {
+  width: 16px;
+  height: 16px;
+}
+
 .is-active {
   position: relative;
   color: $textColor;
