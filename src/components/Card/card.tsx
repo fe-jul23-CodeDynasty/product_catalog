@@ -11,7 +11,8 @@ export const Card = () => {
   useEffect(() => {
     const favoritesFromLocalStorage = localStorage.getItem('favorites');
     const storedFavorites = favoritesFromLocalStorage
-      ? JSON.parse(favoritesFromLocalStorage) : null;
+      ? JSON.parse(favoritesFromLocalStorage)
+      : null;
 
     if (storedFavorites) {
       setFavoriteItems(storedFavorites);

@@ -2,7 +2,7 @@ import ButtonUp from '../ButtonUp/ButtonUp';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
-import './Home.scss';
+import './home.scss';
 
 export const Home = () => {
   return (

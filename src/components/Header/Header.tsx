@@ -27,10 +27,7 @@ export const Header = () => {
           </Link>
         </div>
 
-        <a
-          className="burger-img"
-          href="/"
-        >
+        <a className="burger-img" href="/">
           <img src={burger_menu} alt="menu" />
         </a>
       </div>
