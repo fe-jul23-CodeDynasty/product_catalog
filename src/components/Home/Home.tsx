@@ -1,7 +1,8 @@
+import ButtonUp from '../ButtonUp/ButtonUp';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
-import './home.scss';
+import './Home.scss';
 
 export const Home = () => {
   return (
@@ -22,6 +23,9 @@ export const Home = () => {
             <PromoSlider title="Hot prices" />
           </div>
         </div>
+      </div>
+      <div className="container-home__buttonUp">
+        <ButtonUp />
       </div>
     </>
   );

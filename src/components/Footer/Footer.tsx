@@ -32,14 +32,6 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="footer__button">
-          <p className="footer__button--text">Back on top</p>
-          <button
-            type="submit"
-            className="footer__button--up"
-            aria-label="text"
-          />
-        </div>
       </footer>
     </main>
   );

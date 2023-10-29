@@ -1,0 +1,52 @@
+@import '../../utils/variables';
+
+.upbtn {
+  position: fixed;
+  bottom: -80px;
+  right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 9999;
+  transition: all .7s ease-in-out;
+
+  @media screen and (max-width: 639px) {
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+  }
+
+  &__text {
+    font-size: 12px;
+    font-family: Mont, sans-serif; /* Исправлено */
+    font-weight: 700;
+    color: $secondaryTextColor;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $textColor;
+    }
+  }
+
+  &__svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 16px;
+    width: 16px;
+    height: 16px;
+    background-color: $buttonActiveColor;
+
+    svg {
+      transition: transform 0.3s;
+      transform: scale(1);
+
+      &:hover {
+        transform: scale(1.6);
+      }
+    }
+  }
+}
