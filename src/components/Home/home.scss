@@ -12,14 +12,17 @@
 
   &__h1 {
     grid-column: 1 / -1;
-    margin-bottom: 24px;
+    margin: 24px 0;
+
     @include onTablet {
+      margin: 32px 0;
       font-size: 48px;
       grid-column: 1 / 9;
     }
 
     @include onDesktop {
       grid-column: 1 / -1;
+      margin: 56px 0;
     }
   }
 
