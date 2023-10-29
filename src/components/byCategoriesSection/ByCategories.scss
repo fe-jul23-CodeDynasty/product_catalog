@@ -1,16 +1,15 @@
-@import "../../utils/variables.scss";
-@import "../../utils/mixins.scss";
-@import "~normalize.css";
+@import '../../utils/variables.scss';
+@import '../../utils/mixins.scss';
+@import '~normalize.css';
 
 .section-by-category {
-
   &__title {
     font-size: 32px;
     font-family: Mont, sans-serif;
     font-weight: 800;
     letter-spacing: -0.32px;
     line-height: 41px;
-    color: $categoryHeaderColor
+    color: $categoryHeaderColor;
   }
 
   &__cards {

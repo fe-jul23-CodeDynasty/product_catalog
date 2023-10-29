@@ -10,8 +10,9 @@
   height: 32px;
   cursor: pointer;
   background-color: transparent;
+  border: 0;
   z-index: 9999;
-  transition: all .7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 
   @media screen and (max-width: 639px) {
     bottom: 50%;
@@ -21,7 +22,7 @@
 
   &__text {
     font-size: 12px;
-    font-family: Mont, sans-serif; /* Исправлено */
+    font-family: Mont, sans-serif;
     font-weight: 700;
     color: $secondaryTextColor;
     transition: color 0.3s;
