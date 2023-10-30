@@ -3,6 +3,8 @@
 @import 'src/utils/mixins';
 
 .main {
+  max-width: 1200px;
+
   &__body {
     margin: 0 auto;
     background-repeat: no-repeat;
@@ -84,28 +86,5 @@
     font-size: 12px;
     font-weight: 700;
     color: $textColor;
-  }
-
-  &__button--up {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    font-size: 24px;
-    color: #e6e6e6;
-    background-color: #323542;
-    border: 2px solid #323542;
-    cursor: pointer;
-
-    &.active {
-      color: #737373;
-    }
-
-    &::before {
-      content: '❯';
-      transform: translateY(2px) rotate(270deg);
-      line-height: 0;
-    }
   }
 }

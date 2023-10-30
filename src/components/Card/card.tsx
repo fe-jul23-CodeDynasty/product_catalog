@@ -1,23 +1,31 @@
+/* eslint-disable no-shadow */
+import { Phone } from '../../types/Phone';
 import './card.scss';
 
-import PhoneImage from './images/phone-1.svg';
 import HeartIcon from './images/heart-red.svg';
 
-export const Card = () => {
+type Props = {
+  phone: Phone;
+};
+
+export const Card: React.FC<Props> = ({ phone }) => {
+  const { image, name, itemId, price, fullPrice, screen, capacity, ram }
+    = phone;
+
   return (
     <div className="card">
       <img
-        src={PhoneImage}
-        alt="Apple iPhone Xs 64GB Silver (iMT9G2FS/A)"
+        src={`https://product-catalog-be-qps4.onrender.com/${image}`}
+        alt={itemId}
         className="card__img"
       />
 
-      <h2 className="card__name">Apple iPhone Xs 64GB Silver (iMT9G2FS/A)</h2>
+      <h2 className="card__name">{name}</h2>
 
       <div className="card__price">
-        <div className="card__price__discount">$799</div>
+        <div className="card__price__discount">{`$${price}`}</div>
 
-        <div className="card__price__real">$899</div>
+        <div className="card__price__real">{`$${fullPrice}`}</div>
       </div>
 
       <hr className="card__hr" />
@@ -27,19 +35,19 @@ export const Card = () => {
           <li className="card__properties__item">
             <p className="card__properties__item__property">Screen</p>
 
-            <p>5.8&quot;OLED</p>
+            <p>{screen}</p>
           </li>
 
           <li className="card__properties__item">
             <p className="card__properties__item__property">Capacity</p>
 
-            <p>64 GB</p>
+            <p>{capacity}</p>
           </li>
 
           <li className="card__properties__item">
             <p className="card__properties__item__property">RAM</p>
 
-            <p>4 GB</p>
+            <p>{ram}</p>
           </li>
         </ul>
       </div>
@@ -49,11 +57,7 @@ export const Card = () => {
         </button>
 
         <button type="button" className="card__buttons__heart">
-          <img
-            src={HeartIcon}
-            alt="Apple iPhone Xs 64GB Silver (iMT9G2FS/A)"
-            className="icon--heart"
-          />
+          <img src={HeartIcon} alt="heart-icon" className="icon--heart" />
         </button>
       </div>
     </div>

@@ -1,150 +1,111 @@
+import { useState } from 'react';
+import useLocalStorage from 'use-local-storage';
 import './CartMenu.scss';
 
+import { Link } from 'react-router-dom';
 import BackIcon from './images/back.svg';
-import CloseIcon from './images/close-gray.svg';
-import PhoneOne from './images/phone-1.svg';
-import PhoneTwo from './images/phone-2.svg';
-import PhoneThree from './images/phone-3.svg';
-import CounterPlus from './images/counter-plus.svg';
-import CounterMinus from './images/counter-minus.svg';
+import { Phone } from '../../types/Phone';
+import { CartItem } from '../CartItem/CartItem';
 
-export const CartMenu = () => {
+export const CartMenu: React.FC = () => {
+  const [cart, setCart] = useLocalStorage('cart', [
+    {
+      id: 1,
+      category: 'phones',
+      phoneId: null,
+      itemId: 'apple-iphone-7-32gb-black',
+      name: 'Apple iPhone 7 32GB Black',
+      fullPrice: 400,
+      price: 375,
+      screen: "4.7' IPS",
+      capacity: '32GB',
+      color: 'black',
+      ram: '2GB',
+      year: 2016,
+      image: 'img/phones/apple-iphone-7/black/00.webp',
+    },
+    {
+      id: 2,
+      category: 'phones',
+      phoneId: null,
+      itemId: 'apple-iphone-7-plus-32gb-black',
+      name: 'Apple iPhone 7 Plus 32GB Black',
+      fullPrice: 540,
+      price: 500,
+      screen: "5.5' IPS",
+      capacity: '32GB',
+      color: 'black',
+      ram: '3GB',
+      year: 2016,
+      image: 'img/phones/apple-iphone-7-plus/black/00.webp',
+    },
+    {
+      id: 3,
+      category: 'phones',
+      phoneId: null,
+      itemId: 'apple-iphone-8-64gb-gold',
+      name: 'Apple iPhone 8 64GB Gold',
+      fullPrice: 600,
+      price: 550,
+      screen: "4.7' IPS",
+      capacity: '64GB',
+      color: 'gold',
+      ram: '2GB',
+      year: 2017,
+      image: 'img/phones/apple-iphone-8/gold/00.webp',
+    },
+  ]);
+
+  const startTotalCost = cart.reduce((acc, curr) => acc + curr.price, 0);
+
+  const [totalCost, setTotalCost] = useState(startTotalCost);
+  const [totalItemsCounter, setTotalItemsCounter] = useState(cart.length);
+
+  // const addToCart = (product:Phone) => {
+  //   const updatedCart = [...cart, product];
+
+  //   setCart(updatedCart);
+  // };
+
+  const removeFromCart = (product: Phone) => {
+    const updatedCart = cart.filter(item => item !== product);
+
+    setCart(updatedCart);
+
+    const newTotalCost = updatedCart.reduce((acc, curr) => acc + curr.price, 0);
+
+    setTotalCost(newTotalCost);
+  };
+
   return (
     <div className="page">
       <div className="container">
         <div className="page__body">
-          <a href="#back" className="back--link">
+          <Link to=".." className="back--link">
             <img src={BackIcon} alt="back-icon" className="back--icon" />
             Back
-          </a>
-          <h1 className="title">Cart</h1>
+          </Link>
+          <h1 className="cart-title">Cart</h1>
 
-          <div className="cards__container">
+          <div className="cards-container">
             <section className="cards">
-              <div className="card">
-                <div className="card__top">
-                  <button type="button" className="card__button button-delete">
-                    <img
-                      src={CloseIcon}
-                      alt="close-icon"
-                      className="card__close"
-                    />
-                  </button>
-
-                  <img src={PhoneOne} alt="Phone-one" className="card__photo" />
-
-                  <p className="card__text">
-                    Apple iPhone 14 Pro 128GB Silver (MQ023)
-                  </p>
-                </div>
-
-                <div className="card__bottom">
-                  <div className="card__counter">
-                    <button
-                      type="button"
-                      className="button-counter card__counter--minus"
-                    >
-                      <img src={CounterMinus} alt="counter-icon" />
-                    </button>
-
-                    <p className="card__counter--count">1</p>
-
-                    <button
-                      type="button"
-                      className="button-counter card__counter--plus"
-                    >
-                      <img src={CounterPlus} alt="counter-icon" />
-                    </button>
-                  </div>
-
-                  <p className="card__price">$999</p>
-                </div>
-              </div>
-
-              <div className="card">
-                <div className="card__top">
-                  <button type="button" className="card__button button-delete">
-                    <img
-                      src={CloseIcon}
-                      alt="close-icon"
-                      className="card__close"
-                    />
-                  </button>
-
-                  <img src={PhoneTwo} alt="Phone-one" className="card__photo" />
-
-                  <p className="card__text">
-                    Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)
-                  </p>
-                </div>
-
-                <div className="card__bottom">
-                  <div className="card__counter">
-                    <button
-                      type="button"
-                      className="button-counter card__counter--minus"
-                    >
-                      <img src={CounterMinus} alt="counter-icon" />
-                    </button>
-                    <p className="card__counter--count">1</p>
-                    <button
-                      type="button"
-                      className="button-counter card__counter--plus"
-                    >
-                      <img src={CounterPlus} alt="counter-icon" />
-                    </button>
-                  </div>
-
-                  <p className="card__price">$859</p>
-                </div>
-              </div>
-
-              <div className="card">
-                <div className="card__top">
-                  <button
-                    type="button"
-                    className="card__button button-delete card__close"
-                  >
-                    <img src={CloseIcon} alt="close-icon" />
-                  </button>
-
-                  <img
-                    src={PhoneThree}
-                    alt="Phone-one"
-                    className="card__photo"
-                  />
-
-                  <p className="card__text">
-                    Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
-                  </p>
-                </div>
-
-                <div className="card__bottom">
-                  <div className="card__counter">
-                    <button
-                      type="submit"
-                      className="button-counter card__counter--minus"
-                    >
-                      <img src={CounterMinus} alt="counter-icon" />
-                    </button>
-                    <p className="card__counter--count">1</p>
-                    <button
-                      type="button"
-                      className="button-counter card__counter--plus"
-                    >
-                      <img src={CounterPlus} alt="counter-icon" />
-                    </button>
-                  </div>
-
-                  <p className="card__price">$799</p>
-                </div>
-              </div>
+              {cart.map((product: Phone) => (
+                <CartItem
+                  key={product.id}
+                  product={product}
+                  removeFromCart={removeFromCart}
+                  setTotalCost={setTotalCost}
+                  setTotalItemsCounter={setTotalItemsCounter}
+                />
+              ))}
             </section>
 
             <div className="total-cost">
-              <p className="total-cost__price">$2657</p>
+              <p className="total-cost__price">{`$${totalCost}`}</p>
 
-              <p className="total-cost__items">Total for 3 items</p>
+              <p className="total-cost__items">
+                {`Total for ${totalItemsCounter} items`}
+              </p>
 
               <button
                 type="button"
