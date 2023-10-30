@@ -37,7 +37,8 @@
         "code": 80,
         "comments": 80,
         "ignoreTemplateLiterals": true,
-        "ignoreComments": true
+        "ignoreComments": true,
+        "ignoreUrls": true
       }
     ],
     "no-redeclare": ["error", { "builtinGlobals": true }],

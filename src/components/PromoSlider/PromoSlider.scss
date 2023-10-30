@@ -7,8 +7,8 @@
 
 .promo-title {
   margin: 10px 0;
-  font-size: 32px;
-  font-weight: 800;
+  font-size: $minorTitleFontSize;
+  font-weight: $titleWeight;
   letter-spacing: -0.32px;
   line-height: 41px;
   color: $textColor;
@@ -30,8 +30,8 @@
     display: flex;
     width: 32px;
     height: 32px;
-    color: #f1f2f9;
-    background-color: #323542;
+    color: $textColor;
+    background-color: $buttonActiveColor;
   }
 
   .swiper-button-prev {
@@ -53,10 +53,10 @@
 
   .swiper-button-next::after,
   .swiper-button-prev::after {
-    font-size: 14px;
+    font-size: $minorButtonFontSize;
   }
 
   .swiper-button-disabled {
-    color: #75767f;
+    color: $secondaryTextColor;
   }
 }

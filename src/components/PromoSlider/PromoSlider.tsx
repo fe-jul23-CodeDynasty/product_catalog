@@ -31,6 +31,7 @@ export const PromoSlider: React.FC<Props> = ({ title }) => {
   return (
     <div className="promo-slider">
       <h3 className="promo-title">{title}</h3>
+
       <Swiper
         modules={[Navigation]}
         slidesPerView={1.5}

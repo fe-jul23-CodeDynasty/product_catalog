@@ -4,9 +4,9 @@
 
 .section-by-category {
   &__title {
-    font-size: 32px;
+    font-size: $minorTitleFontSize;
     font-family: Mont, sans-serif;
-    font-weight: 800;
+    font-weight: $titleWeight;
     letter-spacing: -0.32px;
     line-height: 41px;
     color: $categoryHeaderColor;
@@ -55,16 +55,16 @@
 
 .category-card {
   &__title {
-    font-size: 20px;
+    font-size: $textFontSize;
     font-family: Mont, sans-serif;
-    font-weight: 700;
+    font-weight: $buttonWeight;
     color: $categoryHeaderColor;
   }
 
   &__subtitle {
-    font-size: 14px;
+    font-size: $minorTextFontSize;
     font-family: Mont, sans-serif;
-    font-weight: 600;
+    font-weight: $textWeight;
     line-height: 21px;
     color: $categoryHeaderColor;
   }

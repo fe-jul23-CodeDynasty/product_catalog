@@ -126,7 +126,9 @@ export const Phones: React.FC = () => {
               />
               Phones
             </a>
+
             <h1 className="title-phones">Mobile phones</h1>
+
             <p className="items-count">{`${totalItems} models`}</p>
           </div>
 
