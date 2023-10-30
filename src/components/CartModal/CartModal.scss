@@ -1,0 +1,73 @@
+@import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: $backgroundColor, $alpha: 60%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
+
+  &__content {
+    padding: 20px;
+    background-color: $borderColor;
+    transform: scale(0.5);
+    transition: transform 0.4s;
+
+    &.active {
+      transform: scale(1);
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__title {
+    font-size: 30px;
+    color: $textColor;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+  }
+
+  &__button {
+    cursor: pointer;
+    padding: 15px 40px;
+    color: $textColor;
+    border: 1px solid $backgroundColor;
+    transition: all 0.5s;
+
+    &-cancel {
+      background-color: $errorStatusColorShadow;
+
+      &:hover {
+        color: $errorStatusColorShadow;
+        background-color: $textColor;
+        border-color: $errorStatusColorShadow;
+      }
+    }
+
+    &-success {
+      background-color: $successColor;
+
+      &:hover {
+        color: $successColor;
+        background-color: $textColor;
+        border-color: $successColor;
+      }
+    }
+  }
+}
