@@ -10,6 +10,7 @@ type Props = {
   removeFromCart: (product: Phone) => void;
   setTotalCost: React.Dispatch<React.SetStateAction<number>>;
   setTotalItemsCounter: React.Dispatch<React.SetStateAction<number>>;
+  setCart: any;
 };
 
 export const CartItem: React.FC<Props> = ({
@@ -17,14 +18,26 @@ export const CartItem: React.FC<Props> = ({
   removeFromCart,
   setTotalCost,
   setTotalItemsCounter,
+  setCart,
 }) => {
   const { name: productName, image, price } = product;
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(product.count ? product.count : 1);
 
   const cartItemCountIncrement = () => {
     setCount(prev => prev + 1);
-    setTotalCost((prev: number) => prev + +price);
     setTotalItemsCounter(prev => prev + 1);
+    setTotalCost((prev: number) => prev + +price);
+    setCart((prev: any) => {
+      const currentProd = prev.find((el: any) => el.id === product.id) || null;
+
+      if (!currentProd) {
+        return prev;
+      }
+
+      currentProd.count = currentProd.count ? currentProd.count + 1 : 2;
+
+      return [...prev];
+    });
   };
 
   const cartItemCountDecrement = () => {
@@ -32,6 +45,18 @@ export const CartItem: React.FC<Props> = ({
       setCount(prev => prev - 1);
       setTotalItemsCounter(prev => prev - 1);
       setTotalCost((prev: number) => prev - +price);
+      setCart((prev: any) => {
+        const currentProd
+          = prev.find((el: any) => el.id === product.id) || null;
+
+        if (!currentProd) {
+          return prev;
+        }
+
+        currentProd.count = currentProd.count ? currentProd.count - 1 : 2;
+
+        return [...prev];
+      });
     }
   };
 

@@ -1,18 +1,6 @@
 @import '../../utils/variables.scss';
 @import '../../utils/mixins.scss';
 
-h1 {
-  margin: 0;
-}
-
-p {
-  margin: 0;
-}
-
-button {
-  padding: 0;
-}
-
 .back--icon {
   margin-right: 4px;
   width: 16px;
@@ -21,6 +9,7 @@ button {
 
 .back--link {
   display: flex;
+  align-items: end;
   padding-top: 24px;
   font-size: $linkFontSize;
   font-weight: $buttonWeight;
@@ -158,4 +147,10 @@ button {
   @include onDesktop() {
     grid-column: 1 / -9;
   }
+}
+
+.empty-cart-text {
+  padding-top: 30px;
+  font-size: 50px;
+  color: $textColor;
 }
