@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 import './Dropdown.scss';
-import { DropdownOptions } from '../../../types/DropdownOptions';
+import { DropdownOptions } from '../../types/DropdownOptions';
 
 type Props = {
   title: string;
