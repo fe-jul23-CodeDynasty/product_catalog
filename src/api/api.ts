@@ -1,22 +1,12 @@
+/* eslint-disable max-len */
+
 export const API_URL = 'https://product-catalog-be-qps4.onrender.com/products';
-
-function wait(delay: number): Promise<void> {
-  return new Promise(resolve => {
-    setTimeout(resolve, delay);
-  });
-}
-
-function get<T>(url: string): Promise<T> {
-  // eslint-disable-next-line prefer-template
-  const fullURL = API_URL + url + '.json';
-
-  // we add some delay to see how the loader works
-  return wait(300)
-    .then(() => fetch(fullURL))
-    .then(res => res.json());
-}
+export const BASE_URL = 'https://product-catalog-be-qps4.onrender.com/products/apple-iphone-11-pro-64gb-gold';
 
 export function getPhones() {
-  return fetch(API_URL)
-    .then(response => response.json());
+  return fetch(API_URL).then(response => response.json());
+}
+
+export function getPhonesById() {
+  return fetch(BASE_URL).then(response => response.json());
 }

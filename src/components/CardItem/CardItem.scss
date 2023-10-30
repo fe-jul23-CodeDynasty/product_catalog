@@ -9,22 +9,26 @@
 
 main {
   margin: 0 auto;
-  padding: 16px;
+  // padding: 16px;
   max-width: auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: $backgroundColor;
 
-  @media (min-width: 744px) and (max-width: 1600px) {
-    padding: 0 72px;
-  }
+  // @media (min-width: 744px) and (max-width: 1600px) {
+  //   padding: 0 72px;
+  // }
 }
 
-.card {
+.item {
   &__title {
     font-size: 32px;
     font-weight: 800;
     color: $textColor;
+  }
+
+  &__image {
+    background-color: initial;
   }
 
   &__top {
@@ -44,6 +48,7 @@ main {
     &-left {
       position: relative;
       left: 0;
+      display: flex;
       flex-direction: column;
       flex-shrink: 0;
       grid-gap: 7px;

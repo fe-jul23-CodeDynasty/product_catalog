@@ -1,5 +1,5 @@
-@import "~normalize.css";
-@import "src/utils/variables";
+@import '~normalize.css';
+@import 'src/utils/variables';
 
 .section-not-found {
   display: flex;
@@ -50,7 +50,7 @@
   }
 
   &::after {
-    content: url("../../images/home.svg");
+    content: url('../../images/home.svg');
     margin-left: 10px;
   }
 
