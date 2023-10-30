@@ -21,9 +21,9 @@
   }
 
   &__text {
-    font-size: 12px;
+    font-size: $linkFontSize;
     font-family: Mont, sans-serif;
-    font-weight: 700;
+    font-weight: $buttonWeight;
     color: $secondaryTextColor;
     transition: color 0.3s;
 

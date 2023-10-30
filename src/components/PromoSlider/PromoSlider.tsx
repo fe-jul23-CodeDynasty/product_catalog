@@ -33,6 +33,7 @@ export const PromoSlider: React.FC<Props> = ({ title }) => {
     <div className="promo-slider">
       <ToastContainer />
       <h3 className="promo-title">{title}</h3>
+
       <Swiper
         modules={[Navigation]}
         slidesPerView={1.5}

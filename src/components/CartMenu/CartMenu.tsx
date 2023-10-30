@@ -82,15 +82,15 @@ export const CartMenu: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="page">
-        <div className="container">
-          <div className="page__body">
-            <Link to=".." className="back--link">
-              <img src={BackIcon} alt="back-icon" className="back--icon" />
-              Back
-            </Link>
-            <h1 className="cart-title">Cart</h1>
+    <div className="page">
+      <div className="container">
+        <div className="page__body">
+          <Link to=".." className="back--link">
+            <img src={BackIcon} alt="back-icon" className="back--icon" />
+            Back
+          </Link>
+
+          <h1 className="cart-title">Cart</h1>
 
             {cart.length ? (
               <div className="cards-container">

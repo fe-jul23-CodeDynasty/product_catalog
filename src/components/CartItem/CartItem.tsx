@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Phone } from '../../types/Phone';
 import CloseIcon from '../CartMenu/images/close-gray.svg';
 import CounterPlus from '../CartMenu/images/counter-plus.svg';
@@ -60,6 +60,10 @@ export const CartItem: React.FC<Props> = ({
     }
   };
 
+  const totalPrice = useMemo(() => {
+    return +price * count;
+  }, [price, count]);
+
   return (
     <div className="cart-card">
       <div className="cart-card__top">
@@ -101,9 +105,7 @@ export const CartItem: React.FC<Props> = ({
           </button>
         </div>
 
-        <p className="cart-card__price">
-          {count >= 1 ? `$${+price * count}` : 0}
-        </p>
+        <p className="cart-card__price">{count >= 1 ? `$${totalPrice}` : 0}</p>
       </div>
     </div>
   );

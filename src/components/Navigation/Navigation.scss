@@ -34,10 +34,10 @@
       align-items: center;
       justify-content: center;
       height: 100%;
-      font-size: 12px;
+      font-size: $linkFontSize;
       font-family: Mont, sans-serif;
       font-style: normal;
-      font-weight: 800;
+      font-weight: $titleWeight;
       text-decoration: none;
       letter-spacing: 0.48px;
       line-height: 11px;
