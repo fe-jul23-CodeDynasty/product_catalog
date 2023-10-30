@@ -49,6 +49,19 @@ export const Header = () => {
       ) : (
         <BurgerMenu />
       )}
+
+      <div className="container__heart-like-shopping-bag">
+        <Link className="container__heart-like" to="/favourites">
+          <img src={favourites_heart_like} alt="heart like" />
+        </Link>
+        <Link className="container__shopping-bag" to="/cart">
+          <img src={shopping_bag} alt="shopping bag" />
+        </Link>
+      </div>
+
+      <a className="burger-img" href="/">
+        <img src={burger_menu} alt="menu" />
+      </a>
     </header>
   );
 };

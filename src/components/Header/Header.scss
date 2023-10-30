@@ -65,7 +65,6 @@
   &__img {
     width: 64px;
 
-
     @include onDesktop() {
       width: 80px;
     }

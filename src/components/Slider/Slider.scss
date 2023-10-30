@@ -81,7 +81,7 @@
   &__banner-desktop {
     display: none;
 
-    @media (min-width: 640px) {
+    @media (min-width: 450px) {
       display: block;
 
       /* max-width: 490px; */
@@ -95,7 +95,7 @@
   &__banner-mob {
     display: block;
 
-    @media (min-width: 640px) {
+    @media (min-width: 450px) {
       display: none;
     }
   }
