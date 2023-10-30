@@ -35,6 +35,7 @@ export function Slider() {
           />
         </div>
       </SwiperSlide>
+
       <SwiperSlide>
         <div className="swiper__slide slide">
           <img
@@ -50,6 +51,7 @@ export function Slider() {
           />
         </div>
       </SwiperSlide>
+
       <SwiperSlide>
         <div className="swiper__slide slide">
           <img

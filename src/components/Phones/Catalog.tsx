@@ -77,8 +77,6 @@ export const Catalog: React.FC = () => {
       });
   }, [searchParams]);
 
-  console.log(phones);
-
   const handleSelectSortChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
   ) => {

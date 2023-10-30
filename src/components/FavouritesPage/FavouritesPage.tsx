@@ -39,7 +39,9 @@ export const FavouritesPage = () => {
               />
               Favourites
             </a>
+
             <h1 className="title">Favourites</h1>
+
             <p className="items-count">5 items</p>
           </div>
 

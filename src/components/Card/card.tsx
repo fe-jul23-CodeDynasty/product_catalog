@@ -1,4 +1,5 @@
 /* eslint-disable no-shadow */
+import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import './card.scss';
 
@@ -14,11 +15,13 @@ export const Card: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className="card">
-      <img
-        src={`https://product-catalog-be-qps4.onrender.com/${image}`}
-        alt={itemId}
-        className="card__img"
-      />
+      <Link to={`../${itemId}`} relative="path">
+        <img
+          src={`https://product-catalog-be-qps4.onrender.com/${image}`}
+          alt={itemId}
+          className="card__img"
+        />
+      </Link>
 
       <h2 className="card__name">{name}</h2>
 

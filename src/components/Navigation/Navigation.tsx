@@ -11,16 +11,19 @@ export const Navigation = () => {
               Home
             </NavLink>
           </li>
+
           <li className="nav__item">
             <NavLink to="/catalog?category=phones" className="nav__item__link">
               phones
             </NavLink>
           </li>
+
           <li className="nav__item">
             <NavLink to="/catalog?category=tablets" className="nav__item__link">
               tablets
             </NavLink>
           </li>
+
           <li className="nav__item" data-qa="hover">
             <NavLink
               to="/catalog?category=accessories"

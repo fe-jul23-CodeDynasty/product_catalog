@@ -8,6 +8,7 @@ import accessoriesCategory from './images/category-accessories.png';
 export const ByCategories = () => (
   <section className="section section-by-category">
     <h2 className="section-by-category__title">Shop by category</h2>
+
     <div className="section-by-category__cards">
       <div className="category_container grid-1">
         <div className="section-by-category__card category-card">

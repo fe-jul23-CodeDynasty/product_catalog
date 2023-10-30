@@ -5,6 +5,7 @@ import App from './App';
 import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 import { FavouritesPage } from './components/FavouritesPage/FavouritesPage';
 import { CartMenu } from './components/CartMenu/CartMenu';
+import { ProductDetailsPage } from './components/ProductDetailsPage/ProductDetailsPage';
 
 export const Root = () => (
   <HashRouter>
@@ -12,6 +13,7 @@ export const Root = () => (
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/:id" element={<ProductDetailsPage />} />
         <Route path="/favourites" element={<FavouritesPage />} />
         <Route path="/cart" element={<CartMenu />} />
         <Route path="*" element={<NotFoundPage />} />

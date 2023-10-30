@@ -53,8 +53,8 @@
 
   &__text {
     padding: 16px;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: $minorTextFontSize;
+    font-weight: $textWeight;
     line-height: 21px;
     column-gap: 24px;
     color: $textColor;
@@ -65,8 +65,8 @@
 
     &--count {
       margin: 6px 14px 0 13px;
-      font-size: 14px;
-      font-weight: 600;
+      font-size: $minorTextFontSize;
+      font-weight: $textWeight;
       line-height: 21px;
       color: $textColor;
     }

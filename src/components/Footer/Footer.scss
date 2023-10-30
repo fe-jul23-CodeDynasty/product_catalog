@@ -65,13 +65,13 @@
   }
 
   &__item {
-    font-size: 12px;
-    font-weight: 800;
+    font-size: $linkFontSize;
+    font-weight: $titleWeight;
   }
 
   &__link {
     text-decoration: none;
-    color: #f1f2f9;
+    color: $textColor;
   }
 
   &__button {
@@ -83,8 +83,8 @@
 
   &__button--text {
     display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: $linkFontSize;
+    font-weight: $buttonWeight;
     color: $textColor;
   }
 }

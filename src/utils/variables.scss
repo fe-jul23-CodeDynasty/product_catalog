@@ -11,6 +11,7 @@ $errorStatusColorShadow: #eb5757;
 $backgroundColor: #0f1121;
 $cardColor: #161827;
 $borderColor: #3b3e4a;
+$buttonColor: #3b3e4a;
 $buttonActiveColor: #323542;
 $borderColorHeader: #3b3e4a;
 $iconsColor: #4a4d58;
@@ -21,4 +22,31 @@ $buttonCheckoutColor: #905bff;
 $buttonCheckoutHoverColor: #a378ff;
 $buttonAvailableColor: #fcdbc1;
 $categoryHeaderColor: #f1f2f9;
+
+$columnsMobile: 4;
+$columnsTablet: 12;
+$columnsDesktop: 24;
+
+$paddingInlineMobile: 16px;
+$paddingInlineTablet: 24px;
+$paddingInlineDesktop: 32px;
+
+$buttonFontSize: 16px;
+$minorButtonFontSize: 14px;
+$highTextFontSize: 22px;
+$textFontSize: 20px;
+$minorTextFontSize: 14px;
+$heartFontSize: 24px;
+$linkFontSize: 12px;
+$titleFontSize: 48px;
+$minorTitleFontSize: 32px;
+$contentTitleFontSize: 16px;
+$errorFontSize: 250px;
+$errorMessageFontSize: 50px;
+$errorTypeFontSize: 40px;
+
+$titleWeight: 800;
+$textWeight: 600;
+$buttonWeight: 700;
+
 $successColor: #27ae60;

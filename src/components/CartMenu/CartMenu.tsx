@@ -90,6 +90,7 @@ export const CartMenu: React.FC = () => {
               <img src={BackIcon} alt="back-icon" className="back--icon" />
               Back
             </Link>
+
             <h1 className="cart-title">Cart</h1>
 
             {cart.length ? (

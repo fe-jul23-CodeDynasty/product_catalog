@@ -11,8 +11,8 @@
   display: flex;
   align-items: end;
   padding-top: 24px;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: $linkFontSize;
+  font-weight: $buttonWeight;
   text-decoration: none;
   color: $textColor;
 
@@ -63,14 +63,14 @@
 
 .cart-title {
   margin-top: 24px;
-  font-size: 32px;
-  font-weight: 800;
+  font-size: $minorTitleFontSize;
+  font-weight: $titleWeight;
   line-height: 41px;
   color: $textColor;
 
   @include onDesktop() {
     margin-top: 16px;
-    font-size: 48px;
+    font-size: $titleFontSize;
     line-height: 56px;
   }
 }
@@ -100,15 +100,15 @@
 
   &__price {
     margin: 23px 0 0;
-    font-size: 32px;
-    font-weight: 800;
+    font-size: $minorTitleFontSize;
+    font-weight: $titleWeight;
     color: $textColor;
   }
 
   &__items {
     margin: 0;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: $minorTextFontSize;
+    font-weight: $textWeight;
     line-height: 21px;
     color: $secondaryTextColor;
   }
@@ -117,8 +117,8 @@
     position: relative;
     margin-top: 49px;
     width: 100%;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: $minorTextFontSize;
+    font-weight: $buttonWeight;
     line-height: 21px;
     border: 0;
 
