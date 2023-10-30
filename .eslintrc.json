@@ -23,7 +23,6 @@
   "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "rules": {
     // JS
-    "import/no-extraneous-dependencies": 0,
     "semi": ["error", "always"],
     "@typescript-eslint/semi": ["error", "always"],
     "space-before-function-paren": ["error", "never"],

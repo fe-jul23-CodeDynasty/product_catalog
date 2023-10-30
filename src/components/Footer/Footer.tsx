@@ -1,30 +1,30 @@
 import './Footer.scss';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 // import footer_logo2 from './footer-image/footerLogo.svg';
 import footer_logo from '../../images/logo_main.svg';
 
 function Footer() {
-  const [showGoToTop, setShowGoToTop] = useState(false);
+  // const [showGoToTop, setShowGoToTop] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShowGoToTop(true);
-      } else {
-        setShowGoToTop(false);
-      }
-    };
+  // useEffect(() => {
+  //   // const handleScroll = () => {
+  //   //   if (window.scrollY > 100) {
+  //   //     setShowGoToTop(true);
+  //   //   } else {
+  //   //     setShowGoToTop(false);
+  //   //   }
+  //   // };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // };
 
   return (
     <main className="main__body">
@@ -55,7 +55,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="footer__button">
+        {/* <div className="footer__button">
           <p className="footer__button--text">Back on top</p>
           {showGoToTop && (
             <button
@@ -65,7 +65,7 @@ function Footer() {
               onClick={scrollToTop}
             />
           )}
-        </div>
+        </div> */}
       </footer>
     </main>
   );
