@@ -1,9 +1,9 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
-import './Phones.scss';
+import './Catalog.scss';
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Card } from '../Card/card';
 import { getPhonesByUrl } from '../../api/api';
 import { Phone } from '../../types/Phone';
@@ -19,16 +19,37 @@ function getPreparedPhones(api: string): Promise<ServerResponse> {
   return getPhonesByUrl(api);
 }
 
-export const Phones: React.FC = () => {
+export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [totalItems, setTotalItems] = useState(0);
-  const sortBy = searchParams.get('sortBy') || '';
-  const itemsOnPage = +(searchParams.get('itemsOnPage') || 0);
-  const currentPage = +(searchParams.get('currentPage') || 0);
-  const direction = searchParams.get('direction') || '';
+  const category = searchParams.get('category');
+  const sortBy = searchParams.get('sortBy') || 'price';
+  const itemsOnPage = +(searchParams.get('itemsOnPage') || '8');
+  const currentPage = +(searchParams.get('currentPage') || '1');
+  const direction = searchParams.get('direction') || 'ASC';
 
-  const preparedApi = `https://product-catalog-be-qps4.onrender.com/products?category=phones&sortBy=${sortBy}&itemsOnPage=${itemsOnPage}&currentPage=${currentPage}&direction=${direction}`;
+  const preparedApi = `https://product-catalog-be-qps4.onrender.com/products?category=${category}&sortBy=${sortBy}&itemsOnPage=${itemsOnPage}&currentPage=${currentPage}&direction=${direction}`;
+
+  const categoryTitle = () => {
+    switch (category) {
+      case 'phones': {
+        return 'Mobile phones';
+      }
+
+      case 'tablets': {
+        return 'Tablets';
+      }
+
+      case 'accessories': {
+        return 'Accessories';
+      }
+
+      default: {
+        return 'Error';
+      }
+    }
+  };
 
   const firstDropdownTitle = 'Sort by';
   const firstDropdownOptions: DropdownOptions[] = [
@@ -43,31 +64,9 @@ export const Phones: React.FC = () => {
   const secondDropdownOptions: DropdownOptions[] = [
     { id: 1, value: '4', title: '4' },
     { id: 2, value: '8', title: '8' },
-    { id: 3, value: '16', title: '16' },
-    { id: 4, value: '32', title: '32' },
   ];
 
   useEffect(() => {
-    const params = new URLSearchParams(searchParams);
-
-    if (sortBy === '') {
-      params.set('sortBy', 'price');
-    }
-
-    if (itemsOnPage === 0) {
-      params.set('itemsOnPage', '16');
-    }
-
-    if (currentPage === 0) {
-      params.set('currentPage', '1');
-    }
-
-    if (direction === '') {
-      params.set('direction', 'ASC');
-    }
-
-    setSearchParams(params);
-
     getPreparedPhones(preparedApi)
       .then(res => {
         setPhones(res.products);
@@ -76,7 +75,9 @@ export const Phones: React.FC = () => {
       .catch(error => {
         console.log(error);
       });
-  }, [sortBy, itemsOnPage, currentPage, direction]);
+  }, [searchParams]);
+
+  console.log(phones);
 
   const handleSelectSortChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
@@ -92,19 +93,9 @@ export const Phones: React.FC = () => {
     event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
     const params = new URLSearchParams(searchParams);
-    const previousItemsCount = itemsOnPage;
-    const newItemsCount = +event.target.value;
-    const page = Math.ceil(currentPage * (previousItemsCount / newItemsCount));
 
-    if (currentPage !== 1 && previousItemsCount > newItemsCount) {
-      params.set('currentPage', `${page - 1}`);
-    }
-
-    if (currentPage !== 1 && previousItemsCount < newItemsCount) {
-      params.set('currentPage', `${page}`);
-    }
-
-    params.set('itemsOnPage', `${newItemsCount}`);
+    params.set('currentPage', '1');
+    params.set('itemsOnPage', event.target.value);
     setSearchParams(params);
   };
 
@@ -113,7 +104,7 @@ export const Phones: React.FC = () => {
       <div className="container">
         <div className="phones-page">
           <div className="phones-page__top">
-            <a href="#back" className="link--favourites">
+            <Link to="/" className="link--favourites">
               <img
                 src={HomeIcon}
                 alt="home-icon"
@@ -124,9 +115,9 @@ export const Phones: React.FC = () => {
                 alt="arrow-right-icon"
                 className="icon--arrow-right link--favourites__icon"
               />
-              Phones
-            </a>
-            <h1 className="title-phones">Mobile phones</h1>
+              {categoryTitle()}
+            </Link>
+            <h1 className="title-phones">{categoryTitle()}</h1>
             <p className="items-count">{`${totalItems} models`}</p>
           </div>
 

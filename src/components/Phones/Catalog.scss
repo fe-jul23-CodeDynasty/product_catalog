@@ -64,6 +64,7 @@ button {
   tab-size: 12px;
   text-decoration: none;
   color: $secondaryTextColor;
+  text-transform: capitalize;
 
   &__icon {
     margin-right: 8px;
