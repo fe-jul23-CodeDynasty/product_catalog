@@ -4,8 +4,8 @@
 
 .header {
   background: $backgroundColor;
-
-  @include onTablet {
+  @include contentPaddingInline;
+  @mixin onTablet {
     gap: 24px;
   }
 

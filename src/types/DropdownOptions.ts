@@ -1,5 +1,5 @@
 export type DropdownOptions = {
-  id: number,
-  value: string,
-  title: string,
+  id: number;
+  value: string;
+  title: string;
 };

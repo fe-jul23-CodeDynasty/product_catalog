@@ -23,15 +23,12 @@
   "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "rules": {
     // JS
-    "import/no-extraneous-dependencies":0,
+    "import/no-extraneous-dependencies": 0,
     "semi": ["error", "always"],
     "@typescript-eslint/semi": ["error", "always"],
     "space-before-function-paren": ["error", "never"],
     "comma-dangle": ["error", "always-multiline"],
-    "no-shadow": [
-      "error",
-      { "builtinGlobals": true, "hoist": "all", "allow": [] }
-    ],
+    "no-shadow": "off",
     "no-var": "error",
     "prefer-const": "error",
     "curly": ["error", "all"],
@@ -77,6 +74,7 @@
     "react/prop-types": 0,
     "react/require-default-props": 0,
     "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
     "standard/no-callback-literal": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/destructuring-assignment": 0,
@@ -104,6 +102,7 @@
 
     // Typescript
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/ban-types": [
