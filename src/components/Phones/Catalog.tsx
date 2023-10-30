@@ -84,6 +84,7 @@ export const Catalog: React.FC = () => {
   ) => {
     const params = new URLSearchParams(searchParams);
 
+    params.set('currentPage', '1');
     params.set('sortBy', event.target.value);
 
     setSearchParams(params);
