@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { ProductFull } from '../../types/FullProduct';
 import { CardItem } from '../CardItem/CardItem';
-import { getPhonesById } from '../../api/api';
+import { getProductById } from '../../api/api';
 
 export const ProductDetailsPage: React.FC = () => {
   const [product, setProduct] = useState<ProductFull | null>(null);
   const [errMess, setErrMess] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { id } = useParams();
 
   useEffect(() => {
-    getPhonesById()
+    getProductById(id || '')
       .then(data => setProduct(data))
       .catch(mess => setErrMess(mess))
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [id]);
 
   return (
     <>
