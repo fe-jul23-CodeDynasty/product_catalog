@@ -1,6 +1,6 @@
 export type Description = {
-  title: string,
-  text: string[],
+  title: string;
+  text: string[];
 };
 
 export type ProductFull = {
@@ -13,7 +13,7 @@ export type ProductFull = {
   priceDiscount: number;
   colorsAvailable: string[];
   color: string;
-  description: string,
+  description: string;
   images: string[];
   screen: string;
   resolution: string;

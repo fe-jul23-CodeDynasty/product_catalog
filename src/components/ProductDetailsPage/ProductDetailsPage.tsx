@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ProductFull } from '../../types/FullProduct';
 import { CardItem } from '../CardItem/CardItem';
 import { getPhonesById } from '../../api/api';
