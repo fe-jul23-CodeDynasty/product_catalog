@@ -1,5 +1,5 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
+@import "~normalize.css";
+@import "src/utils/variables";
 
 .section-not-found {
   display: flex;
@@ -34,6 +34,7 @@
 .homepage-link {
   display: flex;
   align-items: center;
+  margin-top: 20px;
   padding: 15px;
   font-size: $buttonFontSize;
   text-decoration: none;
@@ -45,12 +46,12 @@
   &:hover {
     text-decoration: underline;
     color: $backgroundColor;
-    background-color: $backgroundColor;
+    background-color: $textColor;
     border-color: $backgroundColor;
   }
 
   &::after {
-    content: url('../../images/home.svg');
+    content: url("../../images/home.svg");
     margin-left: 10px;
   }
 

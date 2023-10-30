@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './NotFoundPage.scss';
 
 export function NotFoundPage() {
@@ -9,9 +10,9 @@ export function NotFoundPage() {
 
       <p className="error__type">Page not found</p>
 
-      <a className="homepage-link" href="/">
+      <Link className="homepage-link" to="..">
         Back to Home
-      </a>
+      </Link>
     </section>
   );
 }
