@@ -19,7 +19,7 @@ export const Card: React.FC<Props> = ({ phone }) => {
         <img
           src={`https://product-catalog-be-qps4.onrender.com/${image}`}
           alt={itemId}
-          className="card__img"
+          className="card__img card-image"
         />
       </Link>
 

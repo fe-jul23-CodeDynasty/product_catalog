@@ -22,7 +22,9 @@
   transition: transform 300ms;
 
   &:hover {
-    transform: scale(1.1);
+    .card-image {
+      transform: scale(1.1);
+    }
   }
 
   &__img {
@@ -30,6 +32,7 @@
     width: 208px;
     height: 196px;
     object-fit: contain;
+    transition: transform 300ms;
   }
 
   &__name {
