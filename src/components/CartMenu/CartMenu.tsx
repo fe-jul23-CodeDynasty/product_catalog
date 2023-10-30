@@ -3,12 +3,14 @@ import useLocalStorage from 'use-local-storage';
 import './CartMenu.scss';
 
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import BackIcon from './images/back.svg';
 import { Phone } from '../../types/Phone';
 import { CartItem } from '../CartItem/CartItem';
+import { CartModal } from '../CartModal/CartModal';
 
 export const CartMenu: React.FC = () => {
-  const [cart, setCart] = useLocalStorage('cart', [
+  const [cart, setCart] = useLocalStorage<Phone[]>('cart', [
     {
       id: 1,
       category: 'phones',
@@ -55,8 +57,10 @@ export const CartMenu: React.FC = () => {
       image: 'img/phones/apple-iphone-8/gold/00.webp',
     },
   ]);
-
-  const startTotalCost = cart.reduce((acc, curr) => acc + curr.price, 0);
+  const [modalActive, setModalActive] = useState(false);
+  const startTotalCost = cart.reduce((acc, curr) => {
+    return acc + curr.price * (curr.count ? curr.count : 1);
+  }, 0);
 
   const [totalCost, setTotalCost] = useState(startTotalCost);
   const [totalItemsCounter, setTotalItemsCounter] = useState(cart.length);
@@ -78,45 +82,59 @@ export const CartMenu: React.FC = () => {
   };
 
   return (
-    <div className="page">
-      <div className="container">
-        <div className="page__body">
-          <Link to=".." className="back--link">
-            <img src={BackIcon} alt="back-icon" className="back--icon" />
-            Back
-          </Link>
-          <h1 className="cart-title">Cart</h1>
+    <>
+      <div className="page">
+        <div className="container">
+          <div className="page__body">
+            <Link to=".." className="back--link">
+              <img src={BackIcon} alt="back-icon" className="back--icon" />
+              Back
+            </Link>
+            <h1 className="cart-title">Cart</h1>
 
-          <div className="cards-container">
-            <section className="cards">
-              {cart.map((product: Phone) => (
-                <CartItem
-                  key={product.id}
-                  product={product}
-                  removeFromCart={removeFromCart}
-                  setTotalCost={setTotalCost}
-                  setTotalItemsCounter={setTotalItemsCounter}
-                />
-              ))}
-            </section>
+            {cart.length ? (
+              <div className="cards-container">
+                <section className="cards">
+                  {cart.map((product: Phone) => (
+                    <CartItem
+                      key={product.id}
+                      product={product}
+                      removeFromCart={removeFromCart}
+                      setTotalCost={setTotalCost}
+                      setTotalItemsCounter={setTotalItemsCounter}
+                      setCart={setCart}
+                    />
+                  ))}
+                </section>
 
-            <div className="total-cost">
-              <p className="total-cost__price">{`$${totalCost}`}</p>
+                <div className="total-cost">
+                  <p className="total-cost__price">{`$${totalCost}`}</p>
 
-              <p className="total-cost__items">
-                {`Total for ${totalItemsCounter} items`}
-              </p>
+                  <p className="total-cost__items">
+                    {`Total for ${totalItemsCounter} items`}
+                  </p>
 
-              <button
-                type="button"
-                className="button-checkout total-cost__button"
-              >
-                Checkout
-              </button>
-            </div>
+                  <button
+                    type="button"
+                    className="button-checkout total-cost__button"
+                    onClick={() => setModalActive(true)}
+                  >
+                    Checkout
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <p className="empty-cart-text">No added products in cart</p>
+            )}
           </div>
         </div>
       </div>
-    </div>
+      <ToastContainer />
+      <CartModal
+        active={modalActive}
+        setActive={setModalActive}
+        setCart={setCart}
+      />
+    </>
   );
 };
