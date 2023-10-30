@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Phone } from '../../types/Phone';
 import CloseIcon from '../CartMenu/images/close-gray.svg';
 import CounterPlus from '../CartMenu/images/counter-plus.svg';
@@ -8,18 +8,30 @@ import './CartItem.scss';
 type Props = {
   product: Phone;
   removeFromCart: (product: Phone) => void;
+  setTotalCost: React.Dispatch<React.SetStateAction<number>>;
+  setTotalItemsCounter: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export const CartItem: React.FC<Props> = ({ product, removeFromCart }) => {
+export const CartItem: React.FC<Props> = ({
+  product,
+  removeFromCart,
+  setTotalCost,
+  setTotalItemsCounter,
+}) => {
+  const { name: productName, image, price } = product;
   const [count, setCount] = useState(1);
 
   const cartItemCountIncrement = () => {
     setCount(prev => prev + 1);
+    setTotalCost((prev: number) => prev + +price);
+    setTotalItemsCounter(prev => prev + 1);
   };
 
   const cartItemCountDecrement = () => {
     if (count > 1) {
       setCount(prev => prev - 1);
+      setTotalItemsCounter(prev => prev - 1);
+      setTotalCost((prev: number) => prev - +price);
     }
   };
 
@@ -35,12 +47,12 @@ export const CartItem: React.FC<Props> = ({ product, removeFromCart }) => {
         </button>
 
         <img
-          src={product.image}
-          alt={product.name}
+          src={`https://product-catalog-be-qps4.onrender.com/${image}`}
+          alt={productName}
           className="cart-card__photo"
         />
 
-        <p className="cart-card__text">{product.name}</p>
+        <p className="cart-card__text">{productName}</p>
       </div>
 
       <div className="cart-card__bottom">
@@ -65,7 +77,7 @@ export const CartItem: React.FC<Props> = ({ product, removeFromCart }) => {
         </div>
 
         <p className="cart-card__price">
-          {count >= 1 ? `$${+product.price * count}` : 0}
+          {count >= 1 ? `$${+price * count}` : 0}
         </p>
       </div>
     </div>
