@@ -1,0 +1,37 @@
+@import '~normalize.css';
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
+
+.button {
+  &-pagination {
+    &--arrow {
+      background-color: $buttonActiveColor;
+
+      &:hover {
+        background-color: $buttonCheckoutColor;
+      }
+
+      &:active {
+        background-color: $buttonActiveColor;
+      }
+    }
+
+    &-disabled {
+      &:hover {
+        background-color: $buttonActiveColor;
+      }
+    
+      &:active {
+        background-color: $buttonActiveColor;
+      }
+    }
+  }
+}
+
+.icon {
+  &--arrow {
+    width: 16px;
+    height: 16px;
+  }
+}
+
