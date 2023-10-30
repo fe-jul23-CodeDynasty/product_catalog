@@ -58,10 +58,6 @@ export const Header = () => {
           <img src={shopping_bag} alt="shopping bag" />
         </Link>
       </div>
-
-      <a className="burger-img" href="/">
-        <img src={burger_menu} alt="menu" />
-      </a>
     </header>
   );
 };
