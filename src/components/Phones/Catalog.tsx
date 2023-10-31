@@ -2,6 +2,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 import './Catalog.scss';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Card } from '../Card/card';
@@ -23,6 +25,7 @@ export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [totalItems, setTotalItems] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const category = searchParams.get('category');
   const sortBy = searchParams.get('sortBy') || 'price';
   const itemsOnPage = +(searchParams.get('itemsOnPage') || '8');
@@ -62,11 +65,14 @@ export const Catalog: React.FC = () => {
 
   const secondDropdownTitle = 'Items on page';
   const secondDropdownOptions: DropdownOptions[] = [
-    { id: 1, value: '4', title: '4' },
+    { id: 3, value: '16', title: '16' },
     { id: 2, value: '8', title: '8' },
+    { id: 1, value: '4', title: '4' },
   ];
 
   useEffect(() => {
+    setIsLoading(true);
+
     getPreparedPhones(preparedApi)
       .then(res => {
         setPhones(res.products);
@@ -74,6 +80,11 @@ export const Catalog: React.FC = () => {
       })
       .catch(error => {
         console.log(error);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       });
   }, [searchParams]);
 
@@ -102,57 +113,78 @@ export const Catalog: React.FC = () => {
     <div className="phones">
       <div className="container">
         <div className="phones-page">
-          <div className="phones-page__top">
-            <Link to="/" className="link--favourites">
-              <img
-                src={HomeIcon}
-                alt="home-icon"
-                className="icon--home link--favourites__icon"
-              />
-              <img
-                src={ArrowRightIcon}
-                alt="arrow-right-icon"
-                className="icon--arrow-right link--favourites__icon"
-              />
-              {categoryTitle()}
-            </Link>
-            <h1 className="title-phones">{categoryTitle()}</h1>
-            <p className="items-count">{`${totalItems} models`}</p>
-          </div>
-
-          <div className="phones-page__wrapper">
-            <div className="sort-buttons">
-              <Dropdown
-                title={firstDropdownTitle}
-                options={firstDropdownOptions}
-                optionType={sortBy}
-                onSelectOptionChange={handleSelectSortChange}
-              />
-
-              <Dropdown
-                title={secondDropdownTitle}
-                options={secondDropdownOptions}
-                optionType={itemsOnPage}
-                onSelectOptionChange={handleSelectItemsOnPageChange}
-              />
+          <SkeletonTheme baseColor="#161827" highlightColor="#323542">
+            <div className="phones-page__top">
+              <Link to="/" className="link--favourites">
+                <img
+                  src={HomeIcon}
+                  alt="home-icon"
+                  className="icon--home link--favourites__icon"
+                />
+                <img
+                  src={ArrowRightIcon}
+                  alt="arrow-right-icon"
+                  className="icon--arrow-right link--favourites__icon"
+                />
+                {categoryTitle()}
+              </Link>
+              <h1 className="title-phones">
+                {isLoading ? <Skeleton width={250} /> : categoryTitle()}
+              </h1>
+              <p className="items-count">
+                {isLoading ? <Skeleton width={50} /> : `${totalItems} models`}
+              </p>
             </div>
 
-            <section className="cards">
-              {phones.map(phone => (
-                <div className="card-container" key={phone.id}>
-                  <Card phone={phone} />
-                </div>
-              ))}
-            </section>
+            <div className="phones-page__wrapper">
+              <div className="sort-buttons">
+                {isLoading ? (
+                  <Skeleton width={176} height={40} />
+                ) : (
+                  <Dropdown
+                    title={firstDropdownTitle}
+                    options={firstDropdownOptions}
+                    optionType={sortBy}
+                    onSelectOptionChange={handleSelectSortChange}
+                  />
+                )}
 
-            <PaginationButtons
-              currentPage={currentPage}
-              totalItems={totalItems}
-              itemsOnPage={itemsOnPage}
-              searchParams={searchParams}
-              setSearchParams={setSearchParams}
-            />
-          </div>
+                {isLoading ? (
+                  <Skeleton width={176} height={40} />
+                ) : (
+                  <Dropdown
+                    title={secondDropdownTitle}
+                    options={secondDropdownOptions}
+                    optionType={itemsOnPage}
+                    onSelectOptionChange={handleSelectItemsOnPageChange}
+                  />
+                )}
+              </div>
+
+              <section className="cards">
+                {isLoading
+                  ? phones.map(() => (
+                    <div className="card-container">
+                      <Skeleton height={530} />
+                    </div>
+                  ))
+                  : phones.map(phone => (
+                    <div className="card-container" key={phone.id}>
+                      <Card phone={phone} />
+                    </div>
+                  ))}
+              </section>
+
+              <PaginationButtons
+                currentPage={currentPage}
+                totalItems={totalItems}
+                itemsOnPage={itemsOnPage}
+                searchParams={searchParams}
+                setSearchParams={setSearchParams}
+                isLoading={isLoading}
+              />
+            </div>
+          </SkeletonTheme>
         </div>
       </div>
     </div>
