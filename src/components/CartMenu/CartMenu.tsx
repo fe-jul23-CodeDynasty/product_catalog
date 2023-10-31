@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify';
 import BackIcon from './images/back.svg';
 import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
-import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 import { StorageContext } from '../StorageContext/StorageContext';
 import { Product } from '../../types/Product';
 

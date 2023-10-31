@@ -8,12 +8,12 @@ import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
 import './home.scss';
 import { getPhonesByUrl } from '../../api/api';
-import { Phone } from '../CardItem/types/Phone';
+import { Product } from '../../types/Product';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [brandNewModels, setBrandNewModels] = useState<Phone[]>([]);
-  const [hotPrices, setHotPrices] = useState<Phone[]>([]);
+  const [brandNewModels, setBrandNewModels] = useState<Product[]>([]);
+  const [hotPrices, setHotPrices] = useState<Product[]>([]);
 
   const brandNewModelsURL
     = 'https://product-catalog-be-qps4.onrender.com/products/new';

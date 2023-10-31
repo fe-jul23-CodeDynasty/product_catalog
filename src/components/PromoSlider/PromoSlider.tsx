@@ -10,12 +10,11 @@ import { Navigation } from 'swiper/modules';
 
 import { ToastContainer } from 'react-toastify';
 import { Card } from '../Card/card';
-import { getPhones } from '../../api/api';
 import { Product } from '../../types/Product';
 
 type Props = {
   title: string;
-  phones: Phone[];
+  phones: Product[];
   isLoading: boolean;
 };
 
@@ -50,7 +49,7 @@ export const PromoSlider: React.FC<Props> = ({ title, phones, isLoading }) => {
           ))
           : phones.map(phone => (
             <SwiperSlide key={phone.id}>
-              <Card phone={phone} />
+              <Card product={phone} />
             </SwiperSlide>
           ))}
       </Swiper>
