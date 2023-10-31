@@ -146,6 +146,10 @@ export const PaginationButtons: React.FC<Props> = ({
     if (isLastPage) {
       handleCurrenPageChange(`${currentPage - 3}`);
     }
+
+    if (isLessThanFourPages) {
+      handleCurrenPageChange('1');
+    }
   };
 
   const handleSecondButtonChange = () => {
@@ -160,6 +164,10 @@ export const PaginationButtons: React.FC<Props> = ({
     if (isLastPage) {
       handleCurrenPageChange(`${currentPage - 2}`);
     }
+
+    if (isLessThanFourPages) {
+      handleCurrenPageChange('2');
+    }
   };
 
   const handleThirdButtonChange = () => {
@@ -173,6 +181,10 @@ export const PaginationButtons: React.FC<Props> = ({
 
     if (isLastPage) {
       handleCurrenPageChange(`${currentPage - 1}`);
+    }
+
+    if (isLessThanFourPages) {
+      handleCurrenPageChange('3');
     }
   };
 

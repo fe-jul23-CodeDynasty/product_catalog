@@ -1,5 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import './CartMenu.scss';
+import './CartMenu-skeleton.scss';
 
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -11,6 +14,7 @@ import { Product } from '../../types/Product';
 
 export const CartMenu: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     cart,
@@ -22,6 +26,14 @@ export const CartMenu: React.FC = () => {
     totalItemsCounter,
   } = useContext(StorageContext);
 
+  useEffect(() => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <>
       <div className="page">
@@ -32,44 +44,70 @@ export const CartMenu: React.FC = () => {
               Back
             </Link>
 
-            <h1 className="cart-title">Cart</h1>
+            <SkeletonTheme baseColor="#161827" highlightColor="#323542">
+              <h1 className="cart-title">
+                {isLoading ? <Skeleton width={250} /> : 'Cart'}
+              </h1>
 
-            {cart.length ? (
-              <div className="cards-container">
-                <section className="cards">
-                  {cart.map((product: Product) => (
-                    <CartItem
-                      key={product.id}
-                      product={product}
-                      removeFromCart={removeFromCart}
-                      setTotalCost={setTotalCost}
-                      setTotalItemsCounter={setTotalItemsCounter}
-                      setCart={setCart}
-                    />
-                  ))}
-                </section>
+              {cart.length ? (
+                <div className="cards-container">
+                  <section className="cards">
+                    {isLoading
+                      ? Array.from({ length: 4 }).map((_, index) => (
+                        // eslint-disable-next-line react/no-array-index-key
+                        <div className="cart-card-skeleton" key={index}>
+                          <Skeleton height={117} />
+                        </div>
+                      ))
+                      : cart.map((product: Product) => (
+                        <CartItem
+                          key={product.id}
+                          product={product}
+                          removeFromCart={removeFromCart}
+                          setTotalCost={setTotalCost}
+                          setTotalItemsCounter={setTotalItemsCounter}
+                          setCart={setCart}
+                        />
+                      ))}
+                  </section>
 
-                <div className="total-cost">
-                  <p className="total-cost__price">{`$${totalCost}`}</p>
+                  {isLoading ? (
+                    <div className="total-cost-skeleton">
+                      <p className="total-cost__price">
+                        <Skeleton />
+                      </p>
+                      <p className="total-cost__items">
+                        <Skeleton />
+                      </p>
 
-                  <p className="total-cost__items">
-                    {`Total for ${totalItemsCounter} items`}
-                  </p>
+                      <Skeleton
+                        className="
+                        button-checkout-skeleton
+                        total-cost-skeleton__button"
+                      />
+                    </div>
+                  ) : (
+                    <div className="total-cost">
+                      <p className="total-cost__price">{`$${totalCost}`}</p>
 
-                  <button
-                    type="button"
-                    className="button-checkout total-cost__button"
-                    onClick={() => {
-                      setModalActive(true);
-                    }}
-                  >
-                    Checkout
-                  </button>
+                      <p className="total-cost__items">
+                        {`Total for ${totalItemsCounter} items`}
+                      </p>
+
+                      <button
+                        type="button"
+                        className="button-checkout total-cost__button"
+                        onClick={() => setModalActive(true)}
+                      >
+                        Checkout
+                      </button>
+                    </div>
+                  )}
                 </div>
-              </div>
-            ) : (
-              <p className="empty-cart-text">No added products in cart</p>
-            )}
+              ) : (
+                <p className="empty-cart-text">No added products in cart</p>
+              )}
+            </SkeletonTheme>
           </div>
         </div>
       </div>

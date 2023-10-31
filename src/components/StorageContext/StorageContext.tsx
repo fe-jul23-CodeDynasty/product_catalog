@@ -1,8 +1,4 @@
-import React, {
-  createContext,
-  ReactNode,
-  useState,
-} from 'react';
+import React, { createContext, ReactNode, useState } from 'react';
 import useLocalStorage from 'use-local-storage';
 import { Product } from '../../types/Product';
 
@@ -46,8 +42,9 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
     return acc + (currProd.count ? currProd.count : 1);
   }, 0);
 
-  const [totalItemsCounter, setTotalItemsCounter]
-    = useState(totalGeneralItemsCounter);
+  const [totalItemsCounter, setTotalItemsCounter] = useState(
+    totalGeneralItemsCounter,
+  );
 
   const startTotalCost: number = cart.reduce((acc, curr: Product) => {
     return acc + curr.price * (curr.count ? curr.count : 1);
@@ -78,7 +75,7 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
 
     setCart(prevState => {
       if (prevState) {
-        return ([...prevState, product]);
+        return [...prevState, product];
       }
 
       return [product];
@@ -91,16 +88,18 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
 
   const [favorites, setFavorites] = useLocalStorage<Product[]>('favorites', []);
 
-  const removeFavorite = (product:Product) => {
-    const updatedFavorites = favorites
-      .filter(favorite => favorite.id !== product.id);
+  const removeFavorite = (product: Product) => {
+    const updatedFavorites = favorites.filter(
+      favorite => favorite.id !== product.id,
+    );
 
     setFavorites(updatedFavorites);
   };
 
-  const addToFavorites = (product:Product) => {
-    const findDublicate = favorites
-      .find(oneProduct => oneProduct.id === product.id);
+  const addToFavorites = (product: Product) => {
+    const findDublicate = favorites.find(
+      oneProduct => oneProduct.id === product.id,
+    );
 
     if (findDublicate) {
       removeFavorite(product);
@@ -116,8 +115,8 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
   const favoritesCounter: number = favorites.length;
 
   return (
-    <StorageContext.Provider value={
-      {
+    <StorageContext.Provider
+      value={{
         cart,
         setCart,
         removeFromCart,
@@ -130,8 +129,7 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
         favoritesCounter,
         favorites,
         setFavorites,
-      }
-    }
+      }}
     >
       {children}
     </StorageContext.Provider>

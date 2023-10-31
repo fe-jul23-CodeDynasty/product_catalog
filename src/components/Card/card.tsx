@@ -14,25 +14,15 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ product }) => {
-  const {
-    image,
-    name,
-    itemId,
-    price,
-    fullPrice,
-    screen, capacity,
-    ram,
-  } = product;
+  const { image, name, itemId, price, fullPrice, screen, capacity, ram }
+    = product;
 
-  const {
-    addToCart,
-    addToFavorites,
-    setTotalItemsCounter,
-    favorites,
-  } = useContext(StorageContext);
+  const { addToCart, addToFavorites, setTotalItemsCounter, favorites }
+    = useContext(StorageContext);
 
-  const isProductFavorite = favorites
-    .some(oneProduct => oneProduct.id === product.id);
+  const isProductFavorite = favorites.some(
+    oneProduct => oneProduct.id === product.id,
+  );
 
   // eslint-disable-next-line no-console
   console.log(isProductFavorite);
@@ -93,12 +83,9 @@ export const Card: React.FC<Props> = ({ product }) => {
         <button
           onClick={() => addToFavorites(product)}
           type="button"
-          className={
-            classNames('card__buttons__heart',
-              {
-                'card__buttons__heart--active': isProductFavorite,
-              })
-          }
+          className={classNames('card__buttons__heart', {
+            'card__buttons__heart--active': isProductFavorite,
+          })}
         >
           <img
             src={isProductFavorite ? HeartIcon : favourites_heart_like}
