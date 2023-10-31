@@ -9,7 +9,7 @@ import './Header.scss';
 import { StorageContext } from '../StorageContext/StorageContext';
 
 export const Header = () => {
-  const { favorites } = useContext(StorageContext);
+  const { favorites, cart } = useContext(StorageContext);
 
   return (
     <header className="header">
@@ -27,7 +27,7 @@ export const Header = () => {
             <div className="wrapper-heart-counter">
               <img src={favourites_heart_like} alt="heart like" />
               {!!favorites.length && (
-                <div className="shopping-bag__counter">
+                <div className="shopping-favorites-bag__counter">
                   <p>{favorites.length}</p>
                 </div>
               )}
@@ -35,7 +35,14 @@ export const Header = () => {
           </Link>
 
           <Link className="container__shopping-bag" to="/cart">
-            <img src={shopping_bag} alt="shopping bag" />
+            <div className="wrapper-shopping-bag-counter">
+              <img src={shopping_bag} alt="shopping bag" />
+              {!!cart.length && (
+                <div className="shopping-favorites-bag__counter">
+                  <p>{cart.length}</p>
+                </div>
+              )}
+            </div>
           </Link>
         </div>
 
