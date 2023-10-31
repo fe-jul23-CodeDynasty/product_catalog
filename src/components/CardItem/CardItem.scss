@@ -158,12 +158,11 @@ main {
     gap: 20px;
   }
 
-  &__available--brown {
+  &__available {
     position: relative;
     padding: 2px;
     width: 30px;
     height: 30px;
-    background-color: $buttonAvailableColor;
     border: 2px solid $buttonAvailableColor;
     border-radius: 50%;
     cursor: pointer;
@@ -174,6 +173,92 @@ main {
       inset: -6px;
       border: 2px solid $buttonAvailableColor;
       border-radius: 50%;
+    }
+
+    &--brown {
+      background-color: $buttonAvailableColor;
+    }
+
+    &--gold {
+      background-color: $goldColor;
+    }
+
+    &--silver {
+      background-color: $silverColor;
+    }
+
+    &--starlight {
+      background-color: $starlightColor;
+    }
+
+    &--midnight {
+      background-color: $midnightColor;
+    }
+
+    &--purple {
+      background-color: $purpleColor;
+    }
+
+    &--space-gray,
+    &--spacegray {
+      background-color: $spaceGrayColor;
+    }
+
+    &--blue {
+      background-color: $blueColor;
+    }
+
+    &--green {
+      background-color: $greenColor;
+    }
+
+    &--rose-gold,
+    &--rosegold {
+      background-color: $roseGoldColor;
+    }
+
+    &--spaceblack {
+      background-color: $spaceblackColor;
+    }
+
+    &--black {
+      background-color: $blackColor;
+    }
+
+    &--pink {
+      background-color: $pinkColor;
+    }
+
+    &--red {
+      background-color: $redColor;
+    }
+
+    &--midnightgreen {
+      background-color: $midnightgreenColor;
+    }
+
+    &--sky-blue {
+      background-color: $skyBlueColor;
+    }
+
+    &--graphite {
+      background-color: $graphiteColor;
+    }
+
+    &--coral {
+      background-color: $coralColor;
+    }
+
+    &--sierrablue {
+      background-color: $sierrablueColor;
+    }
+
+    &--yellow {
+      background-color: $yellowColor;
+    }
+
+    &--white {
+      background-color: $whiteColor;
     }
   }
 
