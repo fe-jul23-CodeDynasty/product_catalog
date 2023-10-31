@@ -43,6 +43,11 @@
       line-height: 11px;
       text-transform: uppercase;
       color: $secondaryTextColor;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $textColor;
+      }
     }
   }
 }

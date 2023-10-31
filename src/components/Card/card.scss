@@ -19,7 +19,7 @@
   padding: 32px;
   color: $textColor;
   background: $cardColor;
-  transition: transform 300ms;
+  transition: transform 0.3s;
 
   &:hover {
     .card-image {
@@ -114,7 +114,9 @@
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: $buttonCheckoutHoverColor;
+        color: $buttonCheckoutColor;
+        background-color: $textColor;
+        //background-color: $buttonCheckoutHoverColor;
       }
 
       &:active {
@@ -133,21 +135,22 @@
       text-decoration: none;
       line-height: 21px;
       color: $textColor;
+      border: 1px solid $borderColor;
+      transition: background-color 0.3s, border 0.3s, border-radius 1s;
       background-color: $borderColor;
       border: 1px solid $borderColor;
       transition:
         background-color 0.3s,
         border 0.3s;
 
+      &:hover {
+        border-radius: 50%;
+      }
+
       &--active {
         background-color: $cardColor;
         border: 1px solid $cardColor;
       }
-
-      //&:hover {
-      //  background-color: $borderColor;
-      //}
-      //
     }
   }
 }

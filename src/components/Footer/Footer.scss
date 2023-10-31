@@ -72,6 +72,11 @@
   &__link {
     text-decoration: none;
     color: $textColor;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $silverColor;
+    }
   }
 
   &__button {
