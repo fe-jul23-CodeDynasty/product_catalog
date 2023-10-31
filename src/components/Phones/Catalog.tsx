@@ -1,3 +1,6 @@
+/* eslint-disable no-shadow */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-console */
 import './Catalog.scss';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -5,16 +8,17 @@ import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Card } from '../Card/card';
 import { getPhonesByUrl } from '../../api/api';
+import { Product } from '../../types/Product';
 import { Dropdown } from './Dropdown/Dropdown';
 
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
 import { DropdownOptions } from '../../types/DropdownOptions';
 import { PaginationButtons } from './Pagination/Pagination';
-import { Product } from '../../types/Product';
+import { Category } from '../../types/Category';
 
 export const Catalog: React.FC = () => {
-  const [phones, setPhones] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [totalItems, setTotalItems] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,25 +30,16 @@ export const Catalog: React.FC = () => {
 
   const preparedApi = `https://product-catalog-be-qps4.onrender.com/products?category=${category}&sortBy=${sortBy}&itemsOnPage=${itemsOnPage}&currentPage=${currentPage}&direction=${direction}`;
 
-  const categoryTitle = () => {
-    switch (category) {
-      case 'phones': {
-        return 'Mobile phones';
-      }
-
-      case 'tablets': {
-        return 'Tablets';
-      }
-
-      case 'accessories': {
-        return 'Accessories';
-      }
-
-      default: {
-        return 'Error';
-      }
-    }
+  const categoryTitles = {
+    phones: 'Mobile phones',
+    tablets: 'Tablets',
+    accessories: 'Accessories',
   };
+
+  const categoryTitle
+    = category !== null
+      ? categoryTitles[category as Category]
+      : categoryTitles.phones;
 
   const firstDropdownTitle = 'Sort by';
   const firstDropdownOptions: DropdownOptions[] = [
@@ -67,11 +62,10 @@ export const Catalog: React.FC = () => {
 
     getPhonesByUrl(preparedApi)
       .then(res => {
-        setPhones(res.products);
+        setProducts(res.products);
         setTotalItems(res.totalItems);
       })
       .catch(error => {
-        // eslint-disable-next-line no-console
         console.log(error);
       })
       .finally(() => {
@@ -119,10 +113,10 @@ export const Catalog: React.FC = () => {
                   alt="arrow-right-icon"
                   className="icon--arrow-right link--favourites__icon"
                 />
-                {categoryTitle()}
+                {categoryTitle}
               </Link>
               <h1 className="title-phones">
-                {isLoading ? <Skeleton width={250} /> : categoryTitle()}
+                {isLoading ? <Skeleton width={250} /> : categoryTitle}
               </h1>
               <p className="items-count">
                 {isLoading ? <Skeleton width={50} /> : `${totalItems} models`}
@@ -161,9 +155,9 @@ export const Catalog: React.FC = () => {
                       <Skeleton height={530} />
                     </div>
                   ))
-                  : phones.map(phone => (
-                    <div className="card-container" key={phone.id}>
-                      <Card product={phone} />
+                  : products.map(product => (
+                    <div className="card-container" key={product.id}>
+                      <Card product={product} />
                     </div>
                   ))}
               </section>
