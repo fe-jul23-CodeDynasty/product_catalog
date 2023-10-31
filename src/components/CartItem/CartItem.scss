@@ -45,6 +45,8 @@
 
   &__photo {
     width: 80px;
+    height: 80px;
+    object-fit: contain;
 
     @include onDesktop() {
       margin-right: 24px;

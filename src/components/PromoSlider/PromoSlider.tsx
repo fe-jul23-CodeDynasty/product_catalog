@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
-import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -14,25 +15,15 @@ import { Product } from '../../types/Product';
 
 type Props = {
   title: string;
+  phones: Phone[];
+  isLoading: boolean;
 };
 
-export const PromoSlider: React.FC<Props> = ({ title }) => {
-  const [phones, setPhones] = useState<Product[]>();
-
-  useEffect(() => {
-    getPhones()
-      .then(res => {
-        setPhones(res.products);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
-
+export const PromoSlider: React.FC<Props> = ({ title, phones, isLoading }) => {
   return (
     <div className="promo-slider">
       <ToastContainer />
-      <h3 className="promo-title">{title}</h3>
+      <h3 className="promo-title">{isLoading ? <Skeleton /> : title}</h3>
 
       <Swiper
         modules={[Navigation]}
@@ -46,15 +37,22 @@ export const PromoSlider: React.FC<Props> = ({ title }) => {
             slidesPerView: 4,
           },
         }}
-        navigation
+        navigation={!isLoading}
         pagination
         className="promo-swiper swiper"
       >
-        {phones?.map(phone => (
-          <SwiperSlide>
-            <Card product={phone} />
-          </SwiperSlide>
-        ))}
+        {isLoading
+          ? Array.from({ length: 4 }).map((_, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <SwiperSlide key={index}>
+              <Skeleton height={530} />
+            </SwiperSlide>
+          ))
+          : phones.map(phone => (
+            <SwiperSlide key={phone.id}>
+              <Card phone={phone} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );

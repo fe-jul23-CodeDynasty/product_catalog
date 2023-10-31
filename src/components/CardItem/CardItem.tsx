@@ -1,6 +1,8 @@
 import './CardItem.scss';
-import React, { Fragment, useState } from 'react';
+import '../../App.scss';
+import React, { Fragment, useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import { Description, ProductFull } from '../../types/FullProduct';
 import { BASE_URL } from '../../api/api';
@@ -11,19 +13,51 @@ type Props = {
 };
 
 export const CardItem: React.FC<Props> = ({ product }) => {
-  const { images } = product;
-  const { description } = product;
+  const { id, name, images, description, colorsAvailable, capacityAvailable }
+    = product;
   const [selectImg, setSelectImg] = useState<string>(images[0]);
 
   const baseUrl = new URL(BASE_URL);
+
+  const normalizeParam = (param: string): string => {
+    return param.split(' ').join('-');
+  };
+
+  useEffect(() => {
+    setSelectImg(images[0]);
+  }, [images]);
+
+  const getLink = (newValue: string, type: 'capacity' | 'color') => {
+    const paramsFromId = id.split('-');
+    let position = 0;
+
+    for (let i = paramsFromId.length - 1; i > 0; i--) {
+      if (!Number.isNaN(parseInt(paramsFromId[i], 10))) {
+        position = i;
+
+        break;
+      }
+    }
+
+    if (type === 'color') {
+      position += 1;
+      paramsFromId.splice(position);
+    }
+
+    const fixValue = normalizeParam(newValue);
+
+    paramsFromId[position] = fixValue.toLowerCase();
+
+    return `../${paramsFromId.join('-')}`;
+  };
 
   const jsonString: Description[] = JSON.parse(description);
 
   return (
     <main>
       <div className="item">
-        <h2 key={product.id} className="item__title">
-          {product.name}
+        <h2 key={id} className="item__title">
+          {name}
         </h2>
 
         <div className="item__top">
@@ -61,29 +95,20 @@ export const CardItem: React.FC<Props> = ({ product }) => {
               <p className="item__available--text">Available colors</p>
 
               <div className="item__button--available">
-                <button
-                  type="button"
-                  className="item__available--brown"
-                  aria-label="send"
-                />
-
-                <button
-                  type="button"
-                  className="item__available--brown"
-                  aria-label="send"
-                />
-
-                <button
-                  type="button"
-                  className="item__available--brown"
-                  aria-label="send"
-                />
-
-                <button
-                  type="button"
-                  className="item__available--brown"
-                  aria-label="send"
-                />
+                {colorsAvailable
+                  .sort((a, b) => a.localeCompare(b))
+                  .map(color => (
+                    <Link
+                      to={getLink(color, 'color')}
+                      relative="path"
+                      key={color}
+                      type="button"
+                      className={`item__available item__available--${normalizeParam(
+                        color,
+                      )}`}
+                      aria-label="send"
+                    />
+                  ))}
               </div>
             </div>
 
@@ -91,11 +116,15 @@ export const CardItem: React.FC<Props> = ({ product }) => {
               <p className="item__available--text">Select capacity</p>
 
               <div className="item__capacity-container">
-                <div className="item__capacity-container--button">64 GB</div>
-
-                <div className="item__capacity-container--button">256 GB</div>
-
-                <div className="item__capacity-container--button">512 GB</div>
+                {capacityAvailable.map(capacity => (
+                  <Link
+                    to={getLink(capacity, 'capacity')}
+                    relative="path"
+                    className="item__capacity-container--button"
+                  >
+                    {capacity}
+                  </Link>
+                ))}
               </div>
             </div>
 

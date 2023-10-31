@@ -156,7 +156,7 @@ export const Catalog: React.FC = () => {
 
               <section className="cards">
                 {isLoading
-                  ? phones.map(() => (
+                  ? Array.from({ length: itemsOnPage }).map(() => (
                     <div className="card-container">
                       <Skeleton height={530} />
                     </div>

@@ -80,7 +80,6 @@ export const CartMenu: React.FC = () => {
         setActive={setModalActive}
         setCart={setCart}
       />
-      <NotFoundPage />
     </>
   );
 };
