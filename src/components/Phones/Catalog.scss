@@ -1,0 +1,124 @@
+@import '~normalize.css';
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
+
+h1 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+}
+
+.container {
+  margin: auto;
+  max-width: 1200px;
+}
+
+.phones {
+  padding-top: 24px;
+  padding-bottom: 56px;
+  background-color: $backgroundColor;
+
+  @include onTablet() {
+    padding-bottom: 64px;
+  }
+
+  @include onDesktop() {
+    padding-bottom: 60px;
+  }
+}
+
+.phones-page {
+  margin: 0 16px;
+
+  @include onTablet() {
+    margin: 0 24px;
+  }
+
+  @include onDesktop() {
+    margin: 0;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    grid-column: 1 / -1;
+
+    @include onDesktop() {
+      margin-top: 40px;
+    }
+  }
+}
+
+.link--favourites {
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  font-weight: $textWeight;
+  tab-size: 12px;
+  text-decoration: none;
+  color: $secondaryTextColor;
+  text-transform: capitalize;
+
+  &__icon {
+    margin-right: 8px;
+  }
+}
+
+.title-phones {
+  margin: 24px 0 0;
+  font-size: $minorTitleFontSize;
+  font-weight: $titleWeight;
+  line-height: 41px;
+  color: $textColor;
+
+  @include onTablet() {
+    margin-top: 40px;
+    font-size: $titleFontSize;
+    line-height: 56px;
+  }
+}
+
+.items-count {
+  margin: 8px 0 32px;
+  font-size: $minorButtonFontSize;
+  font-weight: $textWeight;
+  line-height: 21px;
+  color: $secondaryTextColor;
+
+  @include onTablet() {
+    margin: 8px 0 40px;
+  }
+}
+
+.cards {
+  @include pageGrid();
+
+  column-gap: 16px;
+  margin-top: 24px;
+  grid-column: 1 / -1;
+}
+
+.card-container {
+  width: 100%;
+  grid-column: span 6;
+}
+
+.sort-buttons {
+  @include pageGrid();
+
+  border: 0;
+  gap: 16px;
+}
+
+.wrapper-pagination {
+  display: flex;
+  gap: 8px;
+  margin-inline: 16px;
+}

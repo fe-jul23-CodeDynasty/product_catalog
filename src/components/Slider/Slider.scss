@@ -1,9 +1,9 @@
-/* disable-eslint */
+@import '../../utils/variables.scss';
 
 .hero-title {
-  font-size: 48px;
+  font-size: $titleFontSize;
   font-family: Mont, sans-serif;
-  font-weight: 800;
+  font-weight: $titleWeight;
   text-align: left;
   letter-spacing: -0.48px;
   line-height: 56px;
@@ -19,11 +19,11 @@
   &-pagination-bullet {
     width: 14px;
     height: 4px;
-    background-color: #3b3e4a;
+    background-color: $buttonColor;
     border-radius: 0;
 
     &-active {
-      background-color: #f1f2f9;
+      background-color: $textColor;
     }
   }
 
@@ -33,15 +33,15 @@
       display: none;
 
       &::after {
-        font-size: 16px;
+        font-size: $buttonFontSize;
       }
 
       @media (min-width: 640px) {
         top: 22px;
         display: flex;
         height: 100%;
-        color: #f1f2f9;
-        background-color: #323542;
+        color: $textColor;
+        background-color: $buttonActiveColor;
       }
     }
 
@@ -50,21 +50,21 @@
       display: none;
 
       &::after {
-        font-size: 16px;
+        font-size: $buttonFontSize;
       }
 
       @media (min-width: 640px) {
         top: 22px;
         display: flex;
         height: 100%;
-        color: #f1f2f9;
-        background-color: #323542;
+        color: $textColor;
+        background-color: $buttonActiveColor;
       }
     }
   }
 
   &-button-disabled {
-    color: #75767f;
+    color: $secondaryTextColor;
   }
 }
 

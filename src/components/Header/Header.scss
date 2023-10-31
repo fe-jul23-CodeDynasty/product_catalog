@@ -4,8 +4,8 @@
 
 .header {
   background: $backgroundColor;
-
-  @include onTablet {
+  @include contentPaddingInline;
+  @mixin onTablet {
     gap: 24px;
   }
 
@@ -15,8 +15,7 @@
     justify-content: space-between;
     gap: 16px;
     padding-left: 16px;
-    border-bottom: 1px solid $borderColor;
-    box-shadow: -1px 0 0 0 $borderColor;
+    border: 1px solid $borderColor;
     box-sizing: border-box;
 
     @include onDesktop() {

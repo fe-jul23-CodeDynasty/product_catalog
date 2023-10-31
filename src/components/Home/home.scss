@@ -17,7 +17,7 @@
 
     @include onTablet {
       margin: 32px 0;
-      font-size: 48px;
+      font-size: $titleFontSize;
       grid-column: 1 / 9;
     }
 

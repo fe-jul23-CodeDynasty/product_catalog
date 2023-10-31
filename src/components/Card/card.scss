@@ -22,19 +22,24 @@
   transition: transform 300ms;
 
   &:hover {
-    transform: scale(1.1);
+    .card-image {
+      transform: scale(1.1);
+    }
   }
 
   &__img {
     margin: 0 auto 8px;
     width: 208px;
     height: 196px;
+    object-fit: contain;
+    transition: transform 300ms;
   }
 
   &__name {
     width: 100%;
-    font-size: 14px;
-    font-weight: 600;
+    height: 42px;
+    font-size: $minorTextFontSize;
+    font-weight: $textWeight;
     line-height: 21px;
     margin-bottom: 8px;
   }
@@ -43,13 +48,13 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    font-size: 22px;
-    font-weight: 800;
+    font-size: $highTextFontSize;
+    font-weight: $titleWeight;
     line-height: 30.8px;
 
     &__real {
       margin-left: 8px;
-      font-weight: 600;
+      font-weight: $textWeight;
       text-decoration: line-through;
       color: $secondaryTextColor;
     }
@@ -69,6 +74,7 @@
     margin-bottom: 16px;
 
     &__list {
+      padding-left: 0;
       width: 100%;
       list-style: none;
     }
@@ -77,8 +83,8 @@
       display: flex;
       justify-content: space-between;
       margin-top: 8px;
-      font-size: 12px;
-      font-weight: 600;
+      font-size: $linkFontSize;
+      font-weight: $textWeight;
       color: $textColor;
 
       &__property {
@@ -98,13 +104,14 @@
       justify-content: center;
       width: 100%;
       height: 40px;
-      font-size: 14px;
-      font-weight: 700;
+      font-size: $minorTextFontSize;
+      font-weight: $buttonWeight;
       text-decoration: none;
       line-height: 21px;
-      color: #f1f2f9;
+      color: $textColor;
       background-color: $buttonCheckoutColor;
       border: 0;
+      transition: background-color 0.3s;
 
       &:hover {
         background-color: $buttonCheckoutHoverColor;
@@ -122,15 +129,16 @@
       box-sizing: border-box;
       width: 50px;
       height: 40px;
-      font-size: 24px;
+      font-size: $heartFontSize;
       text-decoration: none;
       line-height: 21px;
       color: $textColor;
       background-color: transparent;
       border: 1px solid $borderColor;
+      transition: background-color 0.3s;
 
       &:hover {
-        background-color: $iconsColor;
+        background-color: $borderColor;
       }
 
       &:active {

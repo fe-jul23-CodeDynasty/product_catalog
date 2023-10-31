@@ -9,22 +9,26 @@
 
 main {
   margin: 0 auto;
-  padding: 16px;
+  // padding: 16px;
   max-width: auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: $backgroundColor;
 
-  @media (min-width: 744px) and (max-width: 1600px) {
-    padding: 0 72px;
-  }
+  // @media (min-width: 744px) and (max-width: 1600px) {
+  //   padding: 0 72px;
+  // }
 }
 
-.card {
+.item {
   &__title {
-    font-size: 32px;
-    font-weight: 800;
+    font-size: $minorTitleFontSize;
+    font-weight: $titleWeight;
     color: $textColor;
+  }
+
+  &__image {
+    background-color: initial;
   }
 
   &__top {
@@ -44,6 +48,7 @@ main {
     &-left {
       position: relative;
       left: 0;
+      display: flex;
       flex-direction: column;
       flex-shrink: 0;
       grid-gap: 7px;
@@ -143,8 +148,8 @@ main {
   }
 
   &__available--text {
-    font-size: 12px;
-    font-weight: 700;
+    font-size: $linkFontSize;
+    font-weight: $buttonWeight;
     color: $secondaryTextColor;
   }
 
@@ -190,8 +195,8 @@ main {
       gap: 10px;
       width: 56px;
       height: 32px;
-      font-size: 14px;
-      font-weight: 600;
+      font-size: $minorButtonFontSize;
+      font-weight: $textWeight;
       color: $textColor;
       border: 1px solid $iconsColor;
 
@@ -209,14 +214,14 @@ main {
   }
 
   &__amount--main {
-    font-size: 32px;
-    font-weight: 800;
+    font-size: $minorTitleFontSize;
+    font-weight: $titleWeight;
     color: $selectedTextColor;
   }
 
   &__amount--cross {
-    font-size: 22px;
-    font-weight: 600;
+    font-size: $highTextFontSize;
+    font-weight: $textWeight;
     text-decoration: line-through;
     color: $iconsColor;
   }
@@ -233,8 +238,8 @@ main {
     justify-content: center;
     width: 70%;
     height: 40px;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: $buttonFontSize;
+    font-weight: $buttonWeight;
     text-decoration: none;
     color: $textColor;
     background-color: $buttonCheckoutColor;
@@ -250,8 +255,8 @@ main {
     justify-content: center;
     width: 25%;
     height: 40px;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: $buttonFontSize;
+    font-weight: $buttonWeight;
     text-decoration: none;
     color: $selectedTextColor;
     background-color: $iconsColor;
@@ -275,14 +280,14 @@ main {
       height: 18px;
 
       &-type {
-        font-size: 12px;
-        font-weight: 700;
+        font-size: $linkFontSize;
+        font-weight: $buttonWeight;
         color: $secondaryTextColor;
       }
 
       &-value {
-        font-size: 12px;
-        font-weight: 700;
+        font-size: $linkFontSize;
+        font-weight: $buttonWeight;
         color: $secondaryTextColor;
       }
     }
@@ -306,8 +311,8 @@ main {
 
   &__title {
     padding-bottom: 20px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: $textFontSize;
+    font-weight: $buttonWeight;
     color: $secondaryTextColor;
     border-bottom: 1px solid $borderColor;
   }
@@ -335,8 +340,8 @@ main {
 
   &__content--title {
     display: flex;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: $contentTitleFontSize;
+    font-weight: $buttonWeight;
     color: $textColor;
     grid-column: span 2;
 
@@ -350,8 +355,8 @@ main {
   }
 
   &__content--text {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: $minorTextFontSize;
+    font-weight: $textWeight;
     color: $iconsColor;
     grid-column: span 2;
 
@@ -372,8 +377,8 @@ main {
 
   &__title {
     padding-bottom: 20px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: $textFontSize;
+    font-weight: $buttonWeight;
     color: #75767f;
     border-bottom: 1px solid #3b3e4a;
   }
@@ -404,8 +409,8 @@ main {
   }
 
   &__item--type {
-    font-size: 12px;
-    font-weight: 700;
+    font-size: $linkFontSize;
+    font-weight: $buttonWeight;
     color: $secondaryTextColor;
 
     @media (min-width: 744px) {
@@ -418,8 +423,8 @@ main {
   }
 
   &__item--value {
-    font-size: 12px;
-    font-weight: 700;
+    font-size: $linkFontSize;
+    font-weight: $buttonWeight;
     color: $textColor;
 
     @media (min-width: 744px) {

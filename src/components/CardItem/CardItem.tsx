@@ -1,133 +1,144 @@
 import './CardItem.scss';
-// import React from 'react';
-import cardImage from './card-image/slider-photo1.svg';
-import centerImage from './card-image/iphoneGold.jpg';
+import React, { Fragment, useState } from 'react';
+import classNames from 'classnames';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
+import { Description, ProductFull } from '../../types/FullProduct';
+import { BASE_URL } from '../../api/api';
+import { ParamsCard } from '../../types/CardParams';
 
-export const CardItem = () => {
+type Props = {
+  product: ProductFull;
+};
+
+export const CardItem: React.FC<Props> = ({ product }) => {
+  const { images } = product;
+  const { description } = product;
+  const [selectImg, setSelectImg] = useState<string>(images[0]);
+
+  const baseUrl = new URL(BASE_URL);
+
+  const jsonString: Description[] = JSON.parse(description);
+
   return (
     <main>
-      <div className="card">
-        <h2 className="card__title">
-          Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
+      <div className="item">
+        <h2 key={product.id} className="item__title">
+          {product.name}
         </h2>
-        <div className="card__top">
-          <div className="card__top--container">
-            <div className="card__top-left">
-              <div className="card__image">
-                <img
-                  src={cardImage}
-                  alt="card__image--blocks"
-                  className="card__image--blocks"
-                />
-              </div>
-              <div className="card__image">
-                <img
-                  src={cardImage}
-                  alt="card__image--blocks"
-                  className="card__image--blocks"
-                />
-              </div>
-              <div className="card__image">
-                <img
-                  src={cardImage}
-                  alt="card__image--blocks"
-                  className="card__image--blocks"
-                />
-              </div>
-              <div className="card__image">
-                <img
-                  src={cardImage}
-                  alt="card__image--blocks"
-                  className="card__image--blocks"
-                />
-              </div>
-              <div className="card__image">
-                <img
-                  src={cardImage}
-                  alt="card__image--blocks"
-                  className="card__image--blocks"
-                />
-              </div>
+
+        <div className="item__top">
+          <div className="item__top--container">
+            <div className="item__top-left">
+              {images.map(image => (
+                <button
+                  key={image}
+                  type="button"
+                  className={classNames('item__image', {
+                    'is-active': image === selectImg,
+                  })}
+                  onClick={() => setSelectImg(image)}
+                >
+                  <img
+                    src={`${baseUrl.origin}/${image}`}
+                    alt={`${baseUrl.origin}/${image}`}
+                    className="item__image--blocks"
+                  />
+                </button>
+              ))}
             </div>
-            <div className="card__top-center">
+
+            <div className="item__top-center">
               <img
-                src={centerImage}
-                alt="card__image--blocks"
-                className="card__image--center"
+                src={`${baseUrl.origin}/${selectImg}`}
+                alt={`${baseUrl.origin}/${selectImg}`}
+                className="item__image--center"
               />
             </div>
           </div>
-          <div className="card__top-right">
-            <div className="card__right--available">
-              <p className="card__available--text">Available colors</p>
-              <div className="card__button--available">
+
+          <div className="item__top-right">
+            <div className="item__right--available">
+              <p className="item__available--text">Available colors</p>
+
+              <div className="item__button--available">
                 <button
                   type="button"
-                  className="card__available--brown"
+                  className="item__available--brown"
                   aria-label="send"
                 />
+
                 <button
                   type="button"
-                  className="card__available--brown"
+                  className="item__available--brown"
                   aria-label="send"
                 />
+
                 <button
                   type="button"
-                  className="card__available--brown"
+                  className="item__available--brown"
                   aria-label="send"
                 />
+
                 <button
                   type="button"
-                  className="card__available--brown"
+                  className="item__available--brown"
                   aria-label="send"
                 />
               </div>
             </div>
 
-            <div className="card__right--capacity">
-              <p className="card__available--text">Select capacity</p>
-              <div className="card__capacity-container">
-                <div className="card__capacity-container--button">64 GB</div>
-                <div className="card__capacity-container--button">256 GB</div>
-                <div className="card__capacity-container--button">512 GB</div>
+            <div className="item__right--capacity">
+              <p className="item__available--text">Select capacity</p>
+
+              <div className="item__capacity-container">
+                <div className="item__capacity-container--button">64 GB</div>
+
+                <div className="item__capacity-container--button">256 GB</div>
+
+                <div className="item__capacity-container--button">512 GB</div>
               </div>
             </div>
 
-            <div className="card__prices">
-              <div className="card__prices--amount">
-                <span className="card__amount--main">$799</span>
-                <span className="card__amount--cross">1199</span>
+            <div className="item__prices">
+              <div className="item__prices--amount">
+                <span className="item__amount--main">$799</span>
+
+                <span className="item__amount--cross">1199</span>
               </div>
-              <div className="card__prices__button">
-                <button type="submit" className="card__add--button">
+
+              <div className="item__prices__button">
+                <button type="submit" className="item__add--button">
                   Add to card
                 </button>
 
-                <button type="submit" className="card__favorite--button">
-                  <a className="card__favorite--button-sign" href="/">
+                <button type="submit" className="item__favorite--button">
+                  <a className="item__favorite--button-sign" href="/">
                     <img src={favourites_heart_like} alt="heart like" />
                   </a>
                 </button>
               </div>
             </div>
 
-            <div className="card__information">
-              <div className="card__information--screen">
-                <p className="card__information--screen-type">Screen</p>
-                <p className="card__information--screen-value">6.5” OLED</p>
+            <div className="item__information">
+              <div className="item__information--screen">
+                <p className="item__information--screen-type">Screen</p>
+
+                <p className="item__information--screen-value">6.5” OLED</p>
               </div>
-              <div className="card__information--screen">
-                <p className="card__information--screen-type">Screen</p>
-                <p className="card__information--screen-value">6.5” OLED</p>
+              <div className="item__information--screen">
+                <p className="item__information--screen-type">Screen</p>
+
+                <p className="item__information--screen-value">6.5” OLED</p>
               </div>
-              <div className="card__information--screen">
-                <p className="card__information--screen-type">Screen</p>
-                <p className="card__information--screen-value">6.5” OLED</p>
+              <div className="item__information--screen">
+                <p className="item__information--screen-type">Screen</p>
+
+                <p className="item__information--screen-value">6.5” OLED</p>
               </div>
-              <div className="card__information--screen">
-                <p className="card__information--screen-type">Screen</p>
-                <p className="card__information--screen-value">6.5” OLED</p>
+              <div className="item__information--screen">
+                <p className="item__information--screen-type">Screen</p>
+
+                <p className="item__information--screen-value">6.5” OLED</p>
               </div>
             </div>
           </div>
@@ -136,37 +147,22 @@ export const CardItem = () => {
         <div className="about">
           <section className="about__container">
             <h3 className="about__title">About</h3>
-            <div className="about__title--content">
-              <p className="about__content--title">And then there was Pro</p>
-              <p className="about__content--text">
-                A transformative triple‑camera system that adds tons of
-                capability without complexity. An unprecedented leap in battery
-                life. And a mind‑blowing chip that doubles down on machine
-                learning and pushes the boundaries of what a smartphone can do.
-                Welcome to the first iPhone powerful enough to be called Pro.
-              </p>
-            </div>
 
             <div className="about__title--content">
-              <p className="about__content--title">And then there was Pro</p>
-              <p className="about__content--text">
-                A transformative triple‑camera system that adds tons of
-                capability without complexity. An unprecedented leap in battery
-                life. And a mind‑blowing chip that doubles down on machine
-                learning and pushes the boundaries of what a smartphone can do.
-                Welcome to the first iPhone powerful enough to be called Pro.
-              </p>
-            </div>
+              {jsonString.map(des => (
+                <Fragment key={des.title}>
+                  <h3 className="about__content--title">{des.title}</h3>
 
-            <div className="about__title--content">
-              <p className="about__content--title">And then there was Pro</p>
-              <p className="about__content--text">
-                A transformative triple‑camera system that adds tons of
-                capability without complexity. An unprecedented leap in battery
-                life. And a mind‑blowing chip that doubles down on machine
-                learning and pushes the boundaries of what a smartphone can do.
-                Welcome to the first iPhone powerful enough to be called Pro.
-              </p>
+                  {des.text.map(tex => (
+                    <div
+                      key={tex.slice(0, 20)}
+                      className="about__content--text"
+                    >
+                      {tex}
+                    </div>
+                  ))}
+                </Fragment>
+              ))}
             </div>
           </section>
 
@@ -175,36 +171,51 @@ export const CardItem = () => {
 
             <div className="tech__content">
               <div className="tech__content--item">
-                <p className="tech__item--type">Screen</p>
-                <p className="tech__item--value">6.5” OLED</p>
+                <p className="tech__item--type">{ParamsCard.Display}</p>
+
+                <p className="tech__item--value">{product.screen}</p>
               </div>
+
               <div className="tech__content--item">
-                <p className="tech__item--type">Screen</p>
-                <p className="tech__item--value">6.5” OLED</p>
+                <p className="tech__item--type">{ParamsCard.Resolution}</p>
+
+                <p className="tech__item--value">{product.resolution}</p>
               </div>
+
               <div className="tech__content--item">
-                <p className="tech__item--type">Screen</p>
-                <p className="tech__item--value">6.5” OLED</p>
+                <p className="tech__item--type">{ParamsCard.Processor}</p>
+
+                <p className="tech__item--value">{product.processor}</p>
               </div>
+
               <div className="tech__content--item">
-                <p className="tech__item--type">Screen</p>
-                <p className="tech__item--value">6.5” OLED</p>
+                <p className="tech__item--type">{ParamsCard.Ram}</p>
+
+                <p className="tech__item--value">{product.ram}</p>
               </div>
+
               <div className="tech__content--item">
-                <p className="tech__item--type">Screen</p>
-                <p className="tech__item--value">6.5” OLED</p>
+                <p className="tech__item--type">{ParamsCard.Memory}</p>
+
+                <p className="tech__item--value">{product.capacity}</p>
               </div>
+
               <div className="tech__content--item">
-                <p className="tech__item--type">Screen</p>
-                <p className="tech__item--value">6.5” OLED</p>
+                <p className="tech__item--type">{ParamsCard.Camera}</p>
+
+                <p className="tech__item--value">{product.camera}</p>
               </div>
+
               <div className="tech__content--item">
-                <p className="tech__item--type">Screen</p>
-                <p className="tech__item--value">6.5” OLED</p>
+                <p className="tech__item--type">{ParamsCard.Zoom}</p>
+
+                <p className="tech__item--value">{product.zoom}</p>
               </div>
+
               <div className="tech__content--item">
-                <p className="tech__item--type">Screen</p>
-                <p className="tech__item--value">6.5” OLED</p>
+                <p className="tech__item--type">{ParamsCard.Cell}</p>
+
+                <p className="tech__item--value">{product.cell.join(', ')}</p>
               </div>
             </div>
           </div>

@@ -13,20 +13,20 @@
 .error {
   &__status {
     margin: 30px 0;
-    font-size: 250px;
+    font-size: $errorFontSize;
     font-weight: bolder;
     text-shadow: 3px 3px 3px $errorStatusColorShadow;
     animation: scale 1s alternate infinite;
   }
 
   &__message {
-    font-size: 50px;
+    font-size: $errorMessageFontSize;
     color: $textColor;
   }
 
   &__type {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: $errorTypeFontSize;
+    font-weight: $textWeight;
     color: $textColor;
   }
 }
@@ -34,10 +34,11 @@
 .homepage-link {
   display: flex;
   align-items: center;
+  margin-top: 20px;
   padding: 15px;
-  font-size: 20px;
+  font-size: $buttonFontSize;
   text-decoration: none;
-  color: #f1f2f9;
+  color: $textColor;
   border: 1px solid $textColor;
   border-radius: 10px;
   transition: all 0.5s;
@@ -45,7 +46,7 @@
   &:hover {
     text-decoration: underline;
     color: $backgroundColor;
-    background-color: $backgroundColor;
+    background-color: $textColor;
     border-color: $backgroundColor;
   }
 
