@@ -10,7 +10,8 @@ import { Navigation } from 'swiper/modules';
 
 import { ToastContainer } from 'react-toastify';
 import { Card } from '../Card/card';
-import { Phone } from '../../types/Phone';
+import { getPhones } from '../../api/api';
+import { Product } from '../../types/Product';
 
 type Props = {
   title: string;

@@ -1,6 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-console */
 import './Catalog.scss';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -8,16 +5,16 @@ import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Card } from '../Card/card';
 import { getPhonesByUrl } from '../../api/api';
-import { Phone } from '../../types/Phone';
 import { Dropdown } from './Dropdown/Dropdown';
 
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
 import { DropdownOptions } from '../../types/DropdownOptions';
 import { PaginationButtons } from './Pagination/Pagination';
+import { Product } from '../../types/Product';
 
 export const Catalog: React.FC = () => {
-  const [phones, setPhones] = useState<Phone[]>([]);
+  const [phones, setPhones] = useState<Product[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [totalItems, setTotalItems] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -74,6 +71,7 @@ export const Catalog: React.FC = () => {
         setTotalItems(res.totalItems);
       })
       .catch(error => {
+        // eslint-disable-next-line no-console
         console.log(error);
       })
       .finally(() => {
@@ -165,7 +163,7 @@ export const Catalog: React.FC = () => {
                   ))
                   : phones.map(phone => (
                     <div className="card-container" key={phone.id}>
-                      <Card phone={phone} />
+                      <Card product={phone} />
                     </div>
                   ))}
               </section>

@@ -1,85 +1,27 @@
-import { useState } from 'react';
-import useLocalStorage from 'use-local-storage';
+import React, { useContext, useState } from 'react';
 import './CartMenu.scss';
 
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import BackIcon from './images/back.svg';
-import { Phone } from '../../types/Phone';
 import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
+import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
+import { StorageContext } from '../StorageContext/StorageContext';
+import { Product } from '../../types/Product';
 
 export const CartMenu: React.FC = () => {
-  const [cart, setCart] = useLocalStorage<Phone[]>('cart', [
-    {
-      id: 1,
-      category: 'phones',
-      phoneId: null,
-      itemId: 'apple-iphone-7-32gb-black',
-      name: 'Apple iPhone 7 32GB Black',
-      fullPrice: 400,
-      price: 375,
-      screen: "4.7' IPS",
-      capacity: '32GB',
-      color: 'black',
-      ram: '2GB',
-      year: 2016,
-      image: 'img/phones/apple-iphone-7/black/00.webp',
-    },
-    {
-      id: 2,
-      category: 'phones',
-      phoneId: null,
-      itemId: 'apple-iphone-7-plus-32gb-black',
-      name: 'Apple iPhone 7 Plus 32GB Black',
-      fullPrice: 540,
-      price: 500,
-      screen: "5.5' IPS",
-      capacity: '32GB',
-      color: 'black',
-      ram: '3GB',
-      year: 2016,
-      image: 'img/phones/apple-iphone-7-plus/black/00.webp',
-    },
-    {
-      id: 3,
-      category: 'phones',
-      phoneId: null,
-      itemId: 'apple-iphone-8-64gb-gold',
-      name: 'Apple iPhone 8 64GB Gold',
-      fullPrice: 600,
-      price: 550,
-      screen: "4.7' IPS",
-      capacity: '64GB',
-      color: 'gold',
-      ram: '2GB',
-      year: 2017,
-      image: 'img/phones/apple-iphone-8/gold/00.webp',
-    },
-  ]);
   const [modalActive, setModalActive] = useState(false);
-  const startTotalCost = cart.reduce((acc, curr) => {
-    return acc + curr.price * (curr.count ? curr.count : 1);
-  }, 0);
 
-  const [totalCost, setTotalCost] = useState(startTotalCost);
-  const [totalItemsCounter, setTotalItemsCounter] = useState(cart.length);
-
-  // const addToCart = (product:Phone) => {
-  //   const updatedCart = [...cart, product];
-
-  //   setCart(updatedCart);
-  // };
-
-  const removeFromCart = (product: Phone) => {
-    const updatedCart = cart.filter(item => item !== product);
-
-    setCart(updatedCart);
-
-    const newTotalCost = updatedCart.reduce((acc, curr) => acc + curr.price, 0);
-
-    setTotalCost(newTotalCost);
-  };
+  const {
+    cart,
+    setCart,
+    totalCost,
+    setTotalCost,
+    removeFromCart,
+    setTotalItemsCounter,
+    totalItemsCounter,
+  } = useContext(StorageContext);
 
   return (
     <>
@@ -96,7 +38,7 @@ export const CartMenu: React.FC = () => {
             {cart.length ? (
               <div className="cards-container">
                 <section className="cards">
-                  {cart.map((product: Phone) => (
+                  {cart.map((product: Product) => (
                     <CartItem
                       key={product.id}
                       product={product}
@@ -118,7 +60,9 @@ export const CartMenu: React.FC = () => {
                   <button
                     type="button"
                     className="button-checkout total-cost__button"
-                    onClick={() => setModalActive(true)}
+                    onClick={() => {
+                      setModalActive(true);
+                    }}
                   >
                     Checkout
                   </button>

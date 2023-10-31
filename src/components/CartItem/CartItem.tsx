@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from 'react';
-import { Phone } from '../../types/Phone';
 import CloseIcon from '../CartMenu/images/close-gray.svg';
 import CounterPlus from '../CartMenu/images/counter-plus.svg';
 import CounterMinus from '../CartMenu/images/counter-minus.svg';
 import './CartItem.scss';
+import { Product } from '../../types/Product';
 
 type Props = {
-  product: Phone;
-  removeFromCart: (product: Phone) => void;
+  product: Product;
+  removeFromCart: (product: Product) => void;
   setTotalCost: React.Dispatch<React.SetStateAction<number>>;
   setTotalItemsCounter: React.Dispatch<React.SetStateAction<number>>;
   setCart: any;
@@ -70,7 +70,10 @@ export const CartItem: React.FC<Props> = ({
         <button
           type="button"
           className="cart-card__button button-delete"
-          onClick={() => removeFromCart(product)}
+          onClick={() => {
+            setTotalItemsCounter((prev: number) => prev - 1);
+            removeFromCart(product);
+          }}
         >
           <img src={CloseIcon} alt="close-icon" className="cart-card__close" />
         </button>
