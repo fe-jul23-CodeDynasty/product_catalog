@@ -1,8 +1,8 @@
-import { Phone } from './Phone';
+import { Product } from './Product';
 
 export type ServerResponse = {
   currentPage: number;
-  products: Phone[];
+  products: Product[];
   totalItems: number;
   totalPages: number;
 };

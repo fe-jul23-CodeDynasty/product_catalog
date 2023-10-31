@@ -5,6 +5,7 @@ import App from './App';
 import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 import { FavouritesPage } from './components/FavouritesPage/FavouritesPage';
 import { CartMenu } from './components/CartMenu/CartMenu';
+// eslint-disable-next-line max-len
 import { ProductDetailsPage } from './components/ProductDetailsPage/ProductDetailsPage';
 
 export const Root = () => (

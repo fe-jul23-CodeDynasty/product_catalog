@@ -1,25 +1,14 @@
 /* eslint-disable no-console */
 import './FavouritesPage.scss';
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { Card } from '../Card/card';
 
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
-import { getPhones } from '../../api/api';
-import { Phone } from '../../types/Phone';
+import { StorageContext } from '../StorageContext/StorageContext';
 
 export const FavouritesPage = () => {
-  const [phones, setPhones] = useState<Phone[]>();
-
-  useEffect(() => {
-    getPhones()
-      .then(res => {
-        setPhones(res.products);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
+  const { favorites, favoritesCounter } = useContext(StorageContext);
 
   return (
     <div className="favourite-page">
@@ -42,13 +31,16 @@ export const FavouritesPage = () => {
 
             <h1 className="title">Favourites</h1>
 
-            <p className="items-count">5 items</p>
+            <p className="items-count">{`${favoritesCounter} items`}</p>
           </div>
 
           <section className="cards">
-            {phones?.slice(0, 6)?.map(phone => (
-              <div className="card__container">
-                <Card phone={phone} />
+            {favorites?.map(favorite => (
+              <div
+                key={favorite.id}
+                className="card__container"
+              >
+                <Card product={favorite} />
               </div>
             ))}
           </section>

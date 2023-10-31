@@ -10,14 +10,14 @@ import { Navigation } from 'swiper/modules';
 import { ToastContainer } from 'react-toastify';
 import { Card } from '../Card/card';
 import { getPhones } from '../../api/api';
-import { Phone } from '../../types/Phone';
+import { Product } from '../../types/Product';
 
 type Props = {
   title: string;
 };
 
 export const PromoSlider: React.FC<Props> = ({ title }) => {
-  const [phones, setPhones] = useState<Phone[]>();
+  const [phones, setPhones] = useState<Product[]>();
 
   useEffect(() => {
     getPhones()
@@ -52,7 +52,7 @@ export const PromoSlider: React.FC<Props> = ({ title }) => {
       >
         {phones?.map(phone => (
           <SwiperSlide>
-            <Card phone={phone} />
+            <Card product={phone} />
           </SwiperSlide>
         ))}
       </Swiper>

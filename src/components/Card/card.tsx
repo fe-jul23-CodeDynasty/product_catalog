@@ -1,17 +1,32 @@
 /* eslint-disable no-shadow */
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone } from '../../types/Phone';
 import './card.scss';
 
 import HeartIcon from './images/heart-red.svg';
+import { StorageContext } from '../StorageContext/StorageContext';
+import { Product } from '../../types/Product';
 
 type Props = {
-  phone: Phone;
+  product: Product;
 };
 
-export const Card: React.FC<Props> = ({ phone }) => {
-  const { image, name, itemId, price, fullPrice, screen, capacity, ram }
-    = phone;
+export const Card: React.FC<Props> = ({ product }) => {
+  const {
+    image,
+    name,
+    itemId,
+    price,
+    fullPrice,
+    screen, capacity,
+    ram,
+  } = product;
+
+  const {
+    addToCart,
+    addToFavorites,
+    setTotalItemsCounter,
+  } = useContext(StorageContext);
 
   return (
     <div className="card">
@@ -55,11 +70,22 @@ export const Card: React.FC<Props> = ({ phone }) => {
         </ul>
       </div>
       <div className="card__buttons">
-        <button type="button" className="card__buttons__button">
+        <button
+          onClick={() => {
+            addToCart(product);
+            setTotalItemsCounter((prev: number) => prev + 1);
+          }}
+          type="button"
+          className="card__buttons__button"
+        >
           Add to cart
         </button>
 
-        <button type="button" className="card__buttons__heart">
+        <button
+          onClick={() => addToFavorites(product)}
+          type="button"
+          className="card__buttons__heart"
+        >
           <img src={HeartIcon} alt="heart-icon" className="icon--heart" />
         </button>
       </div>
