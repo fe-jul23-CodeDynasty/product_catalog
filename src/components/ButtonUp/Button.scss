@@ -28,10 +28,12 @@
     font-family: Mont, sans-serif;
     font-weight: $buttonWeight;
     color: $secondaryTextColor;
-    transition: color 0.3s, transform 0.3s;
+    transition:
+      color 0.3s,
+      transform 0.3s;
     transform: scale(1);
   }
-  
+
   &:hover {
     transform: scale(1.2);
   }
