@@ -133,17 +133,20 @@
       text-decoration: none;
       line-height: 21px;
       color: $textColor;
-      background-color: transparent;
       border: 1px solid $borderColor;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, border 0.3s;
+      background-color: $borderColor;
 
-      &:hover {
-        background-color: $borderColor;
+      &--active {
+        background-color: $cardColor;
+        border: 1px solid $cardColor;
       }
 
-      &:active {
-        color: $errorStatusColorShadow;
-      }
+
+      //&:hover {
+      //  background-color: $borderColor;
+      //}
+      //
     }
   }
 }
