@@ -1,7 +1,7 @@
 @import '../../utils/mixins';
 @import '../../utils/variables.scss';
 
-.wallpapper {
+.wallpaper {
   @include contentPaddingInline;
 
   color: $textColor;
