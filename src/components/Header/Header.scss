@@ -105,9 +105,14 @@
     justify-content: center;
     padding: 16px;
     border-left: 1px solid $borderColorHeader;
+    transition: background-color 0.3s;
 
     @include onDesktop() {
       padding: 32px;
+    }
+
+    &:hover {
+      background-color: #eb5757;
     }
   }
 
@@ -117,9 +122,14 @@
     justify-content: center;
     padding: 16px;
     border-left: 1px solid $borderColorHeader;
+    transition: background-color 0.3s;
 
     @include onDesktop() {
       padding: 32px;
+    }
+
+    &:hover {
+      background-color: #eb5757;
     }
   }
 }
@@ -130,7 +140,6 @@
 
 .wrapper-shopping-bag-counter {
   position: relative;
-
 }
 
 .shopping-favorites-bag__counter {
