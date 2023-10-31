@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import classNames from 'classnames';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import ArrowRightIcon from '../images/arrow-right.svg';
 import ArrowLeftIcon from '../images/arrow-left.svg';
@@ -18,6 +20,7 @@ type Props = {
   itemsOnPage: number;
   searchParams: URLSearchParams;
   setSearchParams: (params: URLSearchParams) => void;
+  isLoading: boolean;
 };
 
 export const PaginationButtons: React.FC<Props> = ({
@@ -26,11 +29,13 @@ export const PaginationButtons: React.FC<Props> = ({
   itemsOnPage,
   searchParams,
   setSearchParams,
+  isLoading,
 }) => {
   const totalPages = Math.ceil(totalItems / itemsOnPage);
   const isFirstPage = currentPage === 1;
   const isPreLastPage = currentPage === totalPages - 1;
   const isLastPage = currentPage === totalPages;
+  const isLessThanFourPages = totalItems / itemsOnPage < 4;
 
   const handleCurrenPageChange = (page: string) => {
     const params = new URLSearchParams(searchParams);
@@ -58,7 +63,7 @@ export const PaginationButtons: React.FC<Props> = ({
   };
 
   const showFirstButtonNumber = () => {
-    if (isFirstPage) {
+    if (isFirstPage || isLessThanFourPages) {
       return '1';
     }
 
@@ -78,6 +83,10 @@ export const PaginationButtons: React.FC<Props> = ({
       return '2';
     }
 
+    if (isLessThanFourPages) {
+      return '2';
+    }
+
     if (isPreLastPage) {
       return `${currentPage - 1}`;
     }
@@ -91,6 +100,10 @@ export const PaginationButtons: React.FC<Props> = ({
 
   const showThirdButtonNumber = () => {
     if (isFirstPage) {
+      return '3';
+    }
+
+    if (isLessThanFourPages) {
       return '3';
     }
 
@@ -188,14 +201,17 @@ export const PaginationButtons: React.FC<Props> = ({
     'button-pagination button-pagination--number',
     {
       'button-pagination--number-is-active':
-        currentPage !== 1 && currentPage < totalPages - 1,
+        (currentPage !== 1 && currentPage < totalPages - 1)
+        || (isLessThanFourPages && currentPage === 2),
     },
   );
 
   const thirdButtonClasses = classNames(
     'button-pagination button-pagination--number',
     {
-      'button-pagination--number-is-active': currentPage === totalPages - 1,
+      'button-pagination--number-is-active':
+        (currentPage === totalPages - 1 && !isLessThanFourPages)
+        || (isLessThanFourPages && currentPage === 3),
     },
   );
 
@@ -208,43 +224,69 @@ export const PaginationButtons: React.FC<Props> = ({
 
   return (
     <div className="phones-page__bottom">
-      <PaginationArrowButton
-        onButtonChange={handleCurrenPageDecrement}
-        isDisabled={isFirstPage}
-        ArrowIcon={ArrowLeftIcon}
-      />
+      {isLoading ? (
+        <Skeleton height={40} width={40} />
+      ) : (
+        <PaginationArrowButton
+          onButtonChange={handleCurrenPageDecrement}
+          isDisabled={isFirstPage}
+          ArrowIcon={ArrowLeftIcon}
+        />
+      )}
 
       <div className="wrapper-pagination">
-        <PaginationNumberButton
-          buttonClasses={firstButtonCLasses}
-          onButtonChange={handleFirstButtonChange}
-          showButtonNumber={showFirstButtonNumber}
-        />
+        {isLoading ? (
+          <Skeleton height={40} width={40} />
+        ) : (
+          <PaginationNumberButton
+            buttonClasses={firstButtonCLasses}
+            onButtonChange={handleFirstButtonChange}
+            showButtonNumber={showFirstButtonNumber}
+          />
+        )}
 
-        <PaginationNumberButton
-          buttonClasses={secondButtonClasses}
-          onButtonChange={handleSecondButtonChange}
-          showButtonNumber={showSecondButtonNumber}
-        />
+        {isLoading ? (
+          <Skeleton height={40} width={40} />
+        ) : (
+          <PaginationNumberButton
+            buttonClasses={secondButtonClasses}
+            onButtonChange={handleSecondButtonChange}
+            showButtonNumber={showSecondButtonNumber}
+          />
+        )}
 
-        <PaginationNumberButton
-          buttonClasses={thirdButtonClasses}
-          onButtonChange={handleThirdButtonChange}
-          showButtonNumber={showThirdButtonNumber}
-        />
+        {isLoading ? (
+          <Skeleton height={40} width={40} />
+        ) : (
+          <PaginationNumberButton
+            buttonClasses={thirdButtonClasses}
+            onButtonChange={handleThirdButtonChange}
+            showButtonNumber={showThirdButtonNumber}
+          />
+        )}
 
-        <PaginationNumberButton
-          buttonClasses={fourthButtonClasses}
-          onButtonChange={handleFourthButtonChange}
-          showButtonNumber={showFourthButtonNumber}
-        />
+        {isLoading && !isLessThanFourPages ? (
+          <Skeleton height={40} width={40} />
+        ) : (
+          !isLessThanFourPages && (
+            <PaginationNumberButton
+              buttonClasses={fourthButtonClasses}
+              onButtonChange={handleFourthButtonChange}
+              showButtonNumber={showFourthButtonNumber}
+            />
+          )
+        )}
       </div>
 
-      <PaginationArrowButton
-        onButtonChange={handleCurrenPageIncrement}
-        isDisabled={isLastPage}
-        ArrowIcon={ArrowRightIcon}
-      />
+      {isLoading ? (
+        <Skeleton height={40} width={40} />
+      ) : (
+        <PaginationArrowButton
+          onButtonChange={handleCurrenPageIncrement}
+          isDisabled={isLastPage}
+          ArrowIcon={ArrowRightIcon}
+        />
+      )}
     </div>
   );
 };
