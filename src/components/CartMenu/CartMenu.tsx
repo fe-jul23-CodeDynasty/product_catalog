@@ -8,7 +8,6 @@ import BackIcon from './images/back.svg';
 import { Phone } from '../../types/Phone';
 import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
-import { NotFoundPage } from '../NotFoundPage/NotFoundPage';
 
 export const CartMenu: React.FC = () => {
   const [cart, setCart] = useLocalStorage<Phone[]>('cart', [
@@ -137,7 +136,6 @@ export const CartMenu: React.FC = () => {
         setActive={setModalActive}
         setCart={setCart}
       />
-      <NotFoundPage />
     </>
   );
 };
