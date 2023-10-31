@@ -142,6 +142,7 @@
 
 .cards {
   margin-top: 16px;
+  row-gap: 16px;
   grid-column: 1 / -1;
 
   @include onDesktop() {

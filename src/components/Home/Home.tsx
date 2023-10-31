@@ -1,43 +1,78 @@
+/* eslint-disable no-console */
 import { useState, useEffect } from 'react';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import ButtonUp from '../ButtonUp/ButtonUp';
-import Loader from '../Loader/Loader';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
 import './home.scss';
+import { getPhonesByUrl } from '../../api/api';
+import { Phone } from '../CardItem/types/Phone';
 
 export const Home = () => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [brandNewModels, setBrandNewModels] = useState<Phone[]>([]);
+  const [hotPrices, setHotPrices] = useState<Phone[]>([]);
+
+  const brandNewModelsURL
+    = 'https://product-catalog-be-qps4.onrender.com/products/new';
+  const hotPricesURL
+    = 'https://product-catalog-be-qps4.onrender.com/products/discount';
 
   useEffect(() => {
-    setLoading(false);
+    setIsLoading(true);
+
+    getPhonesByUrl(brandNewModelsURL)
+      .then(setBrandNewModels)
+      .catch(error => {
+        console.log(error);
+      });
+
+    getPhonesByUrl(hotPricesURL)
+      .then(setHotPrices)
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      });
   }, []);
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className="wallpaper">
-          <div className="container-home">
+      <div className="wallpaper">
+        <div className="container-home">
+          <SkeletonTheme baseColor="#161827" highlightColor="#323542">
             <h1 className="container-home__h1">
-              Welcome to Nice Gadgets store!
+              {isLoading ? <Skeleton /> : 'Welcome to Nice Gadgets store!'}
             </h1>
+
             <div className="container-home__slider">
-              <Slider />
+              {isLoading ? <Skeleton height={360} /> : <Slider />}
             </div>
             <div className="container-home__promo-slider">
-              <PromoSlider title="Brand new models" />
+              <PromoSlider
+                title="Brand new models"
+                phones={brandNewModels}
+                isLoading={isLoading}
+              />
             </div>
             <div className="container-home__by-categories">
-              <ByCategories />
+              <ByCategories isLoading={isLoading} />
             </div>
             <div className="container-home__promo-slider">
-              <PromoSlider title="Hot prices" />
+              <PromoSlider
+                title="Hot prices"
+                phones={hotPrices}
+                isLoading={isLoading}
+              />
             </div>
-          </div>
+          </SkeletonTheme>
         </div>
-      )}
+      </div>
       <div className="container-home__buttonUp">
         <ButtonUp />
       </div>

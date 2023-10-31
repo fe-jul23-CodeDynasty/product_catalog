@@ -9,17 +9,12 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Card } from '../Card/card';
 import { getPhonesByUrl } from '../../api/api';
 import { Phone } from '../../types/Phone';
-import { ServerResponse } from '../../types/ServerResponse';
 import { Dropdown } from './Dropdown/Dropdown';
 
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
 import { DropdownOptions } from '../../types/DropdownOptions';
 import { PaginationButtons } from './Pagination/Pagination';
-
-function getPreparedPhones(api: string): Promise<ServerResponse> {
-  return getPhonesByUrl(api);
-}
 
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -73,7 +68,7 @@ export const Catalog: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    getPreparedPhones(preparedApi)
+    getPhonesByUrl(preparedApi)
       .then(res => {
         setPhones(res.products);
         setTotalItems(res.totalItems);
@@ -163,7 +158,7 @@ export const Catalog: React.FC = () => {
 
               <section className="cards">
                 {isLoading
-                  ? phones.map(() => (
+                  ? Array.from({ length: itemsOnPage }).map(() => (
                     <div className="card-container">
                       <Skeleton height={530} />
                     </div>
