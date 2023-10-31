@@ -13,6 +13,7 @@
   &__h1 {
     grid-column: 1 / -1;
     margin: 24px 0;
+    color: $textColor;
 
     @include onTablet {
       margin: 32px 0;
