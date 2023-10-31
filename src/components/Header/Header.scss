@@ -4,7 +4,7 @@
 
 .header {
   background: $backgroundColor;
-  @include contentPaddingInline;
+
   @mixin onTablet {
     gap: 24px;
   }
@@ -15,7 +15,7 @@
     justify-content: space-between;
     gap: 16px;
     padding-left: 16px;
-    border: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
     box-sizing: border-box;
 
     @include onDesktop() {
@@ -123,8 +123,3 @@
     }
   }
 }
-
-// .container_shopping-bag {
-//   display: block;
-//   border-left: 1px solid $borderColorHeader;
-// }
