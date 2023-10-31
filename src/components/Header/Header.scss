@@ -123,3 +123,26 @@
     }
   }
 }
+
+.wrapper-heart-counter {
+  position: relative;
+}
+
+.shopping-bag__counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -80%;
+  right: -80%;
+  transform: translateX(-50%) translateY(50%);
+  width: 14px;
+  height: 14px;
+  background-color: #eb5757;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 1px solid $backgroundColor;
+  font-size: 9px;
+  color: $textColor;
+  font-family: Mont, sans-serif;
+}
