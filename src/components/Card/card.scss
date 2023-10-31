@@ -133,9 +133,9 @@
       text-decoration: none;
       line-height: 21px;
       color: $textColor;
+      background-color: $borderColor;
       border: 1px solid $borderColor;
       transition: background-color 0.3s, border 0.3s;
-      background-color: $borderColor;
 
       &--active {
         background-color: $cardColor;
