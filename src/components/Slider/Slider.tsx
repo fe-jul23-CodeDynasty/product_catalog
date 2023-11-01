@@ -9,7 +9,7 @@ import './Slider.scss';
 
 import firstBannerMob from './images/Banner-mob.png';
 import secondBannerMob from './images/banner-phones_slider.png';
-import thirdBannerMob from './images/banner-tablets_slider.png';
+import thirdBannerMob from './images/banner-tablets1200_slider.png';
 
 import firstBanner from './images/Banner.png';
 import secondBanner from './images/banner-tablets1200.png';
