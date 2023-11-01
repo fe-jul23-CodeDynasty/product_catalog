@@ -116,7 +116,6 @@
       &:hover {
         color: $buttonCheckoutColor;
         background-color: $textColor;
-        //background-color: $buttonCheckoutHoverColor;
       }
 
       &:active {
@@ -135,13 +134,12 @@
       text-decoration: none;
       line-height: 21px;
       color: $textColor;
-      border: 1px solid $borderColor;
-      transition: background-color 0.3s, border 0.3s, border-radius 1s;
       background-color: $borderColor;
       border: 1px solid $borderColor;
       transition:
         background-color 0.3s,
-        border 0.3s;
+        border 0.3s,
+        border-radius 1s;
 
       &:hover {
         border-radius: 50%;

@@ -18,7 +18,7 @@ export const ProductDetailsPage: React.FC = () => {
     getProductById(id || '')
       .then(data => setProduct(data))
       .catch(mess => {
-        navigate('../../not_found', { relative: 'path' });
+        navigate('../../not_found', { relative: 'path', replace: true });
         setErrMess(mess);
       })
       .finally(() => setIsLoading(false));

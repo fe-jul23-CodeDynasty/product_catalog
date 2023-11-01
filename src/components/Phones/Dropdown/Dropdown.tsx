@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import './Dropdown.scss';
 import { DropdownOptions } from '../../../types/DropdownOptions';
 

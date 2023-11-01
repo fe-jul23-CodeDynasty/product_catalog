@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { useState, useEffect } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -26,12 +25,14 @@ export const Home = () => {
     getPhonesByUrl(brandNewModelsURL)
       .then(setBrandNewModels)
       .catch(error => {
+        // eslint-disable-next-line no-console
         console.log(error);
       });
 
     getPhonesByUrl(hotPricesURL)
       .then(setHotPrices)
       .catch(error => {
+        // eslint-disable-next-line no-console
         console.log(error);
       })
       .finally(() => {

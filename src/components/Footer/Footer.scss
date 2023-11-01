@@ -23,12 +23,11 @@
   height: auto;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid $borderColor;
-  
+
   // @include contentPaddingInline;
   // @mixin onTablet {
   //   gap: 24px;
   // }
-  
 
   @media (max-width: 639px) {
     display: flex;
@@ -101,33 +100,31 @@
     letter-spacing: 0.48px;
     line-height: 11px;
     color: $textColor;
-
     font-style: normal;
 
     @media (max-width: 639px) {
       display: flex;
       flex-direction: column;
       padding: 0;
+      transition: color 0.3s;
 
-    transition: color 0.3s;
-
-    &:hover {
-      color: $silverColor;
-
+      &:hover {
+        color: $silverColor;
+      }
     }
-  }
 
-  &__button {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 16px;
-  }
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+    }
 
-  &__button--text {
-    display: inline-block;
-    font-size: $linkFontSize;
-    font-weight: $buttonWeight;
-    color: $textColor;
+    &__button--text {
+      display: inline-block;
+      font-size: $linkFontSize;
+      font-weight: $buttonWeight;
+      color: $textColor;
+    }
   }
 }

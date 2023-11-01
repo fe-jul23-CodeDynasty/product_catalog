@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const API_URL = 'https://product-catalog-be-qps4.onrender.com/products';
 
 export const BASE_URL

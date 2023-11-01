@@ -1,6 +1,3 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-console */
 import './Catalog.scss';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -66,6 +63,7 @@ export const Catalog: React.FC = () => {
         setTotalItems(res.totalItems);
       })
       .catch(error => {
+        // eslint-disable-next-line no-console
         console.log(error);
       })
       .finally(() => {

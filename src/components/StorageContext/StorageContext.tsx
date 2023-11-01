@@ -71,8 +71,6 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
       return;
     }
 
-    // const updatedCart = [...cart, product];
-
     setCart(prevState => {
       if (prevState) {
         return [...prevState, product];
