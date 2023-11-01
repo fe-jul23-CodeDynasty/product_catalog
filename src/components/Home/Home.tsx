@@ -6,7 +6,7 @@ import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
 import './home.scss';
-import { getPhonesByUrl } from '../../api/api';
+import { getPhonesByParams } from '../../api/api';
 import { Product } from '../../types/Product';
 
 export const Home = () => {
@@ -14,22 +14,20 @@ export const Home = () => {
   const [brandNewModels, setBrandNewModels] = useState<Product[]>([]);
   const [hotPrices, setHotPrices] = useState<Product[]>([]);
 
-  const brandNewModelsURL
-    = 'https://product-catalog-be-qps4.onrender.com/products/new';
-  const hotPricesURL
-    = 'https://product-catalog-be-qps4.onrender.com/products/discount';
+  const newProductsParam = '/new';
+  const discountProductsParam = '/discount';
 
   useEffect(() => {
     setIsLoading(true);
 
-    getPhonesByUrl(brandNewModelsURL)
+    getPhonesByParams(newProductsParam)
       .then(setBrandNewModels)
       .catch(error => {
         // eslint-disable-next-line no-console
         console.log(error);
       });
 
-    getPhonesByUrl(hotPricesURL)
+    getPhonesByParams(discountProductsParam)
       .then(setHotPrices)
       .catch(error => {
         // eslint-disable-next-line no-console
