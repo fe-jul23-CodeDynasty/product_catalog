@@ -1,0 +1,51 @@
+.bread {
+  &__container {
+    display: flex;
+  width: 400px;
+
+    &--home {
+      display: block;
+      padding-right: 5px;
+      max-width: 100%;
+      height: 20px;
+      object-fit: cover;
+    }
+
+    &--arrow {
+      display: block;
+      max-width: 100%;
+      height: 20px;
+      object-fit: cover;
+    }
+  }
+}
+
+
+
+.breadcrumbs {
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.breadcrumbs > * {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.breadcrumbs .crumb::after {
+  content: '>';
+  margin-left: 10px;
+  color: #ddd;
+}
+
+.breadcrumbs .crumb:last-child::after {
+  display: none;
+}
+
+.breadcrumbs .crumb a {
+  font-family: Mont, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: #75767f;
+  text-transform: capitalize;
+}

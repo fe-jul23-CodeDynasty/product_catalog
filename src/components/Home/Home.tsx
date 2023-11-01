@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import ButtonUp from '../ButtonUp/ButtonUp';
+// import ButtonUp from '../ButtonUp/ButtonUp';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
@@ -73,9 +73,9 @@ export const Home = () => {
           </SkeletonTheme>
         </div>
       </div>
-      <div className="container-home__buttonUp">
+      {/* <div className="container-home__buttonUp">
         <ButtonUp />
-      </div>
+      </div> */}
     </>
   );
 };
