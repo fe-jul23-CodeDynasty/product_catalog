@@ -4,7 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Card } from '../Card/card';
-import { getPhonesByUrl } from '../../api/api';
+import { getPhonesByParams } from '../../api/api';
 import { Product } from '../../types/Product';
 import { Dropdown } from './Dropdown/Dropdown';
 
@@ -25,7 +25,7 @@ export const Catalog: React.FC = () => {
   const currentPage = +(searchParams.get('currentPage') || '1');
   const direction = searchParams.get('direction') || 'ASC';
 
-  const preparedApi = `https://product-catalog-be-qps4.onrender.com/products?category=${category}&sortBy=${sortBy}&itemsOnPage=${itemsOnPage}&currentPage=${currentPage}&direction=${direction}`;
+  const productsParams = `?category=${category}&sortBy=${sortBy}&itemsOnPage=${itemsOnPage}&currentPage=${currentPage}&direction=${direction}`;
 
   const categoryTitles = {
     phones: 'Mobile phones',
@@ -57,7 +57,7 @@ export const Catalog: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    getPhonesByUrl(preparedApi)
+    getPhonesByParams(productsParams)
       .then(res => {
         setProducts(res.products);
         setTotalItems(res.totalItems);

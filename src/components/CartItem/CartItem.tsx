@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import CloseIcon from '../CartMenu/images/close-gray.svg';
 import CounterPlus from '../CartMenu/images/counter-plus.svg';
 import CounterMinus from '../CartMenu/images/counter-minus.svg';
@@ -20,7 +21,7 @@ export const CartItem: React.FC<Props> = ({
   setTotalItemsCounter,
   setCart,
 }) => {
-  const { name: productName, image, price } = product;
+  const { name: productName, image, price, itemId } = product;
   const [count, setCount] = useState(product.count ? product.count : 1);
 
   const cartItemCountIncrement = () => {
@@ -78,13 +79,21 @@ export const CartItem: React.FC<Props> = ({
           <img src={CloseIcon} alt="close-icon" className="cart-card__close" />
         </button>
 
-        <img
-          src={`https://product-catalog-be-qps4.onrender.com/${image}`}
-          alt={productName}
-          className="cart-card__photo"
-        />
+        <Link to={`../../catalog/${itemId}`} relative="path">
+          <img
+            src={`https://product-catalog-be-qps4.onrender.com/${image}`}
+            alt={productName}
+            className="cart-card__photo"
+          />
+        </Link>
 
-        <p className="cart-card__text">{productName}</p>
+        <Link
+          to={`../../catalog/${itemId}`}
+          relative="path"
+          className="cart-card__text"
+        >
+          {productName}
+        </Link>
       </div>
 
       <div className="cart-card__bottom">

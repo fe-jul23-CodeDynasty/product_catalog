@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import { Description, ProductFull } from '../../types/FullProduct';
-import { BASE_URL, getPhonesByUrl } from '../../api/api';
+import { API_URL, getPhonesByParams } from '../../api/api';
 import { ParamsCard } from '../../types/CardParams';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Product } from '../../types/Product';
@@ -20,12 +20,12 @@ export const CardItem: React.FC<Props> = ({ product }) => {
   const [selectImg, setSelectImg] = useState<string>(images[0]);
   const [recommended, setRecommended] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const recommendedModelsURL = `https://product-catalog-be-qps4.onrender.com/products/${id}/recommended`;
+  const recommendedProductsParams = `/${id}/recommended`;
 
   useEffect(() => {
     setIsLoading(true);
 
-    getPhonesByUrl(recommendedModelsURL)
+    getPhonesByParams(recommendedProductsParams)
       .then(setRecommended)
       .catch(error => {
         // eslint-disable-next-line no-console
@@ -36,7 +36,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
       });
   }, [product]);
 
-  const baseUrl = new URL(BASE_URL);
+  const baseUrl = new URL(API_URL);
 
   const normalizeParam = (param: string): string => {
     return param.split(' ').join('-');
