@@ -5,7 +5,7 @@
 .header {
   background: $backgroundColor;
 
-  @mixin onTablet {
+  @include onTablet {
     gap: 24px;
   }
 
@@ -30,6 +30,11 @@
 
   &-nav-container {
     display: flex;
+    height: 48px;
+
+    @include onDesktop {
+      height: 64px;
+    }
   }
 }
 
@@ -49,6 +54,8 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   @include onTablet() {
     margin-right: 32px;
   }
@@ -58,10 +65,12 @@
   }
 
   &__img {
-    width: 64px;
+    max-height: 20px;
+    width: auto;
 
-    @include onDesktop() {
-      width: 80px;
+    @include onDesktop {
+      max-height: 28px;
+
     }
   }
 }
@@ -112,12 +121,12 @@
     border-left: 1px solid $borderColorHeader;
     transition: background-color 0.3s;
 
-    @include onDesktop() {
-      padding: 32px;
-    }
-
     &:hover {
       background-color: #eb5757;
+    }
+
+    @include onDesktop {
+      padding: 24px;
     }
   }
 
@@ -129,12 +138,12 @@
     border-left: 1px solid $borderColorHeader;
     transition: background-color 0.3s;
 
-    @include onDesktop() {
-      padding: 32px;
-    }
-
     &:hover {
       background-color: #eb5757;
+    }
+
+    @include onDesktop {
+      padding: 24px;
     }
   }
 }
