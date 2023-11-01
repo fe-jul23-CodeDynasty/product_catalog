@@ -1,37 +1,39 @@
 import { NavLink } from 'react-router-dom';
 import './Navigation.scss';
+import classNames from 'classnames';
+import { useState } from 'react';
+
+const navigationData = {
+  home: '/',
+  phones: '/catalog?category=phones',
+  tablets: '/catalog?category=tablets',
+  accessories: '/catalog?category=accessories',
+};
 
 export const Navigation = () => {
+  const [isActiveNav, setIsActiveNav] = useState<string>('home');
+
+  const handleNavClick = (label: string) => {
+    setIsActiveNav(label);
+  };
+
   return (
     <div className="nav_container">
       <nav className="nav">
         <ul className="nav__list">
-          <li className="nav__item">
-            <NavLink to="/" className="nav__item__link">
-              Home
-            </NavLink>
-          </li>
-
-          <li className="nav__item">
-            <NavLink to="/catalog?category=phones" className="nav__item__link">
-              phones
-            </NavLink>
-          </li>
-
-          <li className="nav__item">
-            <NavLink to="/catalog?category=tablets" className="nav__item__link">
-              tablets
-            </NavLink>
-          </li>
-
-          <li className="nav__item" data-qa="hover">
-            <NavLink
-              to="/catalog?category=accessories"
-              className="nav__item__link"
-            >
-              accessories
-            </NavLink>
-          </li>
+          {Object.entries(navigationData).map(([label, path]) => (
+            <li className="nav__item" key={label}>
+              <NavLink
+                onClick={() => handleNavClick(label)}
+                to={path}
+                className={classNames('nav__item__link', {
+                  'is-active': label === isActiveNav,
+                })}
+              >
+                {label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>

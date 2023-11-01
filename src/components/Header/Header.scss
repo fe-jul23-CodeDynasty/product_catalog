@@ -4,7 +4,7 @@
 
 .header {
   background: $backgroundColor;
-  @include contentPaddingInline;
+
   @mixin onTablet {
     gap: 24px;
   }
@@ -15,7 +15,7 @@
     justify-content: space-between;
     gap: 16px;
     padding-left: 16px;
-    border: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
     box-sizing: border-box;
 
     @include onDesktop() {
@@ -105,9 +105,14 @@
     justify-content: center;
     padding: 16px;
     border-left: 1px solid $borderColorHeader;
+    transition: background-color 0.3s;
 
     @include onDesktop() {
       padding: 32px;
+    }
+
+    &:hover {
+      background-color: #eb5757;
     }
   }
 
@@ -117,14 +122,43 @@
     justify-content: center;
     padding: 16px;
     border-left: 1px solid $borderColorHeader;
+    transition: background-color 0.3s;
 
     @include onDesktop() {
       padding: 32px;
     }
+
+    &:hover {
+      background-color: #eb5757;
+    }
   }
 }
 
-// .container_shopping-bag {
-//   display: block;
-//   border-left: 1px solid $borderColorHeader;
-// }
+.wrapper-heart-counter {
+  position: relative;
+}
+
+.wrapper-shopping-bag-counter {
+  position: relative;
+}
+
+.shopping-favorites-bag {
+  &__counter {
+    position: absolute;
+    top: -80%;
+    right: -80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-50%) translateY(50%);
+    width: 14px;
+    height: 14px;
+    font-size: 9px;
+    font-family: Mont, sans-serif;
+    color: $textColor;
+    background-color: #eb5757;
+    box-sizing: border-box;
+    border: 1px solid $backgroundColor;
+    border-radius: 50%;
+  }
+}
