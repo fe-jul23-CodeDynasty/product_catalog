@@ -22,10 +22,15 @@
       padding-left: 24px;
     }
   }
-}
 
-.header-nav-container {
-  display: flex;
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &-nav-container {
+    display: flex;
+  }
 }
 
 .is-active {
