@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import classNames from 'classnames';
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const CartModal: React.FC<Props> = ({ active, setActive, setCart }) => {
-  const { setTotalItemsCounter, cart } = useContext(StorageContext);
+  const { setTotalItemsCounter } = useContext(StorageContext);
 
   return (
     <div
