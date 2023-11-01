@@ -2,7 +2,7 @@ import './Catalog.scss';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import React, { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import {Link, useParams, useSearchParams} from 'react-router-dom';
 import { Card } from '../Card/card';
 import { getPhonesByParams } from '../../api/api';
 import { Product } from '../../types/Product';
@@ -20,7 +20,7 @@ export const Catalog: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [totalItems, setTotalItems] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const category = searchParams.get('category');
+  const { category } = useParams();
   const sortBy = searchParams.get('sortBy') || 'price';
   const itemsOnPage = +(searchParams.get('itemsOnPage') || '8');
   const currentPage = +(searchParams.get('currentPage') || '1');
@@ -72,7 +72,7 @@ export const Catalog: React.FC = () => {
           setIsLoading(false);
         }, 1000);
       });
-  }, [searchParams]);
+  }, [searchParams, category]);
 
   const handleSelectSortChange = (
     event: React.ChangeEvent<HTMLSelectElement>,

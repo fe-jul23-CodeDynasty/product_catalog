@@ -21,7 +21,7 @@ export const CartItem: React.FC<Props> = ({
   setTotalItemsCounter,
   setCart,
 }) => {
-  const { name: productName, image, price, itemId } = product;
+  const { name: productName, image, price, itemId, category } = product;
   const [count, setCount] = useState(product.count ? product.count : 1);
 
   const cartItemCountIncrement = () => {
@@ -79,7 +79,7 @@ export const CartItem: React.FC<Props> = ({
           <img src={CloseIcon} alt="close-icon" className="cart-card__close" />
         </button>
 
-        <Link to={`../../catalog/${itemId}`} relative="path">
+        <Link to={`/catalog/${category}/${itemId}`}>
           <img
             src={`https://product-catalog-be-qps4.onrender.com/${image}`}
             alt={productName}
@@ -88,7 +88,7 @@ export const CartItem: React.FC<Props> = ({
         </Link>
 
         <Link
-          to={`../../catalog/${itemId}`}
+          to={`/catalog/${category}/${itemId}`}
           relative="path"
           className="cart-card__text"
         >
