@@ -10,20 +10,19 @@
     cursor: pointer;
     border: 0;
     tab-size: 12px;
-  
+
     &::after {
       content: 'Back';
       position: absolute;
       left: 50px;
     }
-  
+
     &:hover {
       color: #0f0f11;
     }
-  
+
     &--icon {
       position: relative;
     }
   }
 }
-
