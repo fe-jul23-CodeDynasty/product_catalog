@@ -1,4 +1,4 @@
-.button {
+.buttonb {
   &__back {
     display: flex;
     align-items: center;
@@ -11,15 +11,14 @@
     border: 0;
     tab-size: 12px;
 
-    &::after {
-      content: 'Back';
-      position: absolute;
-      left: 50px;
-    }
+    // &::after {
+    //   content: 'Back';
+    //   position: absolute;
+    // }
 
-    &:hover {
-      color: #0f0f11;
-    }
+    // &:hover {
+    //   color: #0f0f11;
+    // }
 
     &--icon {
       position: relative;

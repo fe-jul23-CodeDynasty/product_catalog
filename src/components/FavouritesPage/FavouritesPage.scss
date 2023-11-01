@@ -9,7 +9,7 @@
 .favourite-page {
   padding-top: 24px;
   padding-bottom: 56px;
-  height: calc(100vh - 190px);
+  min-height: calc(100vh - 176px);
   background-color: $backgroundColor;
 
   @include onTablet() {

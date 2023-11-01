@@ -10,14 +10,15 @@ export const ButtonBack = () => {
   };
 
   return (
-    <div className="button">
+    <div className="buttonb">
       <button
         type="button"
-        aria-label="button-back"
-        className="button__back"
+        aria-label="buttonb-back"
+        className="buttonb__back"
         onClick={handleGoBack}
       >
-        <img src={ArrowBack} alt="back-icon" className="button__back--icon" />
+        <img src={ArrowBack} alt="back-icon" className="buttonb__back--icon" />
+        Back
       </button>
     </div>
   );
