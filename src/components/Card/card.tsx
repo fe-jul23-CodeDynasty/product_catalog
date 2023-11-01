@@ -28,7 +28,7 @@ export const Card: React.FC<Props> = ({ product }) => {
 
   return (
     <div className="card">
-      <Link to={`../catalog/${itemId}`} relative="path">
+      <Link to={`../../catalog/${itemId}`} relative="path">
         <img
           src={`https://product-catalog-be-qps4.onrender.com/${image}`}
           alt={itemId}

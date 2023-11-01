@@ -34,7 +34,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [product]);
 
   const baseUrl = new URL(BASE_URL);
 
