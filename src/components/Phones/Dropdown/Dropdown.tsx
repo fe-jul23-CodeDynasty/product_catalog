@@ -1,5 +1,5 @@
-/* eslint-disable no-shadow */
 import './Dropdown.scss';
+import Select, { SingleValue } from 'react-select';
 import { DropdownOptions } from '../../../types/DropdownOptions';
 
 type Props = {
@@ -15,21 +15,31 @@ export const Dropdown: React.FC<Props> = ({
   optionType,
   onSelectOptionChange,
 }) => {
+  const selectOptions = options.map(option => ({
+    value: option.value,
+    label: option.title,
+  }));
+
+  const foundOption = selectOptions.find(option => option.value === optionType);
+
   return (
     <div className="select sort-buttons--button">
       <p className="sort-buttons-text">{title}</p>
 
-      <select
-        value={optionType}
-        className="button-dropdown"
-        onChange={onSelectOptionChange}
-      >
-        {options.map(option => (
-          <option key={option.id} value={option.value}>
-            {option.title}
-          </option>
-        ))}
-      </select>
+      <Select
+        value={foundOption}
+        options={selectOptions}
+        onChange={(
+          selectedOption: SingleValue<{ value: string; label: string }>,
+        ) => {
+          if (selectedOption) {
+            onSelectOptionChange({
+              target: { value: selectedOption.value },
+            } as React.ChangeEvent<HTMLSelectElement>);
+          }
+        }}
+        classNamePrefix="button-dropdown"
+      />
     </div>
   );
 };

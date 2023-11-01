@@ -9,12 +9,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-inline: 5px;
   height: 32px;
   cursor: pointer;
   background-color: rgba($backgroundColor, 0.7);
   border: 0;
   border-radius: 5px;
-  padding-inline: 5px;
   z-index: 9999;
   transition: all 0.7s ease-in-out;
 
@@ -28,10 +28,12 @@
     font-family: Mont, sans-serif;
     font-weight: $buttonWeight;
     color: $secondaryTextColor;
-    transition: color 0.3s, transform 0.3s;
+    transition:
+      color 0.3s,
+      transform 0.3s;
     transform: scale(1);
   }
-  
+
   &:hover {
     transform: scale(1.2);
   }
