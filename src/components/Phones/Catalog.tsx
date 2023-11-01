@@ -13,6 +13,7 @@ import HomeIcon from './images/home.svg';
 import { DropdownOptions } from '../../types/DropdownOptions';
 import { PaginationButtons } from './Pagination/Pagination';
 import { Category } from '../../types/Category';
+import ButtonUp from '../ButtonUp/ButtonUp';
 
 export const Catalog: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -168,6 +169,9 @@ export const Catalog: React.FC = () => {
                 setSearchParams={setSearchParams}
                 isLoading={isLoading}
               />
+            </div>
+            <div className="container-home__buttonUp">
+              <ButtonUp />
             </div>
           </SkeletonTheme>
         </div>

@@ -7,8 +7,11 @@ import { Pagination, Navigation } from 'swiper/modules';
 
 import './Slider.scss';
 
-import firstBanner from './images/Banner.png';
 import firstBannerMob from './images/Banner-mob.png';
+import secondBannerMob from './images/banner-phones_slider.png';
+import thirdBannerMob from './images/banner-tablets_slider.png';
+
+import firstBanner from './images/Banner.png';
 import secondBanner from './images/banner-tablets1200.png';
 import thirdBanner from './images/banner-phones.png';
 
@@ -40,7 +43,7 @@ export function Slider() {
         <div className="swiper__slide slide">
           <img
             className="slide__banner-mob"
-            src={firstBannerMob}
+            src={secondBannerMob}
             alt="iPhone 15"
           />
 
@@ -56,7 +59,7 @@ export function Slider() {
         <div className="swiper__slide slide">
           <img
             className="slide__banner-mob"
-            src={firstBannerMob}
+            src={thirdBannerMob}
             alt="iPhone 14 Pro"
           />
 
