@@ -13,7 +13,7 @@ import { StorageContext } from '../StorageContext/StorageContext';
 import { Product } from '../../types/Product';
 
 export const CartMenu: React.FC = () => {
-  const [modalActive, setModalActive] = useState(false);
+  const [modalActive, setModalActive] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
   const {
