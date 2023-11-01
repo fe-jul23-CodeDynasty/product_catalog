@@ -87,7 +87,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                   key={image}
                   type="button"
                   className={classNames('item__image', {
-                    'is-active': image === selectImg,
+                    'iss-active': image === selectImg,
                   })}
                   onClick={() => setSelectImg(image)}
                 >

@@ -17,12 +17,13 @@
   display: grid;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: auto;
   padding: 32px;
   width: 100%;
-  height: auto;
+  height: 96px;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid $borderColor;
+  
 
   // @include contentPaddingInline;
   // @mixin onTablet {

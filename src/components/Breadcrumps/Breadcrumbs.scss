@@ -1,7 +1,6 @@
 .bread {
   &__container {
     display: flex;
-    width: 400px;
 
     &--home {
       display: block;
@@ -21,7 +20,10 @@
 }
 
 .breadcrumbs {
+  display: flex;
+  align-items: center;
   margin: 20px auto;
+  width: 100%;
   max-width: 1200px;
 }
 
@@ -31,7 +33,7 @@
 }
 
 .breadcrumbs .crumb::after {
-  content: '>';
+  content: url('.././Phones/images/arrow-right.svg');
   margin-left: 10px;
   color: #ddd;
 }
