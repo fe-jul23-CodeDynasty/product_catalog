@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ product }) => {
-  const { image, name, itemId, price, fullPrice, screen, capacity, ram }
+  const { category, image, name, itemId, price, fullPrice, screen, capacity, ram }
     = product;
 
   const { addToCart, addToFavorites, favorites } = useContext(StorageContext);
@@ -22,12 +22,9 @@ export const Card: React.FC<Props> = ({ product }) => {
     oneProduct => oneProduct.id === product.id,
   );
 
-  // eslint-disable-next-line no-console
-  console.log(isProductFavorite);
-
   return (
     <div className="card">
-      <Link to={`../../catalog/${itemId}`} relative="path">
+      <Link to={`/catalog/${category}/${itemId}`}>
         <img
           src={`https://product-catalog-be-qps4.onrender.com/${image}`}
           alt={itemId}

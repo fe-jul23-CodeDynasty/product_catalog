@@ -24,7 +24,7 @@ export const ByCategories: React.FC<Props> = ({ isLoading }) => (
             <Skeleton height={361} />
           ) : (
             <NavLink
-              to="/catalog?category=phones"
+              to="/catalog/phones"
               className="section-by-category__link"
             >
               <img
@@ -48,7 +48,7 @@ export const ByCategories: React.FC<Props> = ({ isLoading }) => (
             <Skeleton height={361} />
           ) : (
             <NavLink
-              to="/catalog?category=tablets"
+              to="/catalog/tablets"
               className="section-by-category__link"
             >
               <img
@@ -71,7 +71,7 @@ export const ByCategories: React.FC<Props> = ({ isLoading }) => (
             <Skeleton height={361} />
           ) : (
             <NavLink
-              to="/catalog?category=accessories"
+              to="/catalog/accessories"
               className="section-by-category__link"
             >
               <img
