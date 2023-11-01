@@ -6,8 +6,6 @@ export const BurgerMenu = () => {
   return (
     <>
       <div className="burger-menu">
-        {/* <Navigation /> */}
-
         <div className="burger-menu__body">
           <h1>1</h1>
           <h1>1</h1>

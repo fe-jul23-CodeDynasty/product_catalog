@@ -26,14 +26,9 @@ export const Navigation = () => {
               <NavLink
                 onClick={() => handleNavClick(label)}
                 to={path}
-                className={
-                  classNames(
-                    'nav__item__link',
-                    {
-                      'is-active': label === isActiveNav,
-                    },
-                  )
-                }
+                className={classNames('nav__item__link', {
+                  'is-active': label === isActiveNav,
+                })}
               >
                 {label}
               </NavLink>

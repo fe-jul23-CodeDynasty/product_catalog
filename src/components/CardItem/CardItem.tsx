@@ -5,8 +5,10 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import { Description, ProductFull } from '../../types/FullProduct';
-import { BASE_URL } from '../../api/api';
+import { BASE_URL, getPhonesByUrl } from '../../api/api';
 import { ParamsCard } from '../../types/CardParams';
+import { PromoSlider } from '../PromoSlider/PromoSlider';
+import { Product } from '../../types/Product';
 
 type Props = {
   product: ProductFull;
@@ -16,6 +18,23 @@ export const CardItem: React.FC<Props> = ({ product }) => {
   const { id, name, images, description, colorsAvailable, capacityAvailable }
     = product;
   const [selectImg, setSelectImg] = useState<string>(images[0]);
+  const [recommended, setRecommended] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const recommendedModelsURL = `https://product-catalog-be-qps4.onrender.com/products/${id}/recommended`;
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    getPhonesByUrl(recommendedModelsURL)
+      .then(setRecommended)
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
   const baseUrl = new URL(BASE_URL);
 
@@ -248,6 +267,13 @@ export const CardItem: React.FC<Props> = ({ product }) => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="container-home__promo-slider">
+          <PromoSlider
+            title="You may also like"
+            phones={recommended}
+            isLoading={isLoading}
+          />
         </div>
       </div>
     </main>

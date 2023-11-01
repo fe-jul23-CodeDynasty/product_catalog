@@ -1,18 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import classNames from 'classnames';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import ArrowRightIcon from '../images/arrow-right.svg';
 import ArrowLeftIcon from '../images/arrow-left.svg';
-import {
-  PaginationNumberButton,
-  /* eslint-disable max-len */
-} from './PaginationButtons/PaginationNumberButton/PaginationNumberButton';
-import {
-  PaginationArrowButton,
-  /* eslint-disable max-len */
-} from './PaginationButtons/PaginationArrowButton/PaginationArrowButton';
+import { PaginationNumberButton } from './PaginationButtons/PaginationNumberButton/PaginationNumberButton';
+import { PaginationArrowButton } from './PaginationButtons/PaginationArrowButton/PaginationArrowButton';
 
 type Props = {
   currentPage: number;

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import './FavouritesPage.scss';
 import { useState, useEffect, useContext } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';

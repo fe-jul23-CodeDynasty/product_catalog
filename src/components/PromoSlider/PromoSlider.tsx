@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';

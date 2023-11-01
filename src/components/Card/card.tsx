@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './card.scss';

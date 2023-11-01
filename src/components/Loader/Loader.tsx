@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { RotatingLines } from 'react-loader-spinner';
 import './Loader.scss';
 
