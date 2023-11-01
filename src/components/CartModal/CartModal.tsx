@@ -2,6 +2,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import classNames from 'classnames';
 import './CartModal.scss';
+import cartCheck from '../../images/cart-check.svg';
 
 type Props = {
   active: boolean;
@@ -21,6 +22,7 @@ export const CartModal: React.FC<Props> = ({ active, setActive, setCart }) => {
           active,
         })}
       >
+        <img src={cartCheck} alt="" />
         <h3 className="modal__title">Confirm the payment</h3>
         <div className="modal__buttons">
           <button
