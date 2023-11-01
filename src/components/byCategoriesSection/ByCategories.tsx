@@ -11,7 +11,7 @@ type Props = {
   isLoading: boolean;
 };
 
-export const ByCategories:React.FC<Props> = ({ isLoading }) => (
+export const ByCategories: React.FC<Props> = ({ isLoading }) => (
   <section className="section section-by-category">
     <h2 className="section-by-category__title">
       {isLoading ? <Skeleton /> : 'Shop by category'}

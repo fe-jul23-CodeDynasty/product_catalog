@@ -20,7 +20,9 @@ export const Dropdown: React.FC<Props> = ({
     label: option.title,
   }));
 
-  const foundOption = selectOptions.find(option => option.value === optionType);
+  const foundOption = selectOptions.find(
+    option => option.value === optionType.toString(),
+  );
 
   return (
     <div className="select sort-buttons--button">

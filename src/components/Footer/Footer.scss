@@ -103,7 +103,10 @@
     font-style: normal;
 
     &:hover {
-      text-shadow: 0 0 10px #00ff00, 0 0 20px #0000ff, 0 0 30px #ff0000;
+      text-shadow:
+        0 0 10px #0f0,
+        0 0 20px #00f,
+        0 0 30px #f00;
     }
 
     @media (max-width: 639px) {

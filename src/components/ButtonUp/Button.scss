@@ -16,11 +16,6 @@
   z-index: 9999;
   transition: all 0.7s ease-in-out;
 
-  @media screen and (max-width: 639px) {
-    bottom: 50%;
-    right: 50%;
-  }
-
   &__text {
     font-size: $linkFontSize;
     font-family: Mont, sans-serif;

@@ -11,6 +11,7 @@ import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
 import { StorageContext } from '../StorageContext/StorageContext';
 import { Product } from '../../types/Product';
+import ButtonUp from '../ButtonUp/ButtonUp';
 
 export const CartMenu: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -107,6 +108,9 @@ export const CartMenu: React.FC = () => {
               ) : (
                 <p className="empty-cart-text">No added products in cart</p>
               )}
+              <div className="container-home__buttonUp">
+                <ButtonUp />
+              </div>
             </SkeletonTheme>
           </div>
         </div>
