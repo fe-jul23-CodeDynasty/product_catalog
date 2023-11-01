@@ -101,12 +101,19 @@
     letter-spacing: 0.48px;
     line-height: 11px;
     color: $textColor;
+
     font-style: normal;
 
     @media (max-width: 639px) {
       display: flex;
       flex-direction: column;
       padding: 0;
+
+    transition: color 0.3s;
+
+    &:hover {
+      color: $silverColor;
+
     }
   }
 
