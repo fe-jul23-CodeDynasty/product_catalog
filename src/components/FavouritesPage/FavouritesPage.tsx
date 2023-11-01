@@ -41,8 +41,7 @@ export const FavouritesPage = () => {
               <h1 className="title">
                 {favorites.length
                   ? 'Favorites'
-                  : 'Favorites not selected yet'
-                }
+                  : 'Favorites not selected yet'}
               </h1>
               <h1 className="title">
                 {isLoading && (
