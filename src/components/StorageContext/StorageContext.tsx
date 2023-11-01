@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from 'react';
+import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import useLocalStorage from 'use-local-storage';
 import { Product } from '../../types/Product';
 
@@ -52,6 +52,10 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
 
   const [totalCost, setTotalCost] = useState<number>(startTotalCost);
 
+  useEffect(() => {
+    setTotalCost(startTotalCost);
+  }, [cart]);
+
   const removeFromCart = (product: Product) => {
     const updatedCart: Product[] = cart.filter(item => item.id !== product.id);
 
@@ -67,6 +71,7 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
 
     if (findDublicate) {
       removeFromCart(product);
+      setTotalItemsCounter((prev: number) => prev - 1);
 
       return;
     }
@@ -82,6 +87,7 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
     const newTotalCost = cart.reduce((acc, curr) => acc + curr.price, 0);
 
     setTotalCost(newTotalCost);
+    setTotalItemsCounter((prev: number) => prev + 1);
   };
 
   const [favorites, setFavorites] = useLocalStorage<Product[]>('favorites', []);

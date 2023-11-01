@@ -72,7 +72,7 @@ export const CartItem: React.FC<Props> = ({
           type="button"
           className="cart-card__button button-delete"
           onClick={() => {
-            setTotalItemsCounter((prev: number) => prev - 1);
+            setTotalItemsCounter((prev: number) => prev - count);
             removeFromCart(product);
           }}
         >

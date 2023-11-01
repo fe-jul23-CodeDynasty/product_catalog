@@ -1,12 +1,13 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
-@import 'src/utils/mixins';
+/* stylelint-disable */
+@import "~normalize.css";
+@import "src/utils/variables";
+@import "src/utils/mixins";
 
 .button-dropdown {
   &__control {
+    color: $textColor !important;
     background-color: $buttonActiveColor !important;
     border: 0 !important;
-    color: $textColor !important;
     cursor: pointer !important;
     box-shadow: none !important;
   }
@@ -33,8 +34,8 @@
 }
 
 .css-1dimb5e-singleValue {
-  color: $textColor !important;
   font-size: 14px !important;
+  color: $textColor !important;
 }
 
 .css-1nmdiq5-menu {
