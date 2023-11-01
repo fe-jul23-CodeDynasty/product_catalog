@@ -111,7 +111,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
 
           <div className="item__top-right">
             <div className="item__right--available">
-              <p className="item__available--text">Available colors</p>
+              <span className="item__available--text">Available colors</span>
 
               <div className="item__button--available">
                 {colorsAvailable
@@ -129,10 +129,13 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                     />
                   ))}
               </div>
+              {/* <div className="item__top--id">
+                {product.id}
+              </div> */}
             </div>
 
             <div className="item__right--capacity">
-              <p className="item__available--text">Select capacity</p>
+              <span className="item__available--text">Select capacity</span>
 
               <div className="item__capacity-container">
                 {capacityAvailable.map(capacity => (
@@ -149,9 +152,13 @@ export const CardItem: React.FC<Props> = ({ product }) => {
 
             <div className="item__prices">
               <div className="item__prices--amount">
-                <span className="item__amount--main">$799</span>
+                <span className="item__amount--main">
+                  {product.priceDiscount}
+                </span>
 
-                <span className="item__amount--cross">1199</span>
+                <span className="item__amount--cross">
+                  {product.priceRegular}
+                </span>
               </div>
 
               <div className="item__prices__button">
@@ -169,24 +176,38 @@ export const CardItem: React.FC<Props> = ({ product }) => {
 
             <div className="item__information">
               <div className="item__information--screen">
-                <p className="item__information--screen-type">Screen</p>
+                <p className="item__information--screen-type">
+                  {ParamsCard.Display}
+                </p>
 
-                <p className="item__information--screen-value">6.5” OLED</p>
+                <p className="item__information--screen-value">
+                  {product.screen}
+                </p>
               </div>
               <div className="item__information--screen">
-                <p className="item__information--screen-type">Screen</p>
+                <p className="item__information--screen-type">
+                  {ParamsCard.Resolution}
+                </p>
 
-                <p className="item__information--screen-value">6.5” OLED</p>
+                <p className="item__information--screen-value">
+                  {product.resolution}
+                </p>
               </div>
               <div className="item__information--screen">
-                <p className="item__information--screen-type">Screen</p>
+                <p className="item__information--screen-type">
+                  {ParamsCard.Processor}
+                </p>
 
-                <p className="item__information--screen-value">6.5” OLED</p>
+                <p className="item__information--screen-value">
+                  {product.processor}
+                </p>
               </div>
               <div className="item__information--screen">
-                <p className="item__information--screen-type">Screen</p>
+                <p className="item__information--screen-type">
+                  {ParamsCard.Ram}
+                </p>
 
-                <p className="item__information--screen-value">6.5” OLED</p>
+                <p className="item__information--screen-value">{product.ram}</p>
               </div>
             </div>
           </div>

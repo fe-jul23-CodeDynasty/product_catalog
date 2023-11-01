@@ -1,4 +1,5 @@
 import './Footer.scss';
+import { NavLink } from 'react-router-dom';
 import footer_logo from '../../images/logo_main.svg';
 
 function Footer() {
@@ -6,33 +7,23 @@ function Footer() {
     <main className="main__body">
       <footer className="footer">
         <div className="footer__image">
-          <img
-            src={footer_logo}
-            alt="footer__image--blocks"
-            className="footer__image--blocks"
-          />
+          <NavLink to="/" className="footer__image--blocks">
+            <img src={footer_logo} alt="footer__image--blocks" />
+          </NavLink>
         </div>
 
         <div className="footer__info">
-          <ul className="footer__list">
-            <li className="footer__item">
-              <a className="footer__link" href="#github">
-                GITHUB
-              </a>
-            </li>
+          <a className="footer__link" href="#github">
+            GITHUB
+          </a>
 
-            <li className="footer__item">
-              <a className="footer__link" href="#contacts">
-                CONTACTS
-              </a>
-            </li>
+          <a className="footer__link" href="#contacts">
+            CONTACTS
+          </a>
 
-            <li className="footer__item">
-              <a className="footer__link" href="#rights">
-                RIGHTS
-              </a>
-            </li>
-          </ul>
+          <a className="footer__link" href="#rights">
+            RIGHTS
+          </a>
         </div>
       </footer>
     </main>

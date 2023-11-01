@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+// eslint-disable-next-line max-len
 import { useNavigate, useParams } from 'react-router-dom';
 import { ProductFull } from '../../types/FullProduct';
 import { CardItem } from '../CardItem/CardItem';
 import { getProductById } from '../../api/api';
+import { ButtonBack } from '../ButtonBack/ButtonBack';
+import { Breadcrumbs } from '../Breadcrumps/Breadcrumps';
 
 export const ProductDetailsPage: React.FC = () => {
   const [product, setProduct] = useState<ProductFull | null>(null);
@@ -31,6 +34,8 @@ export const ProductDetailsPage: React.FC = () => {
                 <>
                   <div className="details-page__content">
                     <div className="details-page__section-top">
+                      <Breadcrumbs />
+                      <ButtonBack />
                       <CardItem product={product} />
                     </div>
                   </div>
