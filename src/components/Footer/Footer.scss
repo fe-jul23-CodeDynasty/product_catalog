@@ -102,15 +102,15 @@
     color: $textColor;
     font-style: normal;
 
+    &:hover {
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #0000ff, 0 0 30px #ff0000;
+    }
+
     @media (max-width: 639px) {
       display: flex;
       flex-direction: column;
       padding: 0;
       transition: color 0.3s;
-
-      &:hover {
-        color: $silverColor;
-      }
     }
 
     &__button {
