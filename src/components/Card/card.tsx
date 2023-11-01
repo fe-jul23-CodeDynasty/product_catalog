@@ -16,8 +16,7 @@ export const Card: React.FC<Props> = ({ product }) => {
   const { image, name, itemId, price, fullPrice, screen, capacity, ram }
     = product;
 
-  const { addToCart, addToFavorites, setTotalItemsCounter, favorites }
-    = useContext(StorageContext);
+  const { addToCart, addToFavorites, favorites } = useContext(StorageContext);
 
   const isProductFavorite = favorites.some(
     oneProduct => oneProduct.id === product.id,
@@ -71,7 +70,6 @@ export const Card: React.FC<Props> = ({ product }) => {
         <button
           onClick={() => {
             addToCart(product);
-            setTotalItemsCounter((prev: number) => prev + 1);
           }}
           type="button"
           className="card__buttons__button"

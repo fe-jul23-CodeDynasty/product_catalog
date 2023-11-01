@@ -1,20 +1,46 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
-@import 'src/utils/mixins';
+/* stylelint-disable */
+@import "~normalize.css";
+@import "src/utils/variables";
+@import "src/utils/mixins";
 
-.button {
-  &-dropdown {
-    padding-left: 12px;
-    width: 100%;
-    height: 40px;
-    font-size: $minorButtonFontSize;
-    font-weight: $textWeight;
-    color: $textColor;
-    background-color: $buttonActiveColor;
-    border: 0;
-    border-right: 12px solid $buttonActiveColor;
-    cursor: pointer;
+.button-dropdown {
+  &__control {
+    color: $textColor !important;
+    background-color: $buttonActiveColor !important;
+    border: 0 !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
   }
+
+  &__option {
+    cursor: pointer !important;
+
+    &--is-focused {
+      background-color: lighten($buttonActiveColor, 8%) !important;
+    }
+  }
+
+  &__indicator-separator {
+    display: none !important;
+  }
+
+  &__indicator {
+    color: $secondaryTextColor !important;
+
+    &:hover {
+      color: $textColor !important;
+    }
+  }
+}
+
+.css-1dimb5e-singleValue {
+  font-size: 14px !important;
+  color: $textColor !important;
+}
+
+.css-1nmdiq5-menu {
+  color: $textColor !important;
+  background-color: $buttonActiveColor !important;
 }
 
 .sort-buttons {
