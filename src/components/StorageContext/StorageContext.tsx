@@ -54,7 +54,7 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     setTotalCost(startTotalCost);
-  }, [cart]);
+  }, [cart, totalItemsCounter]);
 
   const removeFromCart = (product: Product) => {
     const updatedCart: Product[] = cart.filter(item => item.id !== product.id);
