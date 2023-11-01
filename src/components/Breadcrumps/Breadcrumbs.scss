@@ -1,7 +1,7 @@
 .bread {
   &__container {
     display: flex;
-  width: 400px;
+    width: 400px;
 
     &--home {
       display: block;
@@ -19,8 +19,6 @@
     }
   }
 }
-
-
 
 .breadcrumbs {
   margin: 20px auto;

@@ -3,15 +3,15 @@ import React from 'react';
 
 const buttonUpSvg = (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="8"
-    height="8"
-    viewBox="0 0 16 16"
-    fill="#F1F2"
+    xmlns='http://www.w3.org/2000/svg'
+    width='8'
+    height='8'
+    viewBox='0 0 16 16'
+    fill='#F1F2'
   >
     <path
-      fillRule="evenodd"
-      clipRule="evenodd"
+      fillRule='evenodd'
+      clipRule='evenodd'
       d={`
         M3.52845 10.4712
         C3.2681 10.2109 3.2681 9.78878 3.52845 9.52843
@@ -24,7 +24,7 @@ const buttonUpSvg = (
         L4.47126 10.4712
         C4.21091 10.7316 3.7888 10.7316 3.52845 10.4712
       `}
-      fill="#F1F2F9"
+      fill='#F1F2F9'
     />
   </svg>
 );

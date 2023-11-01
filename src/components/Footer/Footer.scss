@@ -23,12 +23,11 @@
   height: auto;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid $borderColor;
-  
+
   // @include contentPaddingInline;
   // @mixin onTablet {
   //   gap: 24px;
   // }
-  
 
   @media (max-width: 639px) {
     display: flex;

@@ -36,10 +36,7 @@ export const FavouritesPage = () => {
 
           <section className="cards">
             {favorites?.map(favorite => (
-              <div
-                key={favorite.id}
-                className="card__container"
-              >
+              <div key={favorite.id} className="card__container">
                 <Card product={favorite} />
               </div>
             ))}
