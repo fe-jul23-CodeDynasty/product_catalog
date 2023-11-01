@@ -1,3 +1,4 @@
+/* stylelint-disable */
 @import '../../utils/variables.scss';
 @import '../../utils/mixins.scss';
 
@@ -10,14 +11,19 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgba($color: $backgroundColor, $alpha: 60%);
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   pointer-events: none;
   transition: all 0.5s;
 
   &__content {
-    padding: 20px;
-    background-color: $borderColor;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: $backgroundColor;
+    border: 1px solid $blueColor;
+    border-radius: 15px;
     transform: scale(0.5);
     transition: transform 0.4s;
 
@@ -40,6 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 40px;
     font-size: 20px;
   }
 
@@ -47,26 +54,25 @@
     cursor: pointer;
     padding: 15px 40px;
     color: $textColor;
-    border: 1px solid $backgroundColor;
+    border: 1px solid $blueColor;
+    border-radius: 5px;
     transition: all 0.5s;
 
     &-cancel {
-      background-color: $errorStatusColorShadow;
+      background-color: transparent;
 
       &:hover {
-        color: $errorStatusColorShadow;
-        background-color: $textColor;
-        border-color: $errorStatusColorShadow;
+        color: $backgroundColor;
+        background-color: $errorStatusColorShadow;
       }
     }
 
     &-success {
-      background-color: $successColor;
+      background-color: $blueColor;
 
       &:hover {
-        color: $successColor;
-        background-color: $textColor;
-        border-color: $successColor;
+        color: $backgroundColor;
+        background-color: $successColor;
       }
     }
   }

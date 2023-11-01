@@ -1,14 +1,14 @@
 /* stylelint-disable */
-
 @import '~normalize.css';
 @import 'src/utils/variables';
 @import 'src/utils/mixins';
 
 .button-dropdown {
   &__control {
-    background-color: $buttonActiveColor !important;
     color: $textColor !important;
+    background-color: $buttonActiveColor !important;
     border: 0 !important;
+    color: $textColor !important;
     cursor: pointer !important;
     box-shadow: none !important;
   }

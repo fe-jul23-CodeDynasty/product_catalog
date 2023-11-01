@@ -1,8 +1,8 @@
 import './ByCategories.scss';
-
 import { NavLink } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import React from 'react';
 import phonesCategory from './images/category-phones.png';
 import tabletsCategory from './images/category-tablets.png';
 import accessoriesCategory from './images/category-accessories.png';

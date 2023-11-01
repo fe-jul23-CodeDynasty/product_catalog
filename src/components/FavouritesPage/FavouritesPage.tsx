@@ -40,8 +40,9 @@ export const FavouritesPage = () => {
                 Favourites
               </a>
               <h1 className="title">
-                {isLoading ? <Skeleton width={250} /> : 'Favourites'}
+                {favorites.length ? 'Favorites' : 'Favorites not selected yet'}
               </h1>
+              <h1 className="title">{isLoading && <Skeleton width={250} />}</h1>
 
               <p className="items-count">
                 {isLoading ? (
