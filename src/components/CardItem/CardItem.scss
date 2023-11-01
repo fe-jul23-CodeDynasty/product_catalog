@@ -105,7 +105,7 @@ main {
     width: 100%;
   }
 
-  &__top--center {
+  &__top-center {
     display: flex;
     justify-content: center;
     object-fit: cover;
@@ -126,7 +126,7 @@ main {
 
     @media (min-width: 1259px) {
       display: flex;
-      height: 442px;
+      height: 430px;
       object-fit: cover;
       object-position: center;
     }
@@ -148,6 +148,7 @@ main {
   }
 
   &__available--text {
+    padding-bottom: 10px;
     font-size: $linkFontSize;
     font-weight: $buttonWeight;
     color: $secondaryTextColor;
@@ -223,6 +224,7 @@ main {
 
     &--black {
       background-color: $blackColor;
+      // border: 2px solid $blackColor;
     }
 
     &--pink {
@@ -265,6 +267,7 @@ main {
   &__right--capacity {
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
     padding-bottom: 24px;
     border-bottom: 1px solid $borderColorHeader;
   }
@@ -296,6 +299,7 @@ main {
     display: flex;
     align-items: center;
     gap: 10px;
+    padding-top: 10px;
   }
 
   &__amount--main {
@@ -358,6 +362,7 @@ main {
   &__information {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 
     &--screen {
       display: flex;
@@ -472,9 +477,10 @@ main {
     --columns: 1;
 
     display: grid;
-    column-gap: 20px;
+    // column-gap: 20px;
     grid-template-columns: repeat(var(--columns), 1fr);
     padding-bottom: 24px;
+    gap: 4px;
 
     @media (min-width: 744px) {
       --columns: 1;

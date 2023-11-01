@@ -1,0 +1,29 @@
+.button {
+  &__back {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #89939a;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    tab-size: 12px;
+  
+    &::after {
+      content: 'Back';
+      position: absolute;
+      left: 50px;
+    }
+  
+    &:hover {
+      color: #0f0f11;
+    }
+  
+    &--icon {
+      position: relative;
+    }
+  }
+}
+

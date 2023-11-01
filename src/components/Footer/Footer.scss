@@ -15,16 +15,27 @@
 
 .footer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: space-between;
+  margin-top: 40px;
   padding: 32px;
+  width: 100%;
+  height: auto;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid $borderColor;
+  
+  // @include contentPaddingInline;
+  // @mixin onTablet {
+  //   gap: 24px;
+  // }
+  
 
   @media (max-width: 639px) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    gap: 32px;
   }
 
   &__image {
@@ -43,19 +54,33 @@
 
   &__info {
     display: flex;
-    justify-content: center;
-    text-decoration: none;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 0.2;
+    // margin-right: 100px;
+
+    font-family: Mont-Bold, sans-serif;
+
+    @media (max-width: 639px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      gap: 16px;
+    }
   }
 
   &__list {
-    display: flex;
+    font-size: 12px;
+    font-weight: 700;
     text-decoration: none;
-    list-style: none;
-    gap: 0 100px;
+    font-style: normal;
+    letter-spacing: 0.48px;
+    line-height: 11px;
 
-    @media (max-width: 860px) {
-      gap: 13px;
-    }
+    // @media (max-width: 860px) {
+    //   gap: 13px;
+    // }
 
     @media (max-width: 639px) {
       display: flex;
@@ -70,8 +95,19 @@
   }
 
   &__link {
+    font-size: $linkFontSize;
+    font-weight: $titleWeight;
     text-decoration: none;
+    letter-spacing: 0.48px;
+    line-height: 11px;
     color: $textColor;
+    font-style: normal;
+
+    @media (max-width: 639px) {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
   }
 
   &__button {
