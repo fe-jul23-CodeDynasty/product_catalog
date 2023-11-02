@@ -8,7 +8,6 @@ import './PromoSlider.scss';
 import '../../App.scss';
 import { Navigation } from 'swiper/modules';
 
-import { ToastContainer } from 'react-toastify';
 import { Card } from '../Card/card';
 import { Product } from '../../types/Product';
 
@@ -21,7 +20,6 @@ type Props = {
 export const PromoSlider: React.FC<Props> = ({ title, phones, isLoading }) => {
   return (
     <div className="promo-slider">
-      <ToastContainer />
       <h3 className="promo-title noselect">
         {isLoading ? <Skeleton /> : title}
       </h3>

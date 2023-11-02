@@ -13,10 +13,6 @@ export const Header = () => {
   const [windowResize, setWindowResize] = useState(window.innerWidth);
   const isMobileVersion = windowResize <= 639;
 
-  const {
-    setIsMenuOpened,
-  } = useContext(StorageContext);
-
   useEffect(() => {
     const handleResize = () => {
       setWindowResize(window.innerWidth);
@@ -41,9 +37,7 @@ export const Header = () => {
             <img className="logo__img" src={logo_main} alt="Logo link" />
           </NavLink>
 
-          {!isMobileVersion && (
-            <Navigation />
-          )}
+          {!isMobileVersion && <Navigation />}
         </div>
 
         <div className="container__heart-like-shopping-bag">

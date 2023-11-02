@@ -11,7 +11,7 @@ const navigationData = {
 };
 
 type Props = {
-  setIsMenuOpened?: (statusMenu: (prevState: boolean) => boolean) => void,
+  setIsMenuOpened?: (statusMenu: (prevState: boolean) => boolean) => void;
 };
 
 export const Navigation: React.FC<Props> = ({ setIsMenuOpened }) => {

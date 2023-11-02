@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './card.scss';
 import '../../App.scss';
 
-import classNames from 'classnames';
-import HeartIcon from './images/heart-red.svg';
-import favourites_heart_like from '../../images/favourites_heart_like.svg';
-import { StorageContext } from '../StorageContext';
 import { Product } from '../../types/Product';
+import { ButtonCart } from '../Buttons/ButtonCart/ButtonCart';
+import { ButtonFavourite } from '../Buttons/ButtonFavourite/ButtonFavourite';
 
 type Props = {
   product: Product;
@@ -25,12 +23,6 @@ export const Card: React.FC<Props> = ({ product }) => {
     capacity,
     ram,
   } = product;
-
-  const { addToCart, addToFavorites, favorites } = useContext(StorageContext);
-
-  const isProductFavorite = favorites.some(
-    oneProduct => oneProduct.id === product.id,
-  );
 
   return (
     <div className="card">
@@ -74,29 +66,9 @@ export const Card: React.FC<Props> = ({ product }) => {
         </ul>
       </div>
       <div className="card__buttons noselect">
-        <button
-          onClick={() => {
-            addToCart(product);
-          }}
-          type="button"
-          className="card__buttons__button"
-        >
-          Add to cart
-        </button>
+        <ButtonCart product={product} />
 
-        <button
-          onClick={() => addToFavorites(product)}
-          type="button"
-          className={classNames('card__buttons__heart', {
-            'card__buttons__heart--active': isProductFavorite,
-          })}
-        >
-          <img
-            src={isProductFavorite ? HeartIcon : favourites_heart_like}
-            alt="heart-icon"
-            className="icon--heart"
-          />
-        </button>
+        <ButtonFavourite product={product} />
       </div>
     </div>
   );

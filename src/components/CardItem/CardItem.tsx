@@ -3,21 +3,23 @@ import '../../App.scss';
 import React, { Fragment, useEffect, useState, useContext } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import { Description, ProductFull } from '../../types/FullProduct';
 import { API_URL, getPhonesByParams } from '../../api/api';
 import { ParamsCard } from '../../types/CardParams';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Product } from '../../types/Product';
+import { ButtonCart } from '../Buttons/ButtonCart/ButtonCart';
+import { ButtonFavourite } from '../Buttons/ButtonFavourite/ButtonFavourite';
 import { StorageContext } from '../StorageContext';
 
 type Props = {
-  product: ProductFull;
+  cardProduct: ProductFull;
+  cartProduct: Product;
 };
 
-export const CardItem: React.FC<Props> = ({ product }) => {
+export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
   const { id, name, images, description, colorsAvailable, capacityAvailable }
-    = product;
+    = cardProduct;
   const [selectImg, setSelectImg] = useState<string>(images[0]);
   const [recommended, setRecommended] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,13 +32,14 @@ export const CardItem: React.FC<Props> = ({ product }) => {
 
     getPhonesByParams(recommendedProductsParams)
       .then(setRecommended)
-      .catch(
-        () => errorNotify('No information found about recomended products'),
-      )
+      .catch(() => {
+        errorNotify('No information found about recomended products');
+      })
+
       .finally(() => {
         setIsLoading(false);
       });
-  }, [product]);
+  }, [cardProduct]);
 
   const baseUrl = new URL(API_URL);
 
@@ -152,24 +155,18 @@ export const CardItem: React.FC<Props> = ({ product }) => {
             <div className="item__prices">
               <div className="item__prices--amount">
                 <span className="item__amount--main">
-                  {`$${product.priceDiscount}`}
+                  {`$${cardProduct.priceDiscount}`}
                 </span>
 
                 <span className="item__amount--cross">
-                  {`$${product.priceRegular}`}
+                  {`$${cardProduct.priceRegular}`}
                 </span>
               </div>
 
               <div className="item__prices__button noselect">
-                <button type="submit" className="item__add--button">
-                  Add to card
-                </button>
+                <ButtonCart product={cartProduct} />
 
-                <button type="submit" className="item__favorite--button">
-                  <a className="item__favorite--button-sign" href="/">
-                    <img src={favourites_heart_like} alt="heart like" />
-                  </a>
-                </button>
+                <ButtonFavourite product={cartProduct} />
               </div>
             </div>
 
@@ -180,7 +177,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                 </p>
 
                 <p className="item__information--screen-value">
-                  {product.screen}
+                  {cardProduct.screen}
                 </p>
               </div>
               <div className="item__information--screen">
@@ -189,7 +186,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                 </p>
 
                 <p className="item__information--screen-value">
-                  {product.resolution}
+                  {cardProduct.resolution}
                 </p>
               </div>
               <div className="item__information--screen">
@@ -198,7 +195,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                 </p>
 
                 <p className="item__information--screen-value">
-                  {product.processor}
+                  {cardProduct.processor}
                 </p>
               </div>
               <div className="item__information--screen">
@@ -206,7 +203,9 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                   {ParamsCard.Ram}
                 </p>
 
-                <p className="item__information--screen-value">{product.ram}</p>
+                <p className="item__information--screen-value">
+                  {cardProduct.ram}
+                </p>
               </div>
             </div>
           </div>
@@ -241,49 +240,51 @@ export const CardItem: React.FC<Props> = ({ product }) => {
               <div className="tech__content--item">
                 <p className="tech__item--type">{ParamsCard.Display}</p>
 
-                <p className="tech__item--value">{product.screen}</p>
+                <p className="tech__item--value">{cardProduct.screen}</p>
               </div>
 
               <div className="tech__content--item">
                 <p className="tech__item--type">{ParamsCard.Resolution}</p>
 
-                <p className="tech__item--value">{product.resolution}</p>
+                <p className="tech__item--value">{cardProduct.resolution}</p>
               </div>
 
               <div className="tech__content--item">
                 <p className="tech__item--type">{ParamsCard.Processor}</p>
 
-                <p className="tech__item--value">{product.processor}</p>
+                <p className="tech__item--value">{cardProduct.processor}</p>
               </div>
 
               <div className="tech__content--item">
                 <p className="tech__item--type">{ParamsCard.Ram}</p>
 
-                <p className="tech__item--value">{product.ram}</p>
+                <p className="tech__item--value">{cardProduct.ram}</p>
               </div>
 
               <div className="tech__content--item">
                 <p className="tech__item--type">{ParamsCard.Memory}</p>
 
-                <p className="tech__item--value">{product.capacity}</p>
+                <p className="tech__item--value">{cardProduct.capacity}</p>
               </div>
 
               <div className="tech__content--item">
                 <p className="tech__item--type">{ParamsCard.Camera}</p>
 
-                <p className="tech__item--value">{product.camera}</p>
+                <p className="tech__item--value">{cardProduct.camera}</p>
               </div>
 
               <div className="tech__content--item">
                 <p className="tech__item--type">{ParamsCard.Zoom}</p>
 
-                <p className="tech__item--value">{product.zoom}</p>
+                <p className="tech__item--value">{cardProduct.zoom}</p>
               </div>
 
               <div className="tech__content--item">
                 <p className="tech__item--type">{ParamsCard.Cell}</p>
 
-                <p className="tech__item--value">{product.cell.join(', ')}</p>
+                <p className="tech__item--value">
+                  {cardProduct.cell.join(', ')}
+                </p>
               </div>
             </div>
           </div>
