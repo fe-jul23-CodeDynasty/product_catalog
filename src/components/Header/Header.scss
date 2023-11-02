@@ -117,14 +117,22 @@
     align-items: center;
     justify-content: center;
     padding: 16px;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #eb5757;
-    }
 
     @include onDesktop {
       padding: 24px;
+    }
+
+    &:hover {
+      animation: pulse 1s infinite alternate;
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.2);
+        }
+      }
     }
   }
 
@@ -136,7 +144,21 @@
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #eb5757;
+      transform: translate(0, 0);
+      animation: consume 3s infinite;
+
+      @keyframes consume {
+        0% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(3px, 3px);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
     }
 
     @include onDesktop {
