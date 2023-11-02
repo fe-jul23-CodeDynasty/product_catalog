@@ -8,10 +8,10 @@ import close_menu from './images/close_menu.svg';
 import { Navigation } from '../Navigation/Navigation';
 
 type Props = {
-  setIsMenuOpened: (statusMenu: boolean) => void,
+  setIsMenuOpened: (statusMenu: boolean) => void;
 };
 
-export const BurgerMenu:React.FC<Props> = ({ setIsMenuOpened }) => {
+export const BurgerMenu: React.FC<Props> = ({ setIsMenuOpened }) => {
   return (
     <>
       <div className="burger-menu">
