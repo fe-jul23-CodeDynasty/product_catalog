@@ -29,7 +29,7 @@ export const CartMenu: React.FC = () => {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
   return isLoading ? (

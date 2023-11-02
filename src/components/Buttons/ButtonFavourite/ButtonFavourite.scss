@@ -4,7 +4,7 @@
 
 .icon--heart {
   width: 16px;
-  height: 16px;;
+  height: 16px;
 }
 
 .button-heart {
@@ -22,11 +22,11 @@
     background-color: $cardColor;
     border: 1px solid $borderColor;
     transition: background-color 0.3s;
-  
+
     &:hover {
       background-color: $iconsColor;
     }
-  
+
     &--active {
       background-color: $cardColor;
       border: 1px solid $cardColor;
@@ -51,10 +51,10 @@
     &:hover {
       background-color: $iconsColor;
     }
-  
+
     &--active {
       background-color: $cardColor;
       border: 1px solid $cardColor;
-    }   
+    }
   }
 }
