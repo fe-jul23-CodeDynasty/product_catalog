@@ -6,7 +6,9 @@ import { getProductById, getProductsByApi } from '../../api/api';
 import { ButtonBack } from '../ButtonBack/ButtonBack';
 import { Breadcrumbs } from '../Breadcrumps/Breadcrumps';
 import { StorageContext } from '../StorageContext';
+import './ProductDetailsPage.scss';
 import { Product } from '../../types/Product';
+
 
 export const ProductDetailsPage: React.FC = () => {
   const [cartProduct, setCartProduct] = useState<Product>();

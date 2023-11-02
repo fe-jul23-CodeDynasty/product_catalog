@@ -12,12 +12,23 @@ export const Breadcrumbs = () => {
   const crumbs = location.pathname
     .split('/')
     .filter(crumb => crumb !== '')
-    .map(crumb => {
-      currentlink = `/${crumb}`;
+    .map((crumb, index, array) => {
+      currentlink += `/${crumb}`;
+
+      if (crumb === 'catalog') {
+        return null;
+      }
 
       return (
         <div className="crumb" key={crumb}>
           <Link to={currentlink}>{crumb}</Link>
+          {index < array.length - 1 && (
+            <img
+              src={ArrowRightIcon}
+              alt="arrow-right-icon"
+              className="bread__container--arrow"
+            />
+          )}
         </div>
       );
     });
