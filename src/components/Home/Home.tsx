@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ButtonUp from '../ButtonUp/ButtonUp';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
@@ -8,6 +7,7 @@ import { ByCategories } from '../byCategoriesSection/ByCategories';
 import './home.scss';
 import { getPhonesByParams } from '../../api/api';
 import { Product } from '../../types/Product';
+import { HomeSkeletonLoader } from './HomeSkeletonLoader';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,36 +40,34 @@ export const Home = () => {
       });
   }, []);
 
-  return (
+  return isLoading ? (
+    <HomeSkeletonLoader isLoading={isLoading} />
+  ) : (
     <>
       <div className="wallpaper">
         <div className="container-home">
-          <SkeletonTheme baseColor="#161827" highlightColor="#323542">
-            <h1 className="container-home__h1">
-              {isLoading ? <Skeleton /> : 'Welcome to Nice Gadgets store!'}
-            </h1>
+          <h1 className="container-home__h1">Welcome to Nice Gadgets store!</h1>
 
-            <div className="container-home__slider">
-              {isLoading ? <Skeleton height={360} /> : <Slider />}
-            </div>
-            <div className="container-home__promo-slider">
-              <PromoSlider
-                title="Brand new models"
-                phones={brandNewModels}
-                isLoading={isLoading}
-              />
-            </div>
-            <div className="container-home__by-categories">
-              <ByCategories isLoading={isLoading} />
-            </div>
-            <div className="container-home__promo-slider">
-              <PromoSlider
-                title="Hot prices"
-                phones={hotPrices}
-                isLoading={isLoading}
-              />
-            </div>
-          </SkeletonTheme>
+          <div className="container-home__slider">
+            <Slider />
+          </div>
+          <div className="container-home__promo-slider">
+            <PromoSlider
+              title="Brand new models"
+              phones={brandNewModels}
+              isLoading={isLoading}
+            />
+          </div>
+          <div className="container-home__by-categories">
+            <ByCategories />
+          </div>
+          <div className="container-home__promo-slider">
+            <PromoSlider
+              title="Hot prices"
+              phones={hotPrices}
+              isLoading={isLoading}
+            />
+          </div>
         </div>
       </div>
       <div className="container-home__buttonUp">

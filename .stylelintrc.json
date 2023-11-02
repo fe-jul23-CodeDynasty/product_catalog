@@ -8,6 +8,7 @@
   "rules": {
     "import-notation": "string",
     "max-nesting-depth": null,
+    "selector-no-qualifying-type": null,
     "no-empty-source": null,
     "no-descending-specificity": null,
     "media-query-no-invalid": null,
