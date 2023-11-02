@@ -20,10 +20,6 @@ export const Header = () => {
 
     window.addEventListener('resize', handleResize);
 
-    if (!isMobileVersion) {
-      setIsMenuOpened((prev: any) => !prev);
-    }
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -49,13 +45,7 @@ export const Header = () => {
           </div>
         </div>
 
-        <Link
-          to="/openmenu"
-          className="burger-img"
-          onClick={() => {
-            setIsMenuOpened((prevState: any) => !prevState);
-          }}
-        >
+        <Link to="/openmenu" className="burger-img">
           <img className="header__icon" src={burger_menu} alt="close menu" />
         </Link>
       </div>
