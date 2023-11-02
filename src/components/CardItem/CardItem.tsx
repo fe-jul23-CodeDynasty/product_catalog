@@ -171,7 +171,7 @@ export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
                         `item__available item__available--${normalizeParam(
                           color,
                         )}`,
-                        { 'is-color': currentColor === color },
+                        { 'is-color': currentColor === normalizeParam(color) },
                       )}
                       aria-label="send"
                     />
@@ -185,6 +185,7 @@ export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
               <div className="item__capacity-container noselect">
                 {capacityAvailable.map(capacity => (
                   <Link
+                    key={capacity}
                     to={getLink(capacity, 'capacity')}
                     relative="path"
                     className={classNames('item__capacity-container--button', {

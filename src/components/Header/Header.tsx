@@ -10,7 +10,6 @@ import { FavouritesButton } from '../FavouritesButton';
 import { StorageContext } from '../StorageContext';
 
 export const Header = () => {
-  const { setIsMenuOpened } = useContext(StorageContext);
   const { setWindowResize, isMobileVersion } = useContext(StorageContext);
 
   useEffect(() => {
