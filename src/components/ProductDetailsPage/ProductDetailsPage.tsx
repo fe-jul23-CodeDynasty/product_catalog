@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ProductFull } from '../../types/FullProduct';
 import { CardItem } from '../CardItem/CardItem';
 import { getProductById } from '../../api/api';
 import { ButtonBack } from '../ButtonBack/ButtonBack';
 import { Breadcrumbs } from '../Breadcrumps/Breadcrumps';
+import { StorageContext } from '../StorageContext/StorageContext';
 
 export const ProductDetailsPage: React.FC = () => {
   const [product, setProduct] = useState<ProductFull | null>(null);
@@ -13,12 +14,15 @@ export const ProductDetailsPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const { errorNotify } = useContext(StorageContext);
+
   useEffect(() => {
     getProductById(id || '')
       .then(data => setProduct(data))
       .catch(mess => {
         navigate('../../not_found', { relative: 'path', replace: true });
         setErrMess(mess);
+        errorNotify('Something went wrong!');
       })
       .finally(() => setIsLoading(false));
   }, [id]);

@@ -1,9 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './CartMenu.scss';
 import './CartMenu-skeleton.scss';
-
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import BackIcon from './images/back.svg';
 import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
@@ -84,7 +82,6 @@ export const CartMenu: React.FC = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
       <CartModal
         active={modalActive}
         setActive={setModalActive}

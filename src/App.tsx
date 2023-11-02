@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import './App.scss';
 import { Outlet } from 'react-router-dom';
 import { Header } from './components/Header/Header';
@@ -13,6 +14,7 @@ function App() {
         <Outlet />
         <ButtonUp />
         <Footer />
+        <ToastContainer />
       </StorageContextProvider>
     </div>
   );
