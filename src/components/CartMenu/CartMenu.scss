@@ -1,5 +1,5 @@
-@import '../../utils/variables.scss';
-@import '../../utils/mixins.scss';
+@import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 .back--icon {
   margin-right: 4px;
@@ -124,7 +124,7 @@
     border: 0;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: -24px;
       left: 0;
@@ -149,10 +149,4 @@
   @include onDesktop() {
     grid-column: 1 / -9;
   }
-}
-
-.empty-cart-text {
-  padding-top: 30px;
-  font-size: 50px;
-  color: $textColor;
 }

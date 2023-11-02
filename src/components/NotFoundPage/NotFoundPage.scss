@@ -1,14 +1,14 @@
-@import '~normalize.css';
-@import 'src/utils/variables';
+@import "~normalize.css";
+@import "src/utils/variables";
 
 .section-not-found {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-inline: $paddingInlineMobile;
   height: 100vh;
   background-color: $backgroundColor;
-  padding-inline: $paddingInlineMobile;
 
   @media (min-width: $tabletMinWidth) {
     padding-inline: $paddingInlineTablet;
@@ -38,8 +38,8 @@
 
   &__message {
     font-size: $errorMessageFontSizeMobile;
-    color: $textColor;
     text-align: center;
+    color: $textColor;
 
     @media (min-width: $tabletMinWidth) {
       font-size: $errorMessageFontSizeTablet;
@@ -49,8 +49,8 @@
   &__type {
     font-size: $errorTypeFontSize;
     font-weight: $textWeight;
-    color: $textColor;
     text-align: center;
+    color: $textColor;
   }
 }
 
@@ -74,7 +74,7 @@
   }
 
   &::after {
-    content: url('../../images/home.svg');
+    content: url("../../images/home.svg");
     margin-left: 10px;
   }
 

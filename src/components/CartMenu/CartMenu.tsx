@@ -8,6 +8,7 @@ import { CartModal } from '../CartModal/CartModal';
 import { StorageContext } from '../StorageContext/StorageContext';
 import { Product } from '../../types/Product';
 import { CartMenuSkeletonLoader } from './CartMenuSkeletonLoader';
+import { GoShopping } from '../GoShoppingSection/GoShopping';
 
 export const CartMenu: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -77,7 +78,7 @@ export const CartMenu: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <p className="empty-cart-text">No added products in cart</p>
+              <GoShopping message="No added products in cart" />
             )}
           </div>
         </div>
