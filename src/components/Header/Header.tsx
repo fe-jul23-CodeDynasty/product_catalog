@@ -47,8 +47,12 @@ export const Header = () => {
         </div>
 
         <div className="container__heart-like-shopping-bag">
-          <FavouritesButton />
-          <ShoppingBagButton />
+          <div className="header-icon-wrapper">
+            <FavouritesButton />
+          </div>
+          <div className="header-icon-wrapper">
+            <ShoppingBagButton />
+          </div>
         </div>
 
         <Link
