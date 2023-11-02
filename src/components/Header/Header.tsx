@@ -18,9 +18,7 @@ export const Header = () => {
 
   // eslint-disable-next-line no-console
   // console.log(isMenuOpened);
-  const {
-    setIsMenuOpened,
-  } = useContext(StorageContext);
+  const { setIsMenuOpened } = useContext(StorageContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,9 +40,7 @@ export const Header = () => {
             <img className="logo__img" src={logo_main} alt="Logo link" />
           </NavLink>
 
-          {!isMobileVersion && (
-            <Navigation />
-          )}
+          {!isMobileVersion && <Navigation />}
         </div>
 
         <div className="container__heart-like-shopping-bag">

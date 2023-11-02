@@ -10,18 +10,14 @@ import { Navigation } from '../Navigation/Navigation';
 import { StorageContext } from '../StorageContext/StorageContext';
 
 export const BurgerMenu = () => {
-  const {
-    isMenuOpened,
-    setIsMenuOpened,
-  } = useContext(StorageContext);
+  const { isMenuOpened, setIsMenuOpened } = useContext(StorageContext);
 
   return (
     <>
       <div
-        className={
-          classNames('burger-menu',
-            { 'burger-menu-open': isMenuOpened })
-        }
+        className={classNames('burger-menu', {
+          'burger-menu-open': isMenuOpened,
+        })}
       >
         <header className="header">
           <div className="header__content">
@@ -45,9 +41,7 @@ export const BurgerMenu = () => {
           </div>
         </header>
         <div className="burger-menu__body">
-          <Navigation
-            setIsMenuOpened={setIsMenuOpened}
-          />
+          <Navigation setIsMenuOpened={setIsMenuOpened} />
           <div className="bottom-bar burger-menu__bottom">
             <div className="icon-container__favourite">
               <Link
