@@ -4,12 +4,16 @@
 
 .section-by-category {
   &__title {
-    font-size: $minorTitleFontSize;
+    font-size: $highTextFontSize;
     font-family: Mont, sans-serif;
     font-weight: $titleWeight;
     letter-spacing: -0.32px;
     line-height: 41px;
     color: $categoryHeaderColor;
+
+    @media (min-width: $tabletMinWidth) {
+      font-size: $minorTitleFontSize;
+    }
   }
 
   &__cards {
