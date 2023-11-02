@@ -7,7 +7,7 @@ import CartIcon from './images/cart.svg';
 import logo_main from './images/logo.svg';
 import close_menu from './images/close_menu.svg';
 import { Navigation } from '../Navigation/Navigation';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 
 export const BurgerMenu = () => {
   const {

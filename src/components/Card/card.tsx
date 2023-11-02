@@ -6,7 +6,7 @@ import '../../App.scss';
 import classNames from 'classnames';
 import HeartIcon from './images/heart-red.svg';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 import { Product } from '../../types/Product';
 
 type Props = {
