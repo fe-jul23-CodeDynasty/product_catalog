@@ -153,11 +153,11 @@ export const CardItem: React.FC<Props> = ({ product }) => {
             <div className="item__prices">
               <div className="item__prices--amount">
                 <span className="item__amount--main">
-                  {product.priceDiscount}
+                  {`$${product.priceDiscount}`}
                 </span>
 
                 <span className="item__amount--cross">
-                  {product.priceRegular}
+                  {`$${product.priceRegular}`}
                 </span>
               </div>
 
