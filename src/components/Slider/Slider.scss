@@ -31,6 +31,15 @@
     &-next {
       right: var(--swiper-navigation-sides-offset, 0);
       display: none;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $iconsColor;
+      }
+
+      &:active {
+        background-color: $buttonCheckoutColor;
+      }
 
       &::after {
         font-size: $buttonFontSize;
@@ -48,6 +57,15 @@
     &-prev {
       left: var(--swiper-navigation-sides-offset, 0);
       display: none;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: $iconsColor;
+      }
+
+      &:active {
+        background-color: $buttonCheckoutColor;
+      }
 
       &::after {
         font-size: $buttonFontSize;
