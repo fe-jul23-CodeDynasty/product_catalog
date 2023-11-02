@@ -1,4 +1,3 @@
-/* stylelint-disable */
 @import '~normalize.css';
 @import 'src/utils/variables';
 @import 'src/utils/mixins';
@@ -8,7 +7,6 @@
     color: $textColor !important;
     background-color: $buttonActiveColor !important;
     border: 0 !important;
-    color: $textColor !important;
     cursor: pointer !important;
     box-shadow: none !important;
   }
@@ -17,6 +15,7 @@
     cursor: pointer !important;
 
     &--is-focused {
+        /* stylelint-disable-next-line */
       background-color: lighten($buttonActiveColor, 8%) !important;
     }
   }
@@ -34,6 +33,7 @@
   }
 }
 
+/* stylelint-disable-next-line */
 .css-1dimb5e-singleValue {
   font-size: 14px !important;
   color: $textColor !important;

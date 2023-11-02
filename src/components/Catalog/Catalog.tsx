@@ -16,7 +16,6 @@ import HomeIcon from './images/home.svg';
 import { DropdownOptions } from '../../types/DropdownOptions';
 import { PaginationButtons } from './Pagination/Pagination';
 import { Category } from '../../types/Category';
-import ButtonUp from '../ButtonUp/ButtonUp';
 import { CatalogSkeletonLoader } from './CatalogSkeletonLoader';
 
 export const Catalog: React.FC = () => {
@@ -166,9 +165,6 @@ export const Catalog: React.FC = () => {
                 setSearchParams={setSearchParams}
               />
             </div>
-          </div>
-          <div className="container-home__buttonUp">
-            <ButtonUp />
           </div>
         </div>
       </div>

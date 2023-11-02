@@ -129,9 +129,6 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                     />
                   ))}
               </div>
-              {/* <div className="item__top--id">
-                {product.id}
-              </div> */}
             </div>
 
             <div className="item__right--capacity">

@@ -1,4 +1,3 @@
-/* stylelint-disable */
 @import '../../utils/variables.scss';
 @import '../../utils/mixins.scss';
 
@@ -11,7 +10,8 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  /* stylelint-disable-next-line */
+  background-color: rgba(0, 0, 0, 80%);
   opacity: 0;
   pointer-events: none;
   transition: all 0.5s;
