@@ -1,11 +1,17 @@
 import './BurgerMenu.scss';
 import { NavLink } from 'react-router-dom';
+import React from 'react';
 import FavouriteIcon from './images/favourite.svg';
 import CartIcon from './images/cart.svg';
 import logo_main from './images/logo.svg';
 import close_menu from './images/close_menu.svg';
+import { Navigation } from '../Navigation/Navigation';
 
-export const BurgerMenu = () => {
+type Props = {
+  setIsMenuOpened: (statusMenu: boolean) => void,
+};
+
+export const BurgerMenu:React.FC<Props> = ({ setIsMenuOpened }) => {
   return (
     <>
       <div className="burger-menu">
@@ -17,18 +23,17 @@ export const BurgerMenu = () => {
               </NavLink>
             </div>
 
-            <a href="/" className="burger-img">
+            <NavLink
+              to="/"
+              onClick={() => setIsMenuOpened(false)}
+              className="burger-img"
+            >
               <img className="header__icon" src={close_menu} alt="menu" />
-            </a>
+            </NavLink>
           </div>
         </header>
         <div className="burger-menu__body">
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
+          <Navigation />
           <div className="bottom-bar burger-menu__bottom">
             <div className="icon-container__favourite">
               <a href="#favorites" className="bottom-bar__icon is-active">

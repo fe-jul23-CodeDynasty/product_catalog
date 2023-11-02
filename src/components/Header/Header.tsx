@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
@@ -13,6 +13,24 @@ import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 export const Header = () => {
   const { favoritesCounter, totalItemsCounter } = useContext(StorageContext);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  const [windowResize, setWindowResize] = useState(window.innerWidth);
+
+  const isMobileVersion = windowResize <= 639;
+
+  // eslint-disable-next-line no-console
+  console.log(isMenuOpened);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowResize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <header className="header noselect">
@@ -23,7 +41,9 @@ export const Header = () => {
               <img className="logo__img" src={logo_main} alt="Logo link" />
             </NavLink>
 
-            <Navigation />
+            {!isMobileVersion && (
+              <Navigation />
+            )}
           </div>
 
           <div className="container__heart-like-shopping-bag">
@@ -61,7 +81,9 @@ export const Header = () => {
           </a>
         </div>
       ) : (
-        <BurgerMenu />
+        <BurgerMenu
+          setIsMenuOpened={setIsMenuOpened}
+        />
       )}
     </header>
   );
