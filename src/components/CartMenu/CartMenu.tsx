@@ -1,8 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './CartMenu.scss';
 import './CartMenu-skeleton.scss';
-import { Link } from 'react-router-dom';
-import BackIcon from './images/back.svg';
 import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
 import { StorageContext } from '../StorageContext';

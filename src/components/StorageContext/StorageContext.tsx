@@ -21,6 +21,8 @@ type StorageContextType = {
   errorNotify: (message: string) => void;
   isMenuOpened: boolean;
   setIsMenuOpened: any;
+  isMobileVersion: boolean;
+  setWindowResize: any;
 };
 
 export const StorageContext = createContext<StorageContextType>({
@@ -41,6 +43,8 @@ export const StorageContext = createContext<StorageContextType>({
   errorNotify: () => {},
   isMenuOpened: false,
   setIsMenuOpened: () => {},
+  isMobileVersion: false,
+  setWindowResize: () => {},
 });
 
 type Props = {
@@ -152,6 +156,8 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
   });
 
   const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
+  const [windowResize, setWindowResize] = useState(window.innerWidth);
+  const isMobileVersion = windowResize <= 639;
 
   return (
     <StorageContext.Provider
@@ -173,6 +179,8 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
         errorNotify,
         isMenuOpened,
         setIsMenuOpened,
+        isMobileVersion,
+        setWindowResize,
       }}
     >
       {children}
