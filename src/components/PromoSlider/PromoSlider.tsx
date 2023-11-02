@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import './PromoSlider.scss';
 import '../../App.scss';
 import { Navigation } from 'swiper/modules';
+
 import { Card } from '../Card/card';
 import { Product } from '../../types/Product';
 

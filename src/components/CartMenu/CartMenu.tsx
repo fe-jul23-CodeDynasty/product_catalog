@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import BackIcon from './images/back.svg';
 import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 import { Product } from '../../types/Product';
 import { CartMenuSkeletonLoader } from './CartMenuSkeletonLoader';
 import { GoShopping } from '../GoShoppingSection/GoShopping';
@@ -19,7 +19,7 @@ export const CartMenu: React.FC = () => {
     setCart,
     totalCost,
     setTotalCost,
-    removeFromCart,
+    removeFromCartInCart,
     setTotalItemsCounter,
     totalItemsCounter,
   } = useContext(StorageContext);
@@ -29,7 +29,7 @@ export const CartMenu: React.FC = () => {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
   return isLoading ? (
@@ -53,7 +53,7 @@ export const CartMenu: React.FC = () => {
                     <CartItem
                       key={product.id}
                       product={product}
-                      removeFromCart={removeFromCart}
+                      removeFromCartInCart={removeFromCartInCart}
                       setTotalCost={setTotalCost}
                       setTotalItemsCounter={setTotalItemsCounter}
                       setCart={setCart}

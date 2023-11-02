@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import './CartModal.scss';
 import '../../App.scss';
 import cartCheck from '../../images/cart-check.svg';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 
 type Props = {
   active: boolean;
