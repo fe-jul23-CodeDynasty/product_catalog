@@ -4,6 +4,7 @@
 .wallpaper {
   @include contentPaddingInline;
 
+  padding-bottom: 60px;
   color: $textColor;
 }
 
