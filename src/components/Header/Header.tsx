@@ -7,7 +7,7 @@ import shopping_bag from '../../images/shopping_bag.svg';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
 import '../../App.scss';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 
 export const Header = () => {
   const { favoritesCounter, totalItemsCounter } = useContext(StorageContext);
@@ -28,6 +28,10 @@ export const Header = () => {
     };
 
     window.addEventListener('resize', handleResize);
+
+    if (!isMobileVersion) {
+      setIsMenuOpened((prev: any) => !prev);
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize);

@@ -7,7 +7,7 @@ import './CartMenu-skeleton.scss';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import BackIcon from './images/back.svg';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 
 export const CartMenuSkeletonLoader: React.FC = () => {
   const { cart } = useContext(StorageContext);
