@@ -16,7 +16,7 @@ type StorageContextType = {
   setFavorites: any;
   addToFavorites: (product: Product) => void;
   favoritesCounter: number;
-  errorNotify: (message: name) => void;
+  errorNotify: (message: string) => void;
 };
 
 export const StorageContext = createContext<StorageContextType>({

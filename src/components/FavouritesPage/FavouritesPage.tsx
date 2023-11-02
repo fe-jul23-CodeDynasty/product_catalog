@@ -2,11 +2,11 @@ import './FavouritesPage.scss';
 import '../../App.scss';
 import { useState, useEffect, useContext } from 'react';
 import { Card } from '../Card/card';
-
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
 import { StorageContext } from '../StorageContext/StorageContext';
 import { FavouritesPageSkeletonLoader } from './FavouritesPageSkeletonLoader';
+import { GoShopping } from '../GoShoppingSection/GoShopping';
 
 export const FavouritesPage = () => {
   const { favorites, favoritesCounter } = useContext(StorageContext);
@@ -40,11 +40,14 @@ export const FavouritesPage = () => {
               />
               Favourites
             </a>
-            <h1 className="title">
-              {favorites.length ? 'Favorites' : 'Favorites not selected yet'}
-            </h1>
-
-            <p className="items-count">{`${favoritesCounter} items`}</p>
+            {favoritesCounter ? (
+              <>
+                <h1 className="title">Favorites</h1>
+                <p className="items-count">{`${favoritesCounter} items`}</p>
+              </>
+            ) : (
+              <GoShopping message="Favorites not selected yet" />
+            )}
           </div>
 
           <section className="cards">
