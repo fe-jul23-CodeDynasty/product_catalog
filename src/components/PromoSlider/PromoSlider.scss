@@ -11,8 +11,9 @@
   font-weight: $titleWeight;
   letter-spacing: -0.32px;
   line-height: 41px;
-  color: $textColor;
   max-width: 136px;
+  color: $textColor;
+
 
   @media (min-width: $tabletMinWidth) {
     max-width: $tabletMinWidth;
