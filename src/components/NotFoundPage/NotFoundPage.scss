@@ -6,27 +6,50 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-inline: $paddingInlineMobile;
   height: 100vh;
   background-color: $backgroundColor;
+
+  @media (min-width: $tabletMinWidth) {
+    padding-inline: $paddingInlineTablet;
+  }
+
+  @media (min-width: $desktopMinWidth) {
+    padding-inline: $paddingInlineDesktop;
+  }
 }
 
 .error {
   &__status {
     margin: 30px 0;
-    font-size: $errorFontSize;
+    font-size: $errorFontSizeMobile;
     font-weight: bolder;
     text-shadow: 3px 3px 3px $errorStatusColorShadow;
     animation: scale 1s alternate infinite;
+
+    @media (min-width: $tabletMinWidth) {
+      font-size: $errorFontSizeTablet;
+    }
+
+    @media (min-width: $desktopMinWidth) {
+      font-size: $errorFontSizeDesctop;
+    }
   }
 
   &__message {
-    font-size: $errorMessageFontSize;
+    font-size: $errorMessageFontSizeMobile;
+    text-align: center;
     color: $textColor;
+
+    @media (min-width: $tabletMinWidth) {
+      font-size: $errorMessageFontSizeTablet;
+    }
   }
 
   &__type {
     font-size: $errorTypeFontSize;
     font-weight: $textWeight;
+    text-align: center;
     color: $textColor;
   }
 }

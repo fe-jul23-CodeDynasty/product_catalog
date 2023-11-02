@@ -1,14 +1,24 @@
 import './BurgerMenu.scss';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import classNames from 'classnames';
 import FavouriteIcon from './images/favourite.svg';
 import CartIcon from './images/cart.svg';
 import logo_main from './images/logo.svg';
 import close_menu from './images/close_menu.svg';
+import { Navigation } from '../Navigation/Navigation';
+import { StorageContext } from '../StorageContext';
 
 export const BurgerMenu = () => {
+  const { isMenuOpened, setIsMenuOpened } = useContext(StorageContext);
+
   return (
     <>
-      <div className="burger-menu">
+      <div
+        className={classNames('burger-menu', {
+          'burger-menu-open': isMenuOpened,
+        })}
+      >
         <header className="header">
           <div className="header__content">
             <div className="header-nav-container">
@@ -17,32 +27,51 @@ export const BurgerMenu = () => {
               </NavLink>
             </div>
 
-            <a href="/" className="burger-img">
+            <a
+              href="/"
+              onClick={() => {
+                if (setIsMenuOpened) {
+                  setIsMenuOpened((prevState: boolean) => !prevState);
+                }
+              }}
+              className="burger-img"
+            >
               <img className="header__icon" src={close_menu} alt="menu" />
             </a>
           </div>
         </header>
         <div className="burger-menu__body">
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
-          <h1>1</h1>
+          <Navigation setIsMenuOpened={setIsMenuOpened} />
           <div className="bottom-bar burger-menu__bottom">
             <div className="icon-container__favourite">
-              <a href="#favorites" className="bottom-bar__icon is-active">
+              <Link
+                onClick={() => {
+                  if (setIsMenuOpened) {
+                    setIsMenuOpened((prevState: boolean) => !prevState);
+                  }
+                }}
+                to="/favourites"
+                className="bottom-bar__icon is-active"
+              >
                 <img
                   src={FavouriteIcon}
                   alt="Favourite-logo"
                   className="bottom__logo"
                 />
-              </a>
+              </Link>
             </div>
             <div className="icon-container__cart">
-              <a href="#cart" className="bottom-bar__icon">
+              <Link
+                onClick={() => {
+                  if (setIsMenuOpened) {
+                    setIsMenuOpened((prevState: boolean) => !prevState);
+                  }
+                }}
+                to="/cart"
+                className="bottom-bar__icon"
+              >
                 <img src={CartIcon} alt="Cart-logo" className="bottom__logo" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

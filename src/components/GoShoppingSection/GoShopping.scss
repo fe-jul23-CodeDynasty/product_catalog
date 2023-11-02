@@ -1,0 +1,33 @@
+@import '~normalize.css';
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
+
+.shopping {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    padding-top: 30px;
+    font-size: 50px;
+    color: $textColor;
+  }
+
+  &__link {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: $textWeight;
+    text-decoration: none;
+    color: $textColor;
+    border: 1px solid $textColor;
+    border-radius: 15px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $backgroundColor;
+      background-color: $blueColor;
+      border-color: $blueColor;
+    }
+  }
+}

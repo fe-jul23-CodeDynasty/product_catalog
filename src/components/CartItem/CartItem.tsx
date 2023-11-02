@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import CloseIcon from '../CartMenu/images/close-gray.svg';
 import CounterPlus from '../CartMenu/images/counter-plus.svg';
 import CounterMinus from '../CartMenu/images/counter-minus.svg';
+import '../../App.scss';
 import './CartItem.scss';
 import { Product } from '../../types/Product';
 
 type Props = {
   product: Product;
-  removeFromCart: (product: Product) => void;
+  removeFromCartInCart: (product: Product) => void;
   setTotalCost: React.Dispatch<React.SetStateAction<number>>;
   setTotalItemsCounter: React.Dispatch<React.SetStateAction<number>>;
   setCart: any;
@@ -16,7 +17,7 @@ type Props = {
 
 export const CartItem: React.FC<Props> = ({
   product,
-  removeFromCart,
+  removeFromCartInCart,
   setTotalCost,
   setTotalItemsCounter,
   setCart,
@@ -70,10 +71,10 @@ export const CartItem: React.FC<Props> = ({
       <div className="cart-card__top">
         <button
           type="button"
-          className="cart-card__button button-delete"
+          className="cart-card__button button-delete noselect"
           onClick={() => {
             setTotalItemsCounter((prev: number) => prev - count);
-            removeFromCart(product);
+            removeFromCartInCart(product);
           }}
         >
           <img src={CloseIcon} alt="close-icon" className="cart-card__close" />
@@ -83,7 +84,7 @@ export const CartItem: React.FC<Props> = ({
           <img
             src={`https://product-catalog-be-qps4.onrender.com/${image}`}
             alt={productName}
-            className="cart-card__photo"
+            className="cart-card__photo noselect"
           />
         </Link>
 
@@ -97,7 +98,7 @@ export const CartItem: React.FC<Props> = ({
       </div>
 
       <div className="cart-card__bottom">
-        <div className="cart-card__counter">
+        <div className="cart-card__counter noselect">
           <button
             type="button"
             className="button-counter cart-card__counter--minus"

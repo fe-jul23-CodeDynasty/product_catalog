@@ -1,5 +1,5 @@
-@import '../../utils/variables.scss';
-@import '../../utils/mixins.scss';
+@import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 .promo-swiper {
   overflow-y: visible;
@@ -7,17 +7,27 @@
 
 .promo-title {
   margin: 10px 0;
-  font-size: $minorTitleFontSize;
+  max-width: 136px;
+  font-size: $highTextFontSize;
   font-weight: $titleWeight;
   letter-spacing: -0.32px;
   line-height: 41px;
   color: $textColor;
+
+  @media (min-width: $tabletMinWidth) {
+    max-width: $tabletMinWidth;
+    font-size: $minorTitleFontSize;
+  }
 }
 
 .promo-slider {
   position: relative;
   margin-top: 100px;
-  margin-right: -50px;
+  margin-right: -16px;
+
+  @include onTablet {
+    margin-right: -24px;
+  }
 
   @include onDesktop {
     margin-right: 0;
@@ -37,6 +47,7 @@
   .swiper-button-prev {
     right: 70px;
     left: auto;
+
     @include onDesktop {
       right: 50px;
       left: auto;
@@ -46,6 +57,7 @@
   .swiper-button-next {
     right: 25px;
     left: auto;
+
     @include onDesktop {
       right: 0;
     }

@@ -1,15 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './CartMenu.scss';
 import './CartMenu-skeleton.scss';
-
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import BackIcon from './images/back.svg';
 import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 import { Product } from '../../types/Product';
 import { CartMenuSkeletonLoader } from './CartMenuSkeletonLoader';
+import { GoShopping } from '../GoShoppingSection/GoShopping';
 
 export const CartMenu: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -20,7 +19,7 @@ export const CartMenu: React.FC = () => {
     setCart,
     totalCost,
     setTotalCost,
-    removeFromCart,
+    removeFromCartInCart,
     setTotalItemsCounter,
     totalItemsCounter,
   } = useContext(StorageContext);
@@ -30,7 +29,7 @@ export const CartMenu: React.FC = () => {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
   return isLoading ? (
@@ -40,7 +39,7 @@ export const CartMenu: React.FC = () => {
       <div className="page">
         <div className="container">
           <div className="page__body">
-            <Link to=".." className="back--link">
+            <Link to=".." className="back--link noselect">
               <img src={BackIcon} alt="back-icon" className="back--icon" />
               Back
             </Link>
@@ -54,7 +53,7 @@ export const CartMenu: React.FC = () => {
                     <CartItem
                       key={product.id}
                       product={product}
-                      removeFromCart={removeFromCart}
+                      removeFromCartInCart={removeFromCartInCart}
                       setTotalCost={setTotalCost}
                       setTotalItemsCounter={setTotalItemsCounter}
                       setCart={setCart}
@@ -71,7 +70,7 @@ export const CartMenu: React.FC = () => {
 
                   <button
                     type="button"
-                    className="button-checkout total-cost__button"
+                    className="button-checkout total-cost__button noselect"
                     onClick={() => setModalActive(true)}
                   >
                     Checkout
@@ -79,12 +78,11 @@ export const CartMenu: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <p className="empty-cart-text">No added products in cart</p>
+              <GoShopping message="No added products in cart" />
             )}
           </div>
         </div>
       </div>
-      <ToastContainer />
       <CartModal
         active={modalActive}
         setActive={setModalActive}

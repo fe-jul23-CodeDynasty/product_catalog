@@ -1,4 +1,5 @@
 import './ByCategories.scss';
+import '../../App.scss';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 import phonesCategory from './images/category-phones.png';
@@ -6,7 +7,7 @@ import tabletsCategory from './images/category-tablets.png';
 import accessoriesCategory from './images/category-accessories.png';
 
 export const ByCategories: React.FC = () => (
-  <section className="section section-by-category">
+  <section className="section section-by-category noselect">
     <h2 className="section-by-category__title">Shop by category</h2>
 
     <div className="section-by-category__cards">
@@ -21,7 +22,7 @@ export const ByCategories: React.FC = () => (
             <h4 className="category-card__title">Mobile phones</h4>
           </NavLink>
 
-          <p className="category-card__subtitle">95 models</p>
+          <p className="category-card__subtitle">124 models</p>
         </div>
       </div>
 
@@ -36,7 +37,7 @@ export const ByCategories: React.FC = () => (
             <h4 className="category-card__title">Tablets</h4>
           </NavLink>
 
-          <p className="category-card__subtitle">24 models</p>
+          <p className="category-card__subtitle">36 models</p>
         </div>
       </div>
 
@@ -54,7 +55,7 @@ export const ByCategories: React.FC = () => (
             <h4 className="category-card__title">Accessories</h4>
           </NavLink>
 
-          <p className="category-card__subtitle">100 models</p>
+          <p className="category-card__subtitle">34 models</p>
         </div>
       </div>
     </div>
