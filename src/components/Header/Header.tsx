@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import classNames from 'classnames';
 import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
 import { Navigation } from '../Navigation/Navigation';
@@ -29,6 +30,8 @@ export const Header = () => {
     };
   }, []);
 
+  const { pathname } = useLocation();
+
   return (
     <header className="header noselect">
       <div className="header__content">
@@ -41,10 +44,20 @@ export const Header = () => {
         </div>
 
         <div className="container__heart-like-shopping-bag">
-          <div className="header-icon-wrapper">
+          <div
+            className={classNames(
+              'header-icon-wrapper',
+              { 'is-active': pathname === '/favourites' },
+            )}
+          >
             <FavouritesButton />
           </div>
-          <div className="header-icon-wrapper">
+          <div
+            className={classNames(
+              'header-icon-wrapper',
+              { 'is-active': pathname === '/cart' },
+            )}
+          >
             <ShoppingBagButton />
           </div>
         </div>
