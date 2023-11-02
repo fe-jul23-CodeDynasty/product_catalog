@@ -1,5 +1,5 @@
-@import '../../utils/variables.scss';
-@import '../../utils/mixins.scss';
+@import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 .modal {
   position: fixed;
@@ -11,7 +11,7 @@
   width: 100vw;
   height: 100vh;
   /* stylelint-disable-next-line */
-  background-color: rgba(0, 0, 0, 80%);
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   pointer-events: none;
   transition: all 0.5s;
