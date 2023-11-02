@@ -1,9 +1,10 @@
+import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { PromoSlider } from '../PromoSlider/PromoSlider';
+
+import { PromoSlider, PromoSliderSkeletonLoader } from '../PromoSlider';
 import './home.scss';
-import { ByCategoriesSkeletonLoader } from '../byCategoriesSection/ByCategoriesSkeletonLoader';
-import { PromoSliderSkeletonLoader } from '../PromoSlider/PromoSliderSkeletonLoader';
+import { ByCategoriesSkeletonLoader } from '../byCategoriesSection';
 
 type Props = {
   isLoading: boolean;
