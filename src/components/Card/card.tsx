@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './card.scss';
+import '../../App.scss';
 
 import classNames from 'classnames';
 import HeartIcon from './images/heart-red.svg';
@@ -13,8 +14,17 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ product }) => {
-  const { category, image, name, itemId, price, fullPrice, screen, capacity, ram }
-    = product;
+  const {
+    category,
+    image,
+    name,
+    itemId,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+  } = product;
 
   const { addToCart, addToFavorites, favorites } = useContext(StorageContext);
 
@@ -28,7 +38,7 @@ export const Card: React.FC<Props> = ({ product }) => {
         <img
           src={`https://product-catalog-be-qps4.onrender.com/${image}`}
           alt={itemId}
-          className="card__img card-image"
+          className="card__img card-image noselect"
         />
       </Link>
 
@@ -63,7 +73,7 @@ export const Card: React.FC<Props> = ({ product }) => {
           </li>
         </ul>
       </div>
-      <div className="card__buttons">
+      <div className="card__buttons noselect">
         <button
           onClick={() => {
             addToCart(product);

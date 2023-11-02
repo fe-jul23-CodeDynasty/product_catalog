@@ -1,4 +1,5 @@
 import './Catalog.scss';
+import '../../App.scss';
 import React, { useState, useEffect } from 'react';
 import {
   Link,
@@ -114,7 +115,7 @@ export const Catalog: React.FC = () => {
       <div className="container">
         <div className="phones-page">
           <div className="phones-page__top">
-            <Link to="/" className="link--favourites">
+            <Link to="/" className="link--favourites noselect">
               <img
                 src={HomeIcon}
                 alt="home-icon"
@@ -156,7 +157,7 @@ export const Catalog: React.FC = () => {
               ))}
             </section>
 
-            <div className="phones-page__bottom">
+            <div className="phones-page__bottom noselect">
               <PaginationButtons
                 key={currentPage}
                 currentPage={currentPage}

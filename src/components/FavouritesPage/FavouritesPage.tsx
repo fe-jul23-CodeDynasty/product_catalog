@@ -1,4 +1,5 @@
 import './FavouritesPage.scss';
+import '../../App.scss';
 import { useState, useEffect, useContext } from 'react';
 import { Card } from '../Card/card';
 
@@ -23,11 +24,11 @@ export const FavouritesPage = () => {
   return isLoading ? (
     <FavouritesPageSkeletonLoader />
   ) : (
-    <div className="favourite-page">
+    <div className="favourite-page ">
       <div className="container">
         <div className="favourite-page__body">
           <div className="favourite-page__top">
-            <a href="#back" className="link--favourites">
+            <a href="#back" className="link--favourites noselect">
               <img
                 src={HomeIcon}
                 alt="home-icon"

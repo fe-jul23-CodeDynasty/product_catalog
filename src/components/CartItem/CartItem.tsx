@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CloseIcon from '../CartMenu/images/close-gray.svg';
 import CounterPlus from '../CartMenu/images/counter-plus.svg';
 import CounterMinus from '../CartMenu/images/counter-minus.svg';
+import '../../App.scss';
 import './CartItem.scss';
 import { Product } from '../../types/Product';
 
@@ -70,7 +71,7 @@ export const CartItem: React.FC<Props> = ({
       <div className="cart-card__top">
         <button
           type="button"
-          className="cart-card__button button-delete"
+          className="cart-card__button button-delete noselect"
           onClick={() => {
             setTotalItemsCounter((prev: number) => prev - count);
             removeFromCart(product);
@@ -83,7 +84,7 @@ export const CartItem: React.FC<Props> = ({
           <img
             src={`https://product-catalog-be-qps4.onrender.com/${image}`}
             alt={productName}
-            className="cart-card__photo"
+            className="cart-card__photo noselect"
           />
         </Link>
 
@@ -97,7 +98,7 @@ export const CartItem: React.FC<Props> = ({
       </div>
 
       <div className="cart-card__bottom">
-        <div className="cart-card__counter">
+        <div className="cart-card__counter noselect">
           <button
             type="button"
             className="button-counter cart-card__counter--minus"

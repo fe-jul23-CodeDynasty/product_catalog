@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import './Breadcrumbs.scss';
+import '../../App.scss';
 import ArrowRightIcon from '../Catalog/images/arrow-right.svg';
 import HomeIcon from '../Catalog/images/home.svg';
 
@@ -22,7 +23,7 @@ export const Breadcrumbs = () => {
     });
 
   return (
-    <div className="bread">
+    <div className="bread noselect">
       <div className="bread__container">
         <Link to="/" className="link--favourites">
           <img

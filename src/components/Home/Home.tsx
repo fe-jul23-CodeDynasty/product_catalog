@@ -5,6 +5,7 @@ import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
 import './home.scss';
+import '../../App.scss';
 import { getPhonesByParams } from '../../api/api';
 import { Product } from '../../types/Product';
 import { HomeSkeletonLoader } from './HomeSkeletonLoader';
@@ -46,7 +47,9 @@ export const Home = () => {
     <>
       <div className="wallpaper">
         <div className="container-home">
-          <h1 className="container-home__h1">Welcome to Nice Gadgets store!</h1>
+          <h1 className="container-home__h1 noselect">
+            Welcome to Nice Gadgets store!
+          </h1>
 
           <div className="container-home__slider">
             <Slider />

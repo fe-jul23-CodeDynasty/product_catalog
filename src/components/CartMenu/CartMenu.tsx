@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './CartMenu.scss';
 import './CartMenu-skeleton.scss';
+import '../../App.scss';
 
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -41,7 +42,7 @@ export const CartMenu: React.FC = () => {
       <div className="page">
         <div className="container">
           <div className="page__body">
-            <Link to=".." className="back--link">
+            <Link to=".." className="back--link noselect">
               <img src={BackIcon} alt="back-icon" className="back--icon" />
               Back
             </Link>
@@ -72,7 +73,7 @@ export const CartMenu: React.FC = () => {
 
                   <button
                     type="button"
-                    className="button-checkout total-cost__button"
+                    className="button-checkout total-cost__button noselect"
                     onClick={() => setModalActive(true)}
                   >
                     Checkout
@@ -88,7 +89,7 @@ export const CartMenu: React.FC = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer className="noselect" />
       <CartModal
         active={modalActive}
         setActive={setModalActive}
