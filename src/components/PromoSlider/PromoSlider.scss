@@ -1,5 +1,5 @@
-@import '../../utils/variables.scss';
-@import '../../utils/mixins.scss';
+@import "../../utils/variables.scss";
+@import "../../utils/mixins.scss";
 
 .promo-swiper {
   overflow-y: visible;
@@ -7,12 +7,12 @@
 
 .promo-title {
   margin: 10px 0;
+  max-width: 136px;
   font-size: $highTextFontSize;
   font-weight: $titleWeight;
   letter-spacing: -0.32px;
   line-height: 41px;
   color: $textColor;
-  max-width: 136px;
 
   @media (min-width: $tabletMinWidth) {
     max-width: $tabletMinWidth;

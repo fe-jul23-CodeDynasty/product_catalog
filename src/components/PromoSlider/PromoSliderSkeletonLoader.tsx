@@ -7,8 +7,6 @@ import 'swiper/css/navigation';
 import './PromoSlider.scss';
 import { Navigation } from 'swiper/modules';
 
-import { ToastContainer } from 'react-toastify';
-
 type Props = {
   isLoading: boolean;
 };
@@ -16,7 +14,6 @@ type Props = {
 export const PromoSliderSkeletonLoader: React.FC<Props> = ({ isLoading }) => {
   return (
     <div className="promo-slider">
-      <ToastContainer />
       <h3 className="promo-title">
         <Skeleton />
       </h3>
