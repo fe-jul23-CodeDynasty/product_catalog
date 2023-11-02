@@ -8,17 +8,19 @@ import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
 import '../../App.scss';
 import { StorageContext } from '../StorageContext/StorageContext';
-import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export const Header = () => {
   const { favoritesCounter, totalItemsCounter } = useContext(StorageContext);
-  const [isMenuOpened, setIsMenuOpened] = useState(false);
+  // const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [windowResize, setWindowResize] = useState(window.innerWidth);
 
   const isMobileVersion = windowResize <= 639;
 
   // eslint-disable-next-line no-console
-  console.log(isMenuOpened);
+  // console.log(isMenuOpened);
+  const {
+    setIsMenuOpened,
+  } = useContext(StorageContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,57 +36,51 @@ export const Header = () => {
 
   return (
     <header className="header noselect">
-      {!isMenuOpened ? (
-        <div className="header__content">
-          <div className="header-nav-container">
-            <NavLink to="/" className="logo">
-              <img className="logo__img" src={logo_main} alt="Logo link" />
-            </NavLink>
+      <div className="header__content">
+        <div className="header-nav-container">
+          <NavLink to="/" className="logo">
+            <img className="logo__img" src={logo_main} alt="Logo link" />
+          </NavLink>
 
-            {!isMobileVersion && (
-              <Navigation />
-            )}
-          </div>
-
-          <div className="container__heart-like-shopping-bag">
-            <Link className="container__heart-like" to="/favourites">
-              <div className="wrapper-heart-counter">
-                <img src={favourites_heart_like} alt="heart like" />
-                {!!favoritesCounter && (
-                  <div className="shopping-favorites-bag__counter">
-                    <p>{favoritesCounter}</p>
-                  </div>
-                )}
-              </div>
-            </Link>
-
-            <Link className="container__shopping-bag" to="/cart">
-              <div className="wrapper-shopping-bag-counter">
-                <img src={shopping_bag} alt="shopping bag" />
-                {!!totalItemsCounter && (
-                  <div className="shopping-favorites-bag__counter">
-                    <p>{totalItemsCounter}</p>
-                  </div>
-                )}
-              </div>
-            </Link>
-          </div>
-
-          <a
-            href="#openmenu"
-            className="burger-img"
-            onClick={() => {
-              setIsMenuOpened(prevState => !prevState);
-            }}
-          >
-            <img className="header__icon" src={burger_menu} alt="close menu" />
-          </a>
+          {!isMobileVersion && (
+            <Navigation />
+          )}
         </div>
-      ) : (
-        <BurgerMenu
-          setIsMenuOpened={setIsMenuOpened}
-        />
-      )}
+
+        <div className="container__heart-like-shopping-bag">
+          <Link className="container__heart-like" to="/favourites">
+            <div className="wrapper-heart-counter">
+              <img src={favourites_heart_like} alt="heart like" />
+              {!!favoritesCounter && (
+                <div className="shopping-favorites-bag__counter">
+                  <p>{favoritesCounter}</p>
+                </div>
+              )}
+            </div>
+          </Link>
+
+          <Link className="container__shopping-bag" to="/cart">
+            <div className="wrapper-shopping-bag-counter">
+              <img src={shopping_bag} alt="shopping bag" />
+              {!!totalItemsCounter && (
+                <div className="shopping-favorites-bag__counter">
+                  <p>{totalItemsCounter}</p>
+                </div>
+              )}
+            </div>
+          </Link>
+        </div>
+
+        <Link
+          to="/openmenu"
+          className="burger-img"
+          onClick={() => {
+            setIsMenuOpened((prevState: any) => !prevState);
+          }}
+        >
+          <img className="header__icon" src={burger_menu} alt="close menu" />
+        </Link>
+      </div>
     </header>
   );
 };
