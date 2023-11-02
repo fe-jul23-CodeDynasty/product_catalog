@@ -49,7 +49,7 @@ const ButtonUp = () => {
       type="submit"
       className="upbtn"
       style={{
-        bottom: isVisible ? '38px' : '-80px',
+        bottom: isVisible ? '28px' : '-80px',
       }}
       onClick={scrollToTop}
     >
