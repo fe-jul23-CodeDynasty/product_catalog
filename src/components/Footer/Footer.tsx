@@ -4,6 +4,17 @@ import { NavLink } from 'react-router-dom';
 import footer_logo from '../../images/logo_main.svg';
 
 function Footer() {
+  const links = [
+    {
+      text: 'GITHUB',
+      url: 'https://github.com/fe-jul23-CodeDynasty',
+    },
+    {
+      text: 'CONTACTS',
+      url: 'https://github.com/orgs/fe-jul23-CodeDynasty/people',
+    },
+  ];
+
   return (
     <footer className="footer noselect">
       <div className="footer__image">
@@ -13,23 +24,17 @@ function Footer() {
       </div>
 
       <div className="footer__info">
-        <a
-          className="footer__link"
-          href="https://github.com/fe-jul23-CodeDynasty"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GITHUB
-        </a>
-
-        <a
-          className="footer__link"
-          href="https://github.com/orgs/fe-jul23-CodeDynasty/people"
-          target="_blank"
-          rel="noreferrer"
-        >
-          CONTACTS
-        </a>
+        {links.map(link => (
+          <a
+            key={link.text}
+            className="footer__link"
+            href={link.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {link.text}
+          </a>
+        ))}
       </div>
     </footer>
   );
