@@ -1,4 +1,5 @@
 import './Button.scss';
+import '../../App.scss';
 import { useState, useEffect } from 'react';
 
 const ButtonUp = () => {
@@ -45,7 +46,7 @@ const ButtonUp = () => {
   );
 
   return (
-    <div className="container-home__buttonUp">
+    <div className="container-home__buttonUp noselect">
       <button
         type="submit"
         className="upbtn"

@@ -6,6 +6,7 @@ import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import shopping_bag from '../../images/shopping_bag.svg';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
+import '../../App.scss';
 import { StorageContext } from '../StorageContext/StorageContext';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
@@ -14,7 +15,7 @@ export const Header = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   return (
-    <header className="header">
+    <header className="header noselect">
       {!isMenuOpened ? (
         <div className="header__content">
           <div className="header-nav-container">

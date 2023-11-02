@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import classNames from 'classnames';
 import './CartModal.scss';
+import '../../App.scss';
 import cartCheck from '../../images/cart-check.svg';
 import { StorageContext } from '../StorageContext/StorageContext';
 
@@ -28,7 +29,7 @@ export const CartModal: React.FC<Props> = ({ active, setActive, setCart }) => {
 
   return (
     <div
-      className={classNames('modal', {
+      className={classNames('modal', 'noselect', {
         active,
       })}
     >

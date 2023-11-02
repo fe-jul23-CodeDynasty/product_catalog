@@ -6,9 +6,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-inline: $paddingInlineMobile;
   height: 100vh;
   background-color: $backgroundColor;
-  padding-inline: $paddingInlineMobile;
 
   @media (min-width: $tabletMinWidth) {
     padding-inline: $paddingInlineTablet;
@@ -38,8 +38,8 @@
 
   &__message {
     font-size: $errorMessageFontSizeMobile;
-    color: $textColor;
     text-align: center;
+    color: $textColor;
 
     @media (min-width: $tabletMinWidth) {
       font-size: $errorMessageFontSizeTablet;
@@ -49,8 +49,8 @@
   &__type {
     font-size: $errorTypeFontSize;
     font-weight: $textWeight;
-    color: $textColor;
     text-align: center;
+    color: $textColor;
   }
 }
 
