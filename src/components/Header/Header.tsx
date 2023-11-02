@@ -83,6 +83,7 @@ export const Header = () => {
       ) : (
         <BurgerMenu
           setIsMenuOpened={setIsMenuOpened}
+          isMenuOpened={isMenuOpened}
         />
       )}
     </header>
