@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
@@ -10,10 +10,8 @@ import { FavouritesButton } from '../FavouritesButton';
 import { StorageContext } from '../StorageContext';
 
 export const Header = () => {
-  const [windowResize, setWindowResize] = useState(window.innerWidth);
-  const isMobileVersion = windowResize <= 639;
-
   const { setIsMenuOpened } = useContext(StorageContext);
+  const { setWindowResize, isMobileVersion } = useContext(StorageContext);
 
   useEffect(() => {
     const handleResize = () => {

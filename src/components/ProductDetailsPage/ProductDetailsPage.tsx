@@ -9,7 +9,6 @@ import { StorageContext } from '../StorageContext';
 import './ProductDetailsPage.scss';
 import { Product } from '../../types/Product';
 
-
 export const ProductDetailsPage: React.FC = () => {
   const [cartProduct, setCartProduct] = useState<Product>();
   const [cardProduct, setCardProduct] = useState<ProductFull | null>(null);
