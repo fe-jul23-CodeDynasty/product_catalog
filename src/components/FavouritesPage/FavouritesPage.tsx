@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Card } from '../Card/card';
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 import { FavouritesPageSkeletonLoader } from './FavouritesPageSkeletonLoader';
 import { GoShopping } from '../GoShoppingSection/GoShopping';
 

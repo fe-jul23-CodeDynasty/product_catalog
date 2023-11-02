@@ -8,9 +8,9 @@ import { API_URL, getPhonesByParams } from '../../api/api';
 import { ParamsCard } from '../../types/CardParams';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Product } from '../../types/Product';
-import { StorageContext } from '../StorageContext/StorageContext';
 import { ButtonCart } from '../Buttons/ButtonCart/ButtonCart';
 import { ButtonFavourite } from '../Buttons/ButtonFavourite/ButtonFavourite';
+import { StorageContext } from '../StorageContext';
 
 type Props = {
   cardProduct: ProductFull;
@@ -35,6 +35,7 @@ export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
       .catch(() => {
         errorNotify('No information found about recomended products');
       })
+
       .finally(() => {
         setIsLoading(false);
       });

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import BackIcon from './images/back.svg';
 import { CartItem } from '../CartItem/CartItem';
 import { CartModal } from '../CartModal/CartModal';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 import { Product } from '../../types/Product';
 import { CartMenuSkeletonLoader } from './CartMenuSkeletonLoader';
 import { GoShopping } from '../GoShoppingSection/GoShopping';
