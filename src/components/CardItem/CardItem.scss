@@ -24,7 +24,9 @@ main {
 
   &__image {
     background-color: initial;
-    border-radius: 8px;
+    // border-radius: 8px;
+    object-fit: contain;
+    border: 1px solid $borderColor;
   }
 
   &__top {
@@ -68,6 +70,7 @@ main {
     padding: 2px;
     width: 37px;
     height: 37px;
+    // border: 1px solid $borderColor;
     transition: border-color 0.3s;
 
     @media (min-width: 744px) {
@@ -160,6 +163,7 @@ main {
     padding: 2px;
     width: 30px;
     height: 30px;
+    // border: 2px solid $buttonAvailableColor;
     border-radius: 50%;
     cursor: pointer;
 
@@ -219,6 +223,7 @@ main {
 
     &--black {
       background-color: $blackColor;
+      // border: 2px solid $blackColor;
     }
 
     &--pink {
@@ -477,6 +482,7 @@ main {
     --columns: 1;
 
     display: grid;
+    // column-gap: 20px;
     grid-template-columns: repeat(var(--columns), 1fr);
     padding-bottom: 24px;
     gap: 4px;
@@ -526,4 +532,11 @@ main {
       grid-column: span 2;
     }
   }
+}
+
+
+.iss-active {
+  border-color: $whiteColor;
+  transition: border-color 1s;
+  box-sizing: border-box;
 }

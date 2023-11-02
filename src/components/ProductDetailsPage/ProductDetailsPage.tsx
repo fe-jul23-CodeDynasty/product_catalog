@@ -5,8 +5,12 @@ import { CardItem } from '../CardItem/CardItem';
 import { getProductById, getProductsByApi } from '../../api/api';
 import { ButtonBack } from '../ButtonBack/ButtonBack';
 import { Breadcrumbs } from '../Breadcrumps/Breadcrumps';
+
+import './ProductDetailsPage.scss';
+
 import { StorageContext } from '../StorageContext/StorageContext';
 import { Product } from '../../types/Product';
+
 
 export const ProductDetailsPage: React.FC = () => {
   const [cartProduct, setCartProduct] = useState<Product>();

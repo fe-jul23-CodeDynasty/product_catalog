@@ -1,17 +1,21 @@
+@import '../../utils/variables.scss';
+
 .bread {
   &__container {
     display: flex;
+    align-items: start;
+    padding-top: 20px;
 
     &--home {
       display: block;
       padding-right: 5px;
       max-width: 100%;
-      height: 20px;
       object-fit: cover;
     }
 
     &--arrow {
       display: block;
+      padding-right: 5px;
       max-width: 100%;
       height: 20px;
       object-fit: cover;
@@ -22,20 +26,13 @@
 .breadcrumbs {
   display: flex;
   align-items: center;
-  margin: 20px auto;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 1200px;
 }
 
 .breadcrumbs > * {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.breadcrumbs .crumb::after {
-  content: url('.././Catalog/images/arrow-right.svg');
-  margin-left: 10px;
-  color: #ddd;
+  display: flex;
 }
 
 .breadcrumbs .crumb:last-child::after {
@@ -43,8 +40,11 @@
 }
 
 .breadcrumbs .crumb a {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
   font-family: Mont, sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   color: #75767f;
   text-transform: capitalize;
