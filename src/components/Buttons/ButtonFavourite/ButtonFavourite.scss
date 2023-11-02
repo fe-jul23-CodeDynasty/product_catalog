@@ -22,6 +22,7 @@
     background-color: $cardColor;
     border: 1px solid $borderColor;
     transition: background-color 0.3s;
+    cursor: pointer;
 
     &:hover {
       background-color: $iconsColor;
@@ -47,6 +48,7 @@
     background-color: $buttonActiveColor;
     border: 1px solid $buttonActiveColor;
     transition: background-color 0.3s;
+    cursor: pointer;
 
     &:hover {
       background-color: $iconsColor;
