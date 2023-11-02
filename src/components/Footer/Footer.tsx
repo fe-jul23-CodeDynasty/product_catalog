@@ -1,7 +1,6 @@
 import './Footer.scss';
 import { NavLink } from 'react-router-dom';
 import footer_logo from '../../images/logo_main.svg';
-import ButtonUp from '../ButtonUp/ButtonUp';
 
 function Footer() {
   return (
@@ -25,7 +24,6 @@ function Footer() {
           RIGHTS
         </a>
       </div>
-      <ButtonUp />
     </footer>
   );
 }

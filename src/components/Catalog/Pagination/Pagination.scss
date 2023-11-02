@@ -1,0 +1,87 @@
+@import '~normalize.css';
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 8px;
+
+  .pagination-container ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    gap: 10px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: $minorButtonFontSize;
+    font-weight: $textWeight;
+    color: $textColor;
+    background-color: $cardColor;
+    border: 0;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $buttonActiveColor;
+    }
+
+    &:active {
+      background-color: $buttonCheckoutColor;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: $minorButtonFontSize;
+    font-weight: $textWeight;
+    color: $textColor;
+    border: 0;
+    cursor: pointer;
+  }
+
+  li:first-child {
+    margin-right: 8px;
+    background-color: $buttonActiveColor;
+
+    &:hover:not(.disabled) {
+      background-color: $buttonCheckoutColor;
+    }
+  }
+
+  li:last-child {
+    margin-left: 8px;
+    background-color: $buttonActiveColor;
+
+    &:hover:not(.disabled) {
+      background-color: $buttonCheckoutColor;
+    }
+  }
+
+  li.pagination-is-active {
+    background-color: $buttonCheckoutColor;
+  }
+}
+
+.pagination-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
