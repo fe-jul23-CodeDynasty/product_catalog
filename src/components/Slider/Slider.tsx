@@ -21,6 +21,7 @@ export function Slider() {
     <Swiper
       pagination={{ clickable: true }}
       navigation
+      loop
       modules={[Pagination, Navigation]}
       className="header-swiper noselect"
     >

@@ -5,7 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
-import ButtonUp from '../ButtonUp/ButtonUp';
 
 type Props = {
   itemsOnPage: number;
@@ -61,9 +60,6 @@ export const CatalogSkeletonLoader: React.FC<Props> = ({
               <div className="phones-page__bottom">
                 <Skeleton width={380} height={60} />
               </div>
-            </div>
-            <div className="container-home__buttonUp">
-              <ButtonUp />
             </div>
           </SkeletonTheme>
         </div>

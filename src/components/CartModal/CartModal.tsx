@@ -13,6 +13,17 @@ type Props = {
   setCart: (item: any) => void;
 };
 
+const successNotify = () => toast.success('The payment was successful!', {
+  position: 'top-right',
+  autoClose: 4000,
+  hideProgressBar: false,
+  closeOnClick: false,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: 'dark',
+});
+
 export const CartModal: React.FC<Props> = ({ active, setActive, setCart }) => {
   const { setTotalItemsCounter } = useContext(StorageContext);
 
@@ -44,7 +55,7 @@ export const CartModal: React.FC<Props> = ({ active, setActive, setCart }) => {
             type="button"
             onClick={() => {
               setActive(false);
-              toast('The payment was successful!');
+              successNotify();
               setCart([]);
               setTotalItemsCounter(0);
             }}

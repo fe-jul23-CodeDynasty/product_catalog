@@ -7,7 +7,6 @@ import './CartMenu-skeleton.scss';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import BackIcon from './images/back.svg';
-import ButtonUp from '../ButtonUp/ButtonUp';
 import { StorageContext } from '../StorageContext/StorageContext';
 
 export const CartMenuSkeletonLoader: React.FC = () => {
@@ -59,9 +58,6 @@ export const CartMenuSkeletonLoader: React.FC = () => {
                   <Skeleton />
                 </p>
               )}
-              <div className="container-home__buttonUp">
-                <ButtonUp />
-              </div>
             </SkeletonTheme>
           </div>
         </div>

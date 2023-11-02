@@ -1,6 +1,6 @@
 import './CardItem.scss';
 import '../../App.scss';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useContext } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
@@ -9,6 +9,7 @@ import { API_URL, getPhonesByParams } from '../../api/api';
 import { ParamsCard } from '../../types/CardParams';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Product } from '../../types/Product';
+import { StorageContext } from '../StorageContext/StorageContext';
 
 type Props = {
   product: ProductFull;
@@ -22,15 +23,14 @@ export const CardItem: React.FC<Props> = ({ product }) => {
   const [isLoading, setIsLoading] = useState(false);
   const recommendedProductsParams = `/${id}/recommended`;
 
+  const { errorNotify } = useContext(StorageContext);
+
   useEffect(() => {
     setIsLoading(true);
 
     getPhonesByParams(recommendedProductsParams)
       .then(setRecommended)
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      })
+      .catch(() => errorNotify('No information found about recomended products'))
       .finally(() => {
         setIsLoading(false);
       });
@@ -129,9 +129,6 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                     />
                   ))}
               </div>
-              {/* <div className="item__top--id">
-                {product.id}
-              </div> */}
             </div>
 
             <div className="item__right--capacity">
@@ -153,11 +150,11 @@ export const CardItem: React.FC<Props> = ({ product }) => {
             <div className="item__prices">
               <div className="item__prices--amount">
                 <span className="item__amount--main">
-                  {product.priceDiscount}
+                  {`$${product.priceDiscount}`}
                 </span>
 
                 <span className="item__amount--cross">
-                  {product.priceRegular}
+                  {`$${product.priceRegular}`}
                 </span>
               </div>
 

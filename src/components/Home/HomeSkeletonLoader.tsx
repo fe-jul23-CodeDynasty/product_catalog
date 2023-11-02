@@ -1,6 +1,5 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import ButtonUp from '../ButtonUp/ButtonUp';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import './home.scss';
 import { ByCategoriesSkeletonLoader } from '../byCategoriesSection/ByCategoriesSkeletonLoader';
@@ -38,9 +37,6 @@ export const HomeSkeletonLoader: React.FC<Props> = ({ isLoading }) => {
             </div>
           </SkeletonTheme>
         </div>
-      </div>
-      <div className="container-home__buttonUp">
-        <ButtonUp />
       </div>
     </>
   );

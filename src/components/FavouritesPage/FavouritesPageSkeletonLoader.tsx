@@ -4,7 +4,6 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
-import ButtonUp from '../ButtonUp/ButtonUp';
 
 export const FavouritesPageSkeletonLoader: React.FC = () => {
   return (
@@ -43,9 +42,6 @@ export const FavouritesPageSkeletonLoader: React.FC = () => {
                 </div>
               ))}
             </section>
-          </div>
-          <div className="container-home__buttonUp">
-            <ButtonUp />
           </div>
         </SkeletonTheme>
       </div>

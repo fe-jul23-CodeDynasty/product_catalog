@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
-import ButtonUp from '../ButtonUp/ButtonUp';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
@@ -9,6 +8,7 @@ import '../../App.scss';
 import { getPhonesByParams } from '../../api/api';
 import { Product } from '../../types/Product';
 import { HomeSkeletonLoader } from './HomeSkeletonLoader';
+import { StorageContext } from '../StorageContext/StorageContext';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,22 +18,18 @@ export const Home = () => {
   const newProductsParam = '/new';
   const discountProductsParam = '/discount';
 
+  const { errorNotify } = useContext(StorageContext);
+
   useEffect(() => {
     setIsLoading(true);
 
     getPhonesByParams(newProductsParam)
       .then(setBrandNewModels)
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      });
+      .catch(() => errorNotify('No new product information found'));
 
     getPhonesByParams(discountProductsParam)
       .then(setHotPrices)
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      })
+      .catch(() => errorNotify('No product discount information found'))
       .finally(() => {
         setTimeout(() => {
           setIsLoading(false);
@@ -72,9 +68,6 @@ export const Home = () => {
             />
           </div>
         </div>
-      </div>
-      <div className="container-home__buttonUp">
-        <ButtonUp />
       </div>
     </>
   );
