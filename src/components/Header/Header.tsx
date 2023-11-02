@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
 import '../../App.scss';
-import { StorageContext } from '../StorageContext';
 import { ShoppingBagButton } from '../ShoppingBagButton';
 import { FavouritesButton } from '../FavouritesButton';
 
@@ -19,10 +18,6 @@ export const Header = () => {
     };
 
     window.addEventListener('resize', handleResize);
-
-    if (!isMobileVersion) {
-      setIsMenuOpened((prev: any) => !prev);
-    }
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -45,13 +40,7 @@ export const Header = () => {
           <ShoppingBagButton />
         </div>
 
-        <Link
-          to="/openmenu"
-          className="burger-img"
-          onClick={() => {
-            setIsMenuOpened((prevState: any) => !prevState);
-          }}
-        >
+        <Link to="/openmenu" className="burger-img">
           <img className="header__icon" src={burger_menu} alt="close menu" />
         </Link>
       </div>
