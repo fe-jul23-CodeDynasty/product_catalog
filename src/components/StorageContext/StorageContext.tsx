@@ -17,6 +17,8 @@ type StorageContextType = {
   addToFavorites: (product: Product) => void;
   favoritesCounter: number;
   errorNotify: (message: string) => void;
+  isMenuOpened: boolean,
+  setIsMenuOpened: any;
 };
 
 export const StorageContext = createContext<StorageContextType>({
@@ -33,6 +35,8 @@ export const StorageContext = createContext<StorageContextType>({
   addToFavorites: () => {},
   favoritesCounter: 0,
   errorNotify: () => {},
+  isMenuOpened: false,
+  setIsMenuOpened: () => {},
 });
 
 type Props = {
@@ -132,6 +136,8 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
     theme: 'dark',
   });
 
+  const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
+
   return (
     <StorageContext.Provider
       value={{
@@ -148,6 +154,8 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
         favorites,
         setFavorites,
         errorNotify,
+        isMenuOpened,
+        setIsMenuOpened,
       }}
     >
       {children}

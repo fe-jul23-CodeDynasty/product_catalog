@@ -6,6 +6,7 @@ import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 import { FavouritesPage } from './components/FavouritesPage/FavouritesPage';
 import { CartMenu } from './components/CartMenu/CartMenu';
 import { ProductDetailsPage } from './components/ProductDetailsPage/ProductDetailsPage';
+import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 
 export const Root = () => (
   <HashRouter>
@@ -18,6 +19,7 @@ export const Root = () => (
         </Route>
         <Route path="/favourites" element={<FavouritesPage />} />
         <Route path="/cart" element={<CartMenu />} />
+        <Route path="/openmenu" element={<BurgerMenu />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

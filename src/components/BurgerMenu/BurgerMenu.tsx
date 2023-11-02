@@ -1,24 +1,20 @@
 import './BurgerMenu.scss';
-import { NavLink } from 'react-router-dom';
-import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
 import classNames from 'classnames';
 import FavouriteIcon from './images/favourite.svg';
 import CartIcon from './images/cart.svg';
 import logo_main from './images/logo.svg';
 import close_menu from './images/close_menu.svg';
 import { Navigation } from '../Navigation/Navigation';
+import { StorageContext } from '../StorageContext/StorageContext';
 
-type Props = {
-  setIsMenuOpened: (statusMenu: (prevState: boolean) => boolean) => void,
-  isMenuOpened: boolean,
-};
-
-export const BurgerMenu:React.FC<Props> = (
-  {
-    setIsMenuOpened,
+export const BurgerMenu = () => {
+  const {
     isMenuOpened,
-  },
-) => {
+    setIsMenuOpened,
+  } = useContext(StorageContext);
+
   return (
     <>
       <div
@@ -35,8 +31,8 @@ export const BurgerMenu:React.FC<Props> = (
               </NavLink>
             </div>
 
-            <NavLink
-              to="/"
+            <a
+              href="/"
               onClick={() => {
                 if (setIsMenuOpened) {
                   setIsMenuOpened((prevState: boolean) => !prevState);
@@ -45,7 +41,7 @@ export const BurgerMenu:React.FC<Props> = (
               className="burger-img"
             >
               <img className="header__icon" src={close_menu} alt="menu" />
-            </NavLink>
+            </a>
           </div>
         </header>
         <div className="burger-menu__body">
@@ -54,13 +50,13 @@ export const BurgerMenu:React.FC<Props> = (
           />
           <div className="bottom-bar burger-menu__bottom">
             <div className="icon-container__favourite">
-              <a
+              <Link
                 onClick={() => {
                   if (setIsMenuOpened) {
                     setIsMenuOpened((prevState: boolean) => !prevState);
                   }
                 }}
-                href="#favorites"
+                to="/favourites"
                 className="bottom-bar__icon is-active"
               >
                 <img
@@ -68,20 +64,20 @@ export const BurgerMenu:React.FC<Props> = (
                   alt="Favourite-logo"
                   className="bottom__logo"
                 />
-              </a>
+              </Link>
             </div>
             <div className="icon-container__cart">
-              <a
+              <Link
                 onClick={() => {
                   if (setIsMenuOpened) {
                     setIsMenuOpened((prevState: boolean) => !prevState);
                   }
                 }}
-                href="#cart"
+                to="/cart"
                 className="bottom-bar__icon"
               >
                 <img src={CartIcon} alt="Cart-logo" className="bottom__logo" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
