@@ -1,5 +1,6 @@
 import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import useLocalStorage from 'use-local-storage';
+import { toast } from 'react-toastify';
 import { Product } from '../../types/Product';
 
 type StorageContextType = {
@@ -15,6 +16,7 @@ type StorageContextType = {
   setFavorites: any;
   addToFavorites: (product: Product) => void;
   favoritesCounter: number;
+  errorNotify: (message: string) => void;
 };
 
 export const StorageContext = createContext<StorageContextType>({
@@ -30,6 +32,7 @@ export const StorageContext = createContext<StorageContextType>({
   setFavorites: () => {},
   addToFavorites: () => {},
   favoritesCounter: 0,
+  errorNotify: () => {},
 });
 
 type Props = {
@@ -118,6 +121,17 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
 
   const favoritesCounter: number = favorites.length;
 
+  const errorNotify = (message: string) => toast.error(`${message}`, {
+    position: 'top-right',
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  });
+
   return (
     <StorageContext.Provider
       value={{
@@ -133,6 +147,7 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
         favoritesCounter,
         favorites,
         setFavorites,
+        errorNotify,
       }}
     >
       {children}

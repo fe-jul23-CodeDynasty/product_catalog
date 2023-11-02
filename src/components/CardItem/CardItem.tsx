@@ -1,6 +1,6 @@
 import './CardItem.scss';
 import '../../App.scss';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useContext } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import favourites_heart_like from '../../images/favourites_heart_like.svg';
@@ -9,6 +9,7 @@ import { API_URL, getPhonesByParams } from '../../api/api';
 import { ParamsCard } from '../../types/CardParams';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Product } from '../../types/Product';
+import { StorageContext } from '../StorageContext/StorageContext';
 
 type Props = {
   product: ProductFull;
@@ -22,15 +23,14 @@ export const CardItem: React.FC<Props> = ({ product }) => {
   const [isLoading, setIsLoading] = useState(false);
   const recommendedProductsParams = `/${id}/recommended`;
 
+  const { errorNotify } = useContext(StorageContext);
+
   useEffect(() => {
     setIsLoading(true);
 
     getPhonesByParams(recommendedProductsParams)
       .then(setRecommended)
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      })
+      .catch(() => errorNotify('No information found about recomended products'))
       .finally(() => {
         setIsLoading(false);
       });
@@ -80,7 +80,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
         </h2>
 
         <div className="item__top">
-          <div className="item__top--container">
+          <div className="item__top--container noselect">
             <div className="item__top-left">
               {images.map(image => (
                 <button
@@ -113,7 +113,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
             <div className="item__right--available">
               <span className="item__available--text">Available colors</span>
 
-              <div className="item__button--available">
+              <div className="item__button--available noselect">
                 {colorsAvailable
                   .sort((a, b) => a.localeCompare(b))
                   .map(color => (
@@ -129,15 +129,12 @@ export const CardItem: React.FC<Props> = ({ product }) => {
                     />
                   ))}
               </div>
-              {/* <div className="item__top--id">
-                {product.id}
-              </div> */}
             </div>
 
             <div className="item__right--capacity">
               <span className="item__available--text">Select capacity</span>
 
-              <div className="item__capacity-container">
+              <div className="item__capacity-container noselect">
                 {capacityAvailable.map(capacity => (
                   <Link
                     to={getLink(capacity, 'capacity')}
@@ -153,15 +150,15 @@ export const CardItem: React.FC<Props> = ({ product }) => {
             <div className="item__prices">
               <div className="item__prices--amount">
                 <span className="item__amount--main">
-                  {product.priceDiscount}
+                  {`$${product.priceDiscount}`}
                 </span>
 
                 <span className="item__amount--cross">
-                  {product.priceRegular}
+                  {`$${product.priceRegular}`}
                 </span>
               </div>
 
-              <div className="item__prices__button">
+              <div className="item__prices__button noselect">
                 <button type="submit" className="item__add--button">
                   Add to card
                 </button>

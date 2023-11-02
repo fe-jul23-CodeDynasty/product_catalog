@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import '../../App.scss';
 
 import { Pagination, Navigation } from 'swiper/modules';
 
@@ -20,8 +21,9 @@ export function Slider() {
     <Swiper
       pagination={{ clickable: true }}
       navigation
+      loop
       modules={[Pagination, Navigation]}
-      className="header-swiper"
+      className="header-swiper noselect"
     >
       <SwiperSlide>
         <div className="swiper__slide slide">

@@ -1,4 +1,5 @@
 import './Dropdown.scss';
+import '../../../App.scss';
 import Select, { SingleValue } from 'react-select';
 import { DropdownOptions } from '../../../types/DropdownOptions';
 
@@ -25,11 +26,12 @@ export const Dropdown: React.FC<Props> = ({
   );
 
   return (
-    <div className="select sort-buttons--button">
+    <div className="select sort-buttons--button noselect">
       <p className="sort-buttons-text">{title}</p>
 
       <Select
         value={foundOption}
+        isSearchable={false}
         options={selectOptions}
         onChange={(
           selectedOption: SingleValue<{ value: string; label: string }>,

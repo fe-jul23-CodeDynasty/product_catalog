@@ -1,5 +1,5 @@
 import './Catalog.scss';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   Link,
   useNavigate,
@@ -10,14 +10,13 @@ import { Card } from '../Card/card';
 import { getPhonesByParams } from '../../api/api';
 import { Product } from '../../types/Product';
 import { Dropdown } from './Dropdown/Dropdown';
-
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
 import { DropdownOptions } from '../../types/DropdownOptions';
 import { PaginationButtons } from './Pagination/Pagination';
 import { Category } from '../../types/Category';
-import ButtonUp from '../ButtonUp/ButtonUp';
 import { CatalogSkeletonLoader } from './CatalogSkeletonLoader';
+import { StorageContext } from '../StorageContext/StorageContext';
 
 export const Catalog: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -30,6 +29,8 @@ export const Catalog: React.FC = () => {
   const currentPage = +(searchParams.get('currentPage') || '1');
   const direction = searchParams.get('direction') || 'ASC';
   const navigate = useNavigate();
+
+  const { errorNotify } = useContext(StorageContext);
 
   const productsParams = `?category=${category}&sortBy=${sortBy}&itemsOnPage=${itemsOnPage}&currentPage=${currentPage}&direction=${direction}`;
 
@@ -72,10 +73,7 @@ export const Catalog: React.FC = () => {
           navigate('../../not_found', { relative: 'path', replace: true });
         }
       })
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      })
+      .catch(() => errorNotify('Incorrect search parameters!'))
       .finally(() => {
         setTimeout(() => {
           setIsLoading(false);
@@ -114,7 +112,7 @@ export const Catalog: React.FC = () => {
       <div className="container">
         <div className="phones-page">
           <div className="phones-page__top">
-            <Link to="/" className="link--favourites">
+            <Link to="/" className="link--favourites noselect">
               <img
                 src={HomeIcon}
                 alt="home-icon"
@@ -156,7 +154,7 @@ export const Catalog: React.FC = () => {
               ))}
             </section>
 
-            <div className="phones-page__bottom">
+            <div className="phones-page__bottom noselect">
               <PaginationButtons
                 key={currentPage}
                 currentPage={currentPage}
@@ -166,9 +164,6 @@ export const Catalog: React.FC = () => {
                 setSearchParams={setSearchParams}
               />
             </div>
-          </div>
-          <div className="container-home__buttonUp">
-            <ButtonUp />
           </div>
         </div>
       </div>

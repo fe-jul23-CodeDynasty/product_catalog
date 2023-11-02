@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import ArrowBack from './images/button-arrow.svg';
 import './ButtonBack.scss';
+import '../../App.scss';
 
 export const ButtonBack = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export const ButtonBack = () => {
   };
 
   return (
-    <div className="buttonb">
+    <div className="buttonb noselect">
       <button
         type="button"
         aria-label="buttonb-back"

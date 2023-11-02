@@ -6,6 +6,7 @@ import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import shopping_bag from '../../images/shopping_bag.svg';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
+import '../../App.scss';
 import { StorageContext } from '../StorageContext/StorageContext';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
@@ -32,7 +33,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="header">
+    <header className="header noselect">
       {!isMenuOpened ? (
         <div className="header__content">
           <div className="header-nav-container">
@@ -46,10 +47,7 @@ export const Header = () => {
           </div>
 
           <div className="container__heart-like-shopping-bag">
-            <Link
-              className="container__heart-like"
-              to="/favourites"
-            >
+            <Link className="container__heart-like" to="/favourites">
               <div className="wrapper-heart-counter">
                 <img src={favourites_heart_like} alt="heart like" />
                 {!!favoritesCounter && (

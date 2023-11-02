@@ -20,7 +20,7 @@
     font-size: $linkFontSize;
     font-family: Mont, sans-serif;
     font-weight: $buttonWeight;
-    color: $secondaryTextColor;
+    color: $textColor;
     transition:
       color 0.3s,
       transform 0.3s;
@@ -36,8 +36,8 @@
     align-items: center;
     justify-content: center;
     margin-left: 16px;
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     background-color: $buttonActiveColor;
 
     svg {

@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import classNames from 'classnames';
 import './CartModal.scss';
+import '../../App.scss';
 import cartCheck from '../../images/cart-check.svg';
 import { StorageContext } from '../StorageContext/StorageContext';
 
@@ -12,12 +13,23 @@ type Props = {
   setCart: (item: any) => void;
 };
 
+const successNotify = () => toast.success('The payment was successful!', {
+  position: 'top-right',
+  autoClose: 4000,
+  hideProgressBar: false,
+  closeOnClick: false,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: 'dark',
+});
+
 export const CartModal: React.FC<Props> = ({ active, setActive, setCart }) => {
   const { setTotalItemsCounter } = useContext(StorageContext);
 
   return (
     <div
-      className={classNames('modal', {
+      className={classNames('modal', 'noselect', {
         active,
       })}
     >
@@ -43,7 +55,7 @@ export const CartModal: React.FC<Props> = ({ active, setActive, setCart }) => {
             type="button"
             onClick={() => {
               setActive(false);
-              toast('The payment was successful!');
+              successNotify();
               setCart([]);
               setTotalItemsCounter(0);
             }}
