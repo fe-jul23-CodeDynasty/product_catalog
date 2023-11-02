@@ -15,7 +15,7 @@
     cursor: pointer !important;
 
     &--is-focused {
-        /* stylelint-disable-next-line */
+      /* stylelint-disable-next-line */
       background-color: lighten($buttonActiveColor, 8%) !important;
     }
   }

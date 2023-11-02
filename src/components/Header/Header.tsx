@@ -26,10 +26,7 @@ export const Header = () => {
           </div>
 
           <div className="container__heart-like-shopping-bag">
-            <Link
-              className="container__heart-like"
-              to="/favourites"
-            >
+            <Link className="container__heart-like" to="/favourites">
               <div className="wrapper-heart-counter">
                 <img src={favourites_heart_like} alt="heart like" />
                 {!!favoritesCounter && (

@@ -14,10 +14,7 @@ export const Root = () => (
         <Route index element={<Home />} />
         <Route path="catalog">
           <Route path=":category" element={<Catalog />} />
-          <Route
-            path=":category/:id"
-            element={<ProductDetailsPage />}
-          />
+          <Route path=":category/:id" element={<ProductDetailsPage />} />
         </Route>
         <Route path="/favourites" element={<FavouritesPage />} />
         <Route path="/cart" element={<CartMenu />} />
