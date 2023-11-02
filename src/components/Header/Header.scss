@@ -65,12 +65,11 @@
   }
 
   &__img {
-    max-height: 20px;
     width: auto;
+    max-height: 20px;
 
     @include onDesktop {
       max-height: 28px;
-
     }
   }
 }

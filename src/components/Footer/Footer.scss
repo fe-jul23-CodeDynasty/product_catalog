@@ -23,12 +23,6 @@
   height: 96px;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid $borderColor;
-  
-
-  // @include contentPaddingInline;
-  // @mixin onTablet {
-  //   gap: 24px;
-  // }
 
   @media (max-width: 639px) {
     display: flex;
@@ -57,8 +51,6 @@
     align-items: center;
     justify-content: space-between;
     flex-grow: 0.2;
-    // margin-right: 100px;
-
     font-family: Mont-Bold, sans-serif;
 
     @media (max-width: 639px) {
@@ -77,10 +69,6 @@
     font-style: normal;
     letter-spacing: 0.48px;
     line-height: 11px;
-
-    // @media (max-width: 860px) {
-    //   gap: 13px;
-    // }
 
     @media (max-width: 639px) {
       display: flex;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// eslint-disable-next-line max-len
 import { useNavigate, useParams } from 'react-router-dom';
 import { ProductFull } from '../../types/FullProduct';
 import { CardItem } from '../CardItem/CardItem';

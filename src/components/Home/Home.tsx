@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
-import ButtonUp from '../ButtonUp/ButtonUp';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Slider } from '../Slider/Slider';
 import { ByCategories } from '../byCategoriesSection/ByCategories';
@@ -69,9 +68,6 @@ export const Home = () => {
             />
           </div>
         </div>
-      </div>
-      <div className="container-home__buttonUp">
-        <ButtonUp />
       </div>
     </>
   );

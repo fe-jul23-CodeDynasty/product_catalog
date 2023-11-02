@@ -13,8 +13,17 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ product }) => {
-  const { category, image, name, itemId, price, fullPrice, screen, capacity, ram }
-    = product;
+  const {
+    category,
+    image,
+    name,
+    itemId,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+  } = product;
 
   const { addToCart, addToFavorites, favorites } = useContext(StorageContext);
 

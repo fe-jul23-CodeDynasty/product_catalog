@@ -22,7 +22,8 @@ export const Navigation = () => {
               <NavLink
                 to={path}
                 className={classNames('nav__item__link', {
-                  'is-active': category === label
+                  'is-active':
+                    category === label
                     || (label === 'home' && pathname === '/'),
                 })}
               >

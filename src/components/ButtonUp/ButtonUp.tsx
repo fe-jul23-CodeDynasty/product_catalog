@@ -45,18 +45,20 @@ const ButtonUp = () => {
   );
 
   return (
-    <button
-      type="submit"
-      className="upbtn"
-      style={{
-        bottom: isVisible ? '28px' : '-80px',
-      }}
-      onClick={scrollToTop}
-    >
-      <div className="upbtn__text">Back to Top</div>
+    <div className="container-home__buttonUp">
+      <button
+        type="submit"
+        className="upbtn"
+        style={{
+          bottom: isVisible ? '28px' : '-80px',
+        }}
+        onClick={scrollToTop}
+      >
+        <div className="upbtn__text">Back to Top</div>
 
-      <div className="upbtn__svg">{svgCode}</div>
-    </button>
+        <div className="upbtn__svg">{svgCode}</div>
+      </button>
+    </div>
   );
 };
 

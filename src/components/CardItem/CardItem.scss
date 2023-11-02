@@ -160,7 +160,6 @@ main {
     padding: 2px;
     width: 30px;
     height: 30px;
-    // border: 2px solid $buttonAvailableColor;
     border-radius: 50%;
     cursor: pointer;
 
@@ -220,7 +219,6 @@ main {
 
     &--black {
       background-color: $blackColor;
-      // border: 2px solid $blackColor;
     }
 
     &--pink {
@@ -473,7 +471,6 @@ main {
     --columns: 1;
 
     display: grid;
-    // column-gap: 20px;
     grid-template-columns: repeat(var(--columns), 1fr);
     padding-bottom: 24px;
     gap: 4px;

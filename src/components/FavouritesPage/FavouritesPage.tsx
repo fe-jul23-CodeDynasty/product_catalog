@@ -5,7 +5,6 @@ import { Card } from '../Card/card';
 import ArrowRightIcon from './images/arrow-right.svg';
 import HomeIcon from './images/home.svg';
 import { StorageContext } from '../StorageContext/StorageContext';
-import ButtonUp from '../ButtonUp/ButtonUp';
 import { FavouritesPageSkeletonLoader } from './FavouritesPageSkeletonLoader';
 
 export const FavouritesPage = () => {
@@ -54,9 +53,6 @@ export const FavouritesPage = () => {
               </div>
             ))}
           </section>
-        </div>
-        <div className="container-home__buttonUp">
-          <ButtonUp />
         </div>
       </div>
     </div>
