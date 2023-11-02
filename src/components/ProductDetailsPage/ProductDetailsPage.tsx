@@ -5,6 +5,7 @@ import { CardItem } from '../CardItem/CardItem';
 import { getProductById } from '../../api/api';
 import { ButtonBack } from '../ButtonBack/ButtonBack';
 import { Breadcrumbs } from '../Breadcrumps/Breadcrumps';
+import './ProductDetailsPage.scss';
 
 export const ProductDetailsPage: React.FC = () => {
   const [product, setProduct] = useState<ProductFull | null>(null);
