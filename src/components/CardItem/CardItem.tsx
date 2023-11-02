@@ -3,13 +3,14 @@ import '../../App.scss';
 import React, { Fragment, useEffect, useState, useContext } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import favourites_heart_like from '../../images/favourites_heart_like.svg';
 import { Description, ProductFull } from '../../types/FullProduct';
 import { API_URL, getPhonesByParams } from '../../api/api';
 import { ParamsCard } from '../../types/CardParams';
 import { PromoSlider } from '../PromoSlider/PromoSlider';
 import { Product } from '../../types/Product';
 import { StorageContext } from '../StorageContext/StorageContext';
+import { ButtonCart } from '../Buttons/ButtonCart/ButtonCart';
+import { ButtonFavourite } from '../Buttons/ButtonFavourite/ButtonFavourite';
 
 type Props = {
   product: ProductFull;
@@ -159,15 +160,9 @@ export const CardItem: React.FC<Props> = ({ product }) => {
               </div>
 
               <div className="item__prices__button noselect">
-                <button type="submit" className="item__add--button">
-                  Add to card
-                </button>
+                <ButtonCart product={product} />
 
-                <button type="submit" className="item__favorite--button">
-                  <a className="item__favorite--button-sign" href="/">
-                    <img src={favourites_heart_like} alt="heart like" />
-                  </a>
-                </button>
+                <ButtonFavourite product={product} />
               </div>
             </div>
 

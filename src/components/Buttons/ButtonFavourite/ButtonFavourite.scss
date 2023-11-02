@@ -1,0 +1,60 @@
+@import '~normalize.css';
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
+
+.icon--heart {
+  width: 16px;
+  height: 16px;;
+}
+
+.button-heart {
+  &-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 50px;
+    height: 40px;
+    font-size: $heartFontSize;
+    text-decoration: none;
+    line-height: 21px;
+    color: $textColor;
+    background-color: $cardColor;
+    border: 1px solid $borderColor;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: $iconsColor;
+    }
+  
+    &--active {
+      background-color: $cardColor;
+      border: 1px solid $cardColor;
+    }
+  }
+
+  &-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 50px;
+    height: 40px;
+    font-size: $heartFontSize;
+    text-decoration: none;
+    line-height: 21px;
+    color: $textColor;
+    background-color: $buttonActiveColor;
+    border: 1px solid $buttonActiveColor;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $iconsColor;
+    }
+  
+    &--active {
+      background-color: $cardColor;
+      border: 1px solid $cardColor;
+    }   
+  }
+}

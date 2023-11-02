@@ -27,6 +27,8 @@ export const ProductDetailsPage: React.FC = () => {
       .finally(() => setIsLoading(false));
   }, [id]);
 
+  console.log(product);
+
   return (
     <>
       {!isLoading && !errMess.length && (

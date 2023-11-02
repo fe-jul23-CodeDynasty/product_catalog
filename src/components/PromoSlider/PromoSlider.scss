@@ -7,12 +7,12 @@
 
 .promo-title {
   margin: 10px 0;
+  max-width: 136px;
   font-size: $highTextFontSize;
   font-weight: $titleWeight;
   letter-spacing: -0.32px;
   line-height: 41px;
   color: $textColor;
-  max-width: 136px;
 
   @media (min-width: $tabletMinWidth) {
     max-width: $tabletMinWidth;
@@ -23,7 +23,11 @@
 .promo-slider {
   position: relative;
   margin-top: 100px;
-  margin-right: -50px;
+  margin-right: -16px;
+
+  @include onTablet {
+    margin-right: -24px;
+  }
 
   @include onDesktop {
     margin-right: 0;

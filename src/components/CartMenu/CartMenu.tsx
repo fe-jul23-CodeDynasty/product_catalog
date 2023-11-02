@@ -19,7 +19,7 @@ export const CartMenu: React.FC = () => {
     setCart,
     totalCost,
     setTotalCost,
-    removeFromCart,
+    removeFromCartInCart,
     setTotalItemsCounter,
     totalItemsCounter,
   } = useContext(StorageContext);
@@ -53,7 +53,7 @@ export const CartMenu: React.FC = () => {
                     <CartItem
                       key={product.id}
                       product={product}
-                      removeFromCart={removeFromCart}
+                      removeFromCartInCart={removeFromCartInCart}
                       setTotalCost={setTotalCost}
                       setTotalItemsCounter={setTotalItemsCounter}
                       setCart={setCart}

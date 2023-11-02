@@ -1,0 +1,62 @@
+@import '~normalize.css';
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
+
+.button-cart {
+  &-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    font-size: $minorTextFontSize;
+    font-weight: $buttonWeight;
+    text-decoration: none;
+    line-height: 21px;
+    color: $textColor;
+    background-color: $buttonCheckoutColor;
+    border: 0;
+    cursor: pointer;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+  
+    &:hover {
+      background-color: $buttonCheckoutHoverColor;
+    }
+  
+    &:active {
+      color: $textColor;
+      background-color: $buttonActiveColor;
+    }
+  }
+
+  &-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    font-size: $minorTextFontSize;
+    font-weight: $buttonWeight;
+    text-decoration: none;
+    line-height: 21px;
+    color: $textColor;
+    background-color: $buttonActiveColor;
+    border: 0;
+    cursor: pointer;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+  
+    &:hover {
+      background-color: $iconsColor;
+    }
+  
+    &:active {
+      color: $textColor;
+      background-color: $buttonActiveColor;
+    }
+  }
+
+}

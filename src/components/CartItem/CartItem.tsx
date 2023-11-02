@@ -9,7 +9,7 @@ import { Product } from '../../types/Product';
 
 type Props = {
   product: Product;
-  removeFromCart: (product: Product) => void;
+  removeFromCartInCart: (product: Product) => void;
   setTotalCost: React.Dispatch<React.SetStateAction<number>>;
   setTotalItemsCounter: React.Dispatch<React.SetStateAction<number>>;
   setCart: any;
@@ -17,7 +17,7 @@ type Props = {
 
 export const CartItem: React.FC<Props> = ({
   product,
-  removeFromCart,
+  removeFromCartInCart,
   setTotalCost,
   setTotalItemsCounter,
   setCart,
@@ -74,7 +74,7 @@ export const CartItem: React.FC<Props> = ({
           className="cart-card__button button-delete noselect"
           onClick={() => {
             setTotalItemsCounter((prev: number) => prev - count);
-            removeFromCart(product);
+            removeFromCartInCart(product);
           }}
         >
           <img src={CloseIcon} alt="close-icon" className="cart-card__close" />
