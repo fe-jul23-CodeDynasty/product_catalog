@@ -5,13 +5,15 @@ import burger_menu from '../../images/burger_menu.svg';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
 import '../../App.scss';
-import { StorageContext } from '../StorageContext';
 import { ShoppingBagButton } from '../ShoppingBagButton';
 import { FavouritesButton } from '../FavouritesButton';
+import { StorageContext } from '../StorageContext';
 
 export const Header = () => {
   const [windowResize, setWindowResize] = useState(window.innerWidth);
   const isMobileVersion = windowResize <= 639;
+
+  const { setIsMenuOpened } = useContext(StorageContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,8 +43,12 @@ export const Header = () => {
         </div>
 
         <div className="container__heart-like-shopping-bag">
-          <FavouritesButton />
-          <ShoppingBagButton />
+          <div className="header-icon-wrapper">
+            <FavouritesButton />
+          </div>
+          <div className="header-icon-wrapper">
+            <ShoppingBagButton />
+          </div>
         </div>
 
         <Link
