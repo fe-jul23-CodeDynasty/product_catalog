@@ -1,5 +1,5 @@
 import './BurgerMenu.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import classNames from 'classnames';
 import logo_main from './images/logo.svg';
@@ -11,6 +11,12 @@ import { ShoppingBagButton } from '../ShoppingBagButton';
 
 export const BurgerMenu = () => {
   const { isMenuOpened, setIsMenuOpened } = useContext(StorageContext);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(-1);
+  };
 
   return (
     <>
@@ -29,7 +35,9 @@ export const BurgerMenu = () => {
 
             <a
               href="/"
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
+                handleClick();
                 if (setIsMenuOpened) {
                   setIsMenuOpened((prevState: boolean) => !prevState);
                 }

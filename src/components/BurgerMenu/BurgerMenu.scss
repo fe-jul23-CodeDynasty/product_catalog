@@ -5,8 +5,8 @@
   position: fixed;
   inset: 0;
   overflow: hidden;
-  background-color: $backgroundColor;
   z-index: 999;
+  background: transparent;
 
   &__body {
     margin-bottom: 284px;
