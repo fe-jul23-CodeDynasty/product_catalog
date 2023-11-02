@@ -1,6 +1,13 @@
 import './CardItem.scss';
 import '../../App.scss';
-import React, { Fragment, useEffect, useState, useContext } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+  useContext,
+  useCallback,
+  useMemo,
+} from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { Description, ProductFull } from '../../types/FullProduct';
@@ -50,6 +57,39 @@ export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
   useEffect(() => {
     setSelectImg(images[0]);
   }, [images]);
+
+  const getProperty = useCallback(
+    (type: 'capacity' | 'color', isCutternLink = true) => {
+      const paramsFromId = id.split('-');
+      let position = 0;
+
+      for (let i = paramsFromId.length - 1; i > 0; i--) {
+        if (!Number.isNaN(parseInt(paramsFromId[i], 10))) {
+          position = i;
+
+          break;
+        }
+      }
+
+      if (type === 'color' && isCutternLink) {
+        position += 1;
+
+        return paramsFromId.splice(position).join('-');
+      }
+
+      if (type === 'color' && !isCutternLink) {
+        position += 1;
+
+        return paramsFromId.splice(position).join('-');
+      }
+
+      return paramsFromId[position];
+    },
+    [cardProduct],
+  );
+
+  const currentColor = useMemo(() => getProperty('color'), [cardProduct]);
+  const currentCapacity = useMemo(() => getProperty('capacity'), [cardProduct]);
 
   const getLink = (newValue: string, type: 'capacity' | 'color') => {
     const paramsFromId = id.split('-');
@@ -127,9 +167,12 @@ export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
                       relative="path"
                       key={color}
                       type="button"
-                      className={`item__available item__available--${normalizeParam(
-                        color,
-                      )}`}
+                      className={classNames(
+                        `item__available item__available--${normalizeParam(
+                          color,
+                        )}`,
+                        { 'is-color': currentColor === normalizeParam(color) },
+                      )}
                       aria-label="send"
                     />
                   ))}
@@ -142,9 +185,12 @@ export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
               <div className="item__capacity-container noselect">
                 {capacityAvailable.map(capacity => (
                   <Link
+                    key={capacity}
                     to={getLink(capacity, 'capacity')}
                     relative="path"
-                    className="item__capacity-container--button"
+                    className={classNames('item__capacity-container--button', {
+                      'is-capacity': currentCapacity === capacity.toLowerCase(),
+                    })}
                   >
                     {capacity}
                   </Link>

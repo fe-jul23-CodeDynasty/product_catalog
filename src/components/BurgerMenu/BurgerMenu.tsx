@@ -44,7 +44,7 @@ export const BurgerMenu = () => {
 
               <a
                 href="/"
-                onClick={(event) => {
+                onClick={event => {
                   event.preventDefault();
                   handleNavigateBack();
                   if (setIsMenuOpened) {
