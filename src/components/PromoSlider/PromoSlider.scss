@@ -7,11 +7,17 @@
 
 .promo-title {
   margin: 10px 0;
-  font-size: $minorTitleFontSize;
+  font-size: $highTextFontSize;
   font-weight: $titleWeight;
   letter-spacing: -0.32px;
   line-height: 41px;
   color: $textColor;
+  max-width: 136px;
+
+  @media (min-width: $tabletMinWidth) {
+    max-width: $tabletMinWidth;
+    font-size: $minorTitleFontSize;
+  }
 }
 
 .promo-slider {
@@ -37,6 +43,7 @@
   .swiper-button-prev {
     right: 70px;
     left: auto;
+
     @include onDesktop {
       right: 50px;
       left: auto;
@@ -46,6 +53,7 @@
   .swiper-button-next {
     right: 25px;
     left: auto;
+
     @include onDesktop {
       right: 0;
     }
