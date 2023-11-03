@@ -1,24 +1,17 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import classNames from 'classnames';
 import logo_main from '../../images/logo_main.svg';
 import burger_menu from '../../images/burger_menu.svg';
-import favourites_heart_like from '../../images/favourites_heart_like.svg';
-import shopping_bag from '../../images/shopping_bag.svg';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
 import '../../App.scss';
-import { StorageContext } from '../StorageContext/StorageContext';
-import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { ShoppingBagButton } from '../ShoppingBagButton';
+import { FavouritesButton } from '../FavouritesButton';
+import { StorageContext } from '../StorageContext';
 
 export const Header = () => {
-  const { favoritesCounter, totalItemsCounter } = useContext(StorageContext);
-  const [isMenuOpened, setIsMenuOpened] = useState(false);
-  const [windowResize, setWindowResize] = useState(window.innerWidth);
-
-  const isMobileVersion = windowResize <= 639;
-
-  // eslint-disable-next-line no-console
-  console.log(isMenuOpened);
+  const { setWindowResize, isMobileVersion } = useContext(StorageContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,54 +25,43 @@ export const Header = () => {
     };
   }, []);
 
+  const { pathname } = useLocation();
+
   return (
     <header className="header noselect">
-      {!isMenuOpened ? (
-        <div className="header__content">
-          <div className="header-nav-container">
-            <NavLink to="/" className="logo">
-              <img className="logo__img" src={logo_main} alt="Logo link" />
-            </NavLink>
+      <div className="header__content">
+        <div className="header-nav-container">
+          <NavLink to="/" className="logo">
+            <img className="logo__img" src={logo_main} alt="Logo link" />
+          </NavLink>
 
-            {!isMobileVersion && <Navigation />}
+            {!isMobileVersion && (
+              <Navigation />
+            )}
           </div>
 
-          <div className="container__heart-like-shopping-bag">
-            <Link className="container__heart-like" to="/favourites">
-              <div className="wrapper-heart-counter">
-                <img src={favourites_heart_like} alt="heart like" />
-                {!!favoritesCounter && (
-                  <div className="shopping-favorites-bag__counter">
-                    <p>{favoritesCounter}</p>
-                  </div>
-                )}
-              </div>
-            </Link>
-
-            <Link className="container__shopping-bag" to="/cart">
-              <div className="wrapper-shopping-bag-counter">
-                <img src={shopping_bag} alt="shopping bag" />
-                {!!totalItemsCounter && (
-                  <div className="shopping-favorites-bag__counter">
-                    <p>{totalItemsCounter}</p>
-                  </div>
-                )}
-              </div>
-            </Link>
-          </div>
-
-          <a
-            href="#openmenu"
-            className="burger-img"
-            onClick={() => {
-              setIsMenuOpened(prevState => !prevState);
-            }}
+        <div className="container__heart-like-shopping-bag">
+          <div
+            className={classNames(
+              'header-icon-wrapper',
+              { 'is-active': pathname === '/favourites' },
+            )}
           >
-            <img className="header__icon" src={burger_menu} alt="close menu" />
-          </a>
+            <FavouritesButton />
+          </div>
+          <div
+            className={classNames(
+              'header-icon-wrapper',
+              { 'is-active': pathname === '/cart' },
+            )}
+          >
+            <ShoppingBagButton />
+          </div>
         </div>
       ) : (
-        <BurgerMenu setIsMenuOpened={setIsMenuOpened} />
+        <BurgerMenu
+          setIsMenuOpened={setIsMenuOpened}
+        />
       )}
     </header>
   );

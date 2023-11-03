@@ -1,57 +1,75 @@
 import './BurgerMenu.scss';
-import { NavLink } from 'react-router-dom';
-import React from 'react';
-import FavouriteIcon from './images/favourite.svg';
-import CartIcon from './images/cart.svg';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import classNames from 'classnames';
 import logo_main from './images/logo.svg';
 import close_menu from './images/close_menu.svg';
 import { Navigation } from '../Navigation/Navigation';
+import { StorageContext } from '../StorageContext';
+import { FavouritesButton } from '../FavouritesButton';
+import { ShoppingBagButton } from '../ShoppingBagButton';
 
-type Props = {
-  setIsMenuOpened: (statusMenu: boolean) => void;
-};
+export const BurgerMenu = () => {
+  const { isMenuOpened, setIsMenuOpened } = useContext(StorageContext);
 
-export const BurgerMenu: React.FC<Props> = ({ setIsMenuOpened }) => {
+  const navigate = useNavigate();
+
+  const handleNavigateBack = () => {
+    navigate(-1);
+  };
+
+  const { isMobileVersion } = useContext(StorageContext);
+
+  useEffect(() => {
+    if (!isMobileVersion) {
+      handleNavigateBack();
+    }
+  }, [isMobileVersion]);
+
   return (
     <>
-      <div className="burger-menu">
-        <header className="header">
-          <div className="header__content">
-            <div className="header-nav-container">
-              <NavLink to="/" className="logo">
-                <img className="logo__img" src={logo_main} alt="Logo link" />
-              </NavLink>
-            </div>
+      {isMobileVersion && (
+        <div
+          className={classNames('burger-menu', {
+            'burger-menu-open': isMenuOpened,
+          })}
+        >
+          <header className="header">
+            <div className="header__content">
+              <div className="header-nav-container">
+                <NavLink to="/" className="logo">
+                  <img className="logo__img" src={logo_main} alt="Logo link" />
+                </NavLink>
+              </div>
 
-            <NavLink
-              to="/"
-              onClick={() => setIsMenuOpened(false)}
-              className="burger-img"
-            >
-              <img className="header__icon" src={close_menu} alt="menu" />
-            </NavLink>
-          </div>
-        </header>
-        <div className="burger-menu__body">
-          <Navigation />
-          <div className="bottom-bar burger-menu__bottom">
-            <div className="icon-container__favourite">
-              <a href="#favorites" className="bottom-bar__icon is-active">
-                <img
-                  src={FavouriteIcon}
-                  alt="Favourite-logo"
-                  className="bottom__logo"
-                />
+              <a
+                href="/"
+                onClick={event => {
+                  event.preventDefault();
+                  handleNavigateBack();
+                  if (setIsMenuOpened) {
+                    setIsMenuOpened((prevState: boolean) => !prevState);
+                  }
+                }}
+                className="burger-img"
+              >
+                <img className="header__icon" src={close_menu} alt="menu" />
               </a>
             </div>
-            <div className="icon-container__cart">
-              <a href="#cart" className="bottom-bar__icon">
-                <img src={CartIcon} alt="Cart-logo" className="bottom__logo" />
-              </a>
+          </header>
+          <div className="burger-menu__body">
+            <Navigation setIsMenuOpened={setIsMenuOpened} />
+            <div className="bottom-bar burger-menu__bottom">
+              <div className="icon-container__favourite">
+                <FavouritesButton />
+              </div>
+              <div className="icon-container__cart">
+                <ShoppingBagButton />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

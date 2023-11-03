@@ -3,11 +3,9 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import './CartMenu.scss';
 import './CartMenu-skeleton.scss';
-
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import BackIcon from './images/back.svg';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 
 export const CartMenuSkeletonLoader: React.FC = () => {
   const { cart } = useContext(StorageContext);
@@ -55,14 +53,13 @@ export const CartMenuSkeletonLoader: React.FC = () => {
                 </div>
               ) : (
                 <p className="empty-cart-text">
-                  <Skeleton />
+                  <Skeleton height={150} />
                 </p>
               )}
             </SkeletonTheme>
           </div>
         </div>
       </div>
-      <ToastContainer />
     </>
   );
 };

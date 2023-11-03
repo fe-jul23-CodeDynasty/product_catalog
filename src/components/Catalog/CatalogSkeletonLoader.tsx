@@ -1,4 +1,4 @@
-import './Catalog.scss';
+import './CatalogSkeletonLoader.scss';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import React from 'react';
@@ -16,12 +16,12 @@ export const CatalogSkeletonLoader: React.FC<Props> = ({
   categoryTitle,
 }) => {
   return (
-    <div className="phones">
+    <div className="phones-skeleton">
       <div className="container">
-        <div className="phones-page">
+        <div className="phones-page-skeleton">
           <SkeletonTheme baseColor="#161827" highlightColor="#323542">
-            <div className="phones-page__top">
-              <Link to="/" className="link--favourites">
+            <div className="phones-page-skeleton__top">
+              <Link to="/" className="link--favourites-skeleton">
                 <img
                   src={HomeIcon}
                   alt="home-icon"
@@ -34,18 +34,23 @@ export const CatalogSkeletonLoader: React.FC<Props> = ({
                 />
                 {categoryTitle}
               </Link>
-              <h1 className="title-phones">
-                <Skeleton width={250} height={56} />
+              <h1 className="title-phones-skeleton">
+                <Skeleton width={500} />
               </h1>
-              <p className="items-count">
-                <Skeleton width={50} height={21} />
+              <p className="items-count-skeleton">
+                <Skeleton width={80} height={21} />
               </p>
             </div>
 
-            <div className="phones-page__wrapper">
-              <div className="sort-buttons">
-                <Skeleton width={176} height={57} />
-                <Skeleton width={176} height={57} />
+            <div className="phones-page-skeleton__wrapper">
+              <div className="sort-buttons-skeleton catalog-buttons-skeleton">
+                <Skeleton width={176} height={18} />
+                <Skeleton width={176} height={18} />
+              </div>
+
+              <div className="sort-buttons-skeleton">
+                <Skeleton width={176} height={38} />
+                <Skeleton width={176} height={38} />
               </div>
 
               <section className="cards">
@@ -57,7 +62,7 @@ export const CatalogSkeletonLoader: React.FC<Props> = ({
                 ))}
               </section>
 
-              <div className="phones-page__bottom">
+              <div className="phones-page-skeleton__bottom">
                 <Skeleton width={380} height={60} />
               </div>
             </div>

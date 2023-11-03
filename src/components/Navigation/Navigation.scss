@@ -27,6 +27,13 @@
 
   &__item {
     list-style-type: none;
+    padding: 8px;
+    margin-bottom: 16px;
+
+    @include onTablet {
+      padding: 0;
+      margin-bottom: 0;
+    }
 
     &__link {
       display: flex;

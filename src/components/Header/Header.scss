@@ -117,15 +117,23 @@
     align-items: center;
     justify-content: center;
     padding: 16px;
-    border-left: 1px solid $borderColorHeader;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #eb5757;
-    }
 
     @include onDesktop {
       padding: 24px;
+    }
+
+    &:hover {
+      animation: pulse 1s infinite alternate;
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        
+        100% {
+          transform: scale(1.2);
+        }
+      }
     }
   }
 
@@ -134,11 +142,20 @@
     align-items: center;
     justify-content: center;
     padding: 16px;
-    border-left: 1px solid $borderColorHeader;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: #eb5757;
+      animation: pulse 1s infinite alternate;
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+
+        100% {
+          transform: scale(1.5);
+        }
+      }
     }
 
     @include onDesktop {
@@ -174,4 +191,8 @@
     border: 1px solid $backgroundColor;
     border-radius: 50%;
   }
+}
+
+.header-icon-wrapper {
+  border-left: 1px solid $borderColorHeader;
 }

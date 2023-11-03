@@ -8,7 +8,7 @@ import '../../App.scss';
 import { getPhonesByParams } from '../../api/api';
 import { Product } from '../../types/Product';
 import { HomeSkeletonLoader } from './HomeSkeletonLoader';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,7 +33,7 @@ export const Home = () => {
       .finally(() => {
         setTimeout(() => {
           setIsLoading(false);
-        }, 1000);
+        }, 400);
       });
   }, []);
 

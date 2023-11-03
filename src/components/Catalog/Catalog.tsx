@@ -16,7 +16,7 @@ import { DropdownOptions } from '../../types/DropdownOptions';
 import { PaginationButtons } from './Pagination/Pagination';
 import { Category } from '../../types/Category';
 import { CatalogSkeletonLoader } from './CatalogSkeletonLoader';
-import { StorageContext } from '../StorageContext/StorageContext';
+import { StorageContext } from '../StorageContext';
 
 export const Catalog: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -77,7 +77,7 @@ export const Catalog: React.FC = () => {
       .finally(() => {
         setTimeout(() => {
           setIsLoading(false);
-        }, 1000);
+        }, 400);
       });
   }, [searchParams, category]);
 

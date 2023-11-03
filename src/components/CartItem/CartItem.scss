@@ -21,7 +21,7 @@
   &__top {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   &__bottom {
@@ -54,7 +54,7 @@
   }
 
   &__text {
-    padding: 16px;
+    padding: 16px 16px 16px 25px;
     font-size: $minorTextFontSize;
     font-weight: $textWeight;
     line-height: 21px;

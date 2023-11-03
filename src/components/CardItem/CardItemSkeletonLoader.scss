@@ -7,15 +7,6 @@
   box-sizing: border-box;
 }
 
-.is-color::before {
-  border-color: #f1f2f9 !important;
-}
-
-.is-capacity {
-  color: $backgroundColor !important;
-  background-color: $textColor !important;
-}
-
 main {
   margin: 0 auto;
   max-width: auto;
@@ -24,7 +15,7 @@ main {
   background-color: $backgroundColor;
 }
 
-.item {
+.item-skeleton {
   &__title {
     font-size: $minorTitleFontSize;
     font-weight: $titleWeight;
@@ -142,7 +133,6 @@ main {
 
   &__top-right {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     width: 100%;
   }
@@ -152,7 +142,6 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     padding-bottom: 24px;
-    border-bottom: 1px solid $borderColorHeader;
   }
 
   &__available--text {
@@ -182,10 +171,6 @@ main {
       inset: -6px;
       border: 2px solid $buttonActiveColor;
       border-radius: 50%;
-    }
-
-    &:hover::before {
-      border-color: #f1f2f9 !important;
     }
 
     &--brown {
@@ -281,7 +266,6 @@ main {
     flex-direction: column;
     padding-top: 10px;
     padding-bottom: 24px;
-    border-bottom: 1px solid $borderColorHeader;
   }
 
   &__capacity-container {
@@ -401,7 +385,7 @@ main {
   }
 }
 
-.about {
+.about-skeleton {
   @include pageGrid();
 
   &__container {
@@ -416,11 +400,9 @@ main {
   }
 
   &__title {
-    padding-bottom: 20px;
     font-size: $textFontSize;
     font-weight: $buttonWeight;
     color: $secondaryTextColor;
-    border-bottom: 1px solid $borderColor;
   }
 
   &__title--content {
@@ -476,7 +458,7 @@ main {
   }
 }
 
-.tech {
+.tech-skeleton {
   grid-column: 1 / -1;
 
   @include onDesktop() {
@@ -484,20 +466,16 @@ main {
   }
 
   &__title {
-    padding-bottom: 20px;
     font-size: $textFontSize;
     font-weight: $buttonWeight;
     color: #75767f;
-    border-bottom: 1px solid #3b3e4a;
   }
 
   &__content {
     --columns: 1;
 
     display: grid;
-    // column-gap: 20px;
     grid-template-columns: repeat(var(--columns), 1fr);
-    padding-bottom: 24px;
     gap: 4px;
 
     @media (min-width: 744px) {

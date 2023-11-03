@@ -1,6 +1,7 @@
 import { NavLink, useLocation, useParams } from 'react-router-dom';
 import './Navigation.scss';
 import classNames from 'classnames';
+import React from 'react';
 
 const navigationData = {
   home: '/',
@@ -9,7 +10,11 @@ const navigationData = {
   accessories: '/catalog/accessories',
 };
 
-export const Navigation = () => {
+type Props = {
+  setIsMenuOpened?: (statusMenu: (prevState: boolean) => boolean) => void;
+};
+
+export const Navigation: React.FC<Props> = ({ setIsMenuOpened }) => {
   const { pathname } = useLocation();
   const { category } = useParams();
 
@@ -20,6 +25,11 @@ export const Navigation = () => {
           {Object.entries(navigationData).map(([label, path]) => (
             <li className="nav__item" key={label}>
               <NavLink
+                onClick={() => {
+                  if (setIsMenuOpened) {
+                    setIsMenuOpened((prevState: boolean) => !prevState);
+                  }
+                }}
                 to={path}
                 className={classNames('nav__item__link', {
                   'is-active':

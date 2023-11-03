@@ -7,6 +7,7 @@ type StorageContextType = {
   cart: Product[];
   setCart: any;
   removeFromCart: (product: Product) => void;
+  removeFromCartInCart: (product: Product) => void;
   totalCost: number;
   setTotalCost: any;
   totalItemsCounter: number;
@@ -15,14 +16,20 @@ type StorageContextType = {
   favorites: Product[];
   setFavorites: any;
   addToFavorites: (product: Product) => void;
+  removeFavorite: (product: Product) => void;
   favoritesCounter: number;
   errorNotify: (message: string) => void;
+  isMenuOpened: boolean;
+  setIsMenuOpened: any;
+  isMobileVersion: boolean;
+  setWindowResize: any;
 };
 
 export const StorageContext = createContext<StorageContextType>({
   cart: [],
   setCart: () => {},
   removeFromCart: () => {},
+  removeFromCartInCart: () => {},
   totalCost: 0,
   setTotalCost: () => {},
   totalItemsCounter: 0,
@@ -31,8 +38,13 @@ export const StorageContext = createContext<StorageContextType>({
   favorites: [],
   setFavorites: () => {},
   addToFavorites: () => {},
+  removeFavorite: () => {},
   favoritesCounter: 0,
   errorNotify: () => {},
+  isMenuOpened: false,
+  setIsMenuOpened: () => {},
+  isMobileVersion: false,
+  setWindowResize: () => {},
 });
 
 type Props = {
@@ -60,6 +72,17 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
   }, [cart, totalItemsCounter]);
 
   const removeFromCart = (product: Product) => {
+    const updatedCart: Product[] = cart.filter(item => item.id !== product.id);
+
+    setCart(updatedCart);
+
+    const newTotalCost = updatedCart.reduce((acc, curr) => acc + curr.price, 0);
+
+    setTotalItemsCounter((prev: number) => prev - 1);
+    setTotalCost(newTotalCost);
+  };
+
+  const removeFromCartInCart = (product: Product) => {
     const updatedCart: Product[] = cart.filter(item => item.id !== product.id);
 
     setCart(updatedCart);
@@ -132,12 +155,17 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
     theme: 'dark',
   });
 
+  const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false);
+  const [windowResize, setWindowResize] = useState(window.innerWidth);
+  const isMobileVersion = windowResize <= 639;
+
   return (
     <StorageContext.Provider
       value={{
         cart,
         setCart,
         removeFromCart,
+        removeFromCartInCart,
         totalCost,
         setTotalCost,
         totalItemsCounter,
@@ -147,7 +175,12 @@ export const StorageContextProvider: React.FC<Props> = ({ children }) => {
         favoritesCounter,
         favorites,
         setFavorites,
+        removeFavorite,
         errorNotify,
+        isMenuOpened,
+        setIsMenuOpened,
+        isMobileVersion,
+        setWindowResize,
       }}
     >
       {children}
