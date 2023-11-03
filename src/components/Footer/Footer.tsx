@@ -14,7 +14,7 @@ function Footer() {
       url: 'https://github.com/orgs/fe-jul23-CodeDynasty/people',
     },
   ];
-
+git  vgi
   return (
     <footer className="footer noselect">
       <div className="footer__image">
