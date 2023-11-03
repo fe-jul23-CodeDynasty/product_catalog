@@ -35,8 +35,10 @@ export const Header = () => {
             <img className="logo__img" src={logo_main} alt="Logo link" />
           </NavLink>
 
-          {!isMobileVersion && <Navigation />}
-        </div>
+            {!isMobileVersion && (
+              <Navigation />
+            )}
+          </div>
 
         <div className="container__heart-like-shopping-bag">
           <div
@@ -56,11 +58,11 @@ export const Header = () => {
             <ShoppingBagButton />
           </div>
         </div>
-
-        <Link to="/openmenu" className="burger-img">
-          <img className="header__icon" src={burger_menu} alt="close menu" />
-        </Link>
-      </div>
+      ) : (
+        <BurgerMenu
+          setIsMenuOpened={setIsMenuOpened}
+        />
+      )}
     </header>
   );
 };
