@@ -53,7 +53,7 @@ export const CartMenuSkeletonLoader: React.FC = () => {
                 </div>
               ) : (
                 <p className="empty-cart-text">
-                  <Skeleton />
+                  <Skeleton height={150} />
                 </p>
               )}
             </SkeletonTheme>

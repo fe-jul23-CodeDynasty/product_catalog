@@ -1,0 +1,532 @@
+@import '../../utils/variables.scss';
+@import '~normalize.css';
+@import 'src/utils/variables';
+@import 'src/utils/mixins';
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  margin: 0 auto;
+  max-width: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $backgroundColor;
+}
+
+.item-skeleton {
+  &__title {
+    font-size: $minorTitleFontSize;
+    font-weight: $titleWeight;
+    color: $textColor;
+  }
+
+  &__image {
+    background-color: initial;
+    // border-radius: 8px;
+    object-fit: contain;
+    border: 1px solid $borderColor;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (min-width: 744px) {
+      flex-direction: row;
+    }
+
+    @media (min-width: 1240px) {
+      flex-direction: row;
+    }
+
+    &-left {
+      position: relative;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      grid-gap: 7px;
+      gap: 7px;
+      overflow: hidden;
+      padding-right: 2px;
+      height: 100%;
+      max-height: 442px;
+
+      @media (min-width: 639px) {
+        flex-direction: column;
+      }
+
+      &-left:hover {
+        border-color: $selectedTextColor;
+      }
+    }
+  }
+
+  &__image--blocks {
+    padding: 2px;
+    width: 37px;
+    height: 37px;
+    // border: 1px solid $borderColor;
+    transition: border-color 0.3s;
+
+    @media (min-width: 744px) {
+      padding: 5px;
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    @media (min-width: 1259px) {
+      padding: 5px;
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    &:hover {
+      border-color: 1px solid #dbdbdb;
+    }
+
+    &:focus {
+      border-color: 2px solid #f98921;
+    }
+  }
+
+  &__top--container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &__top-center {
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+    object-position: center;
+    width: 80%;
+  }
+
+  &__image--center {
+    display: flex;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+
+    @media (min-width: 744px) {
+      padding-top: 0;
+      height: 300px;
+    }
+
+    @media (min-width: 1259px) {
+      display: flex;
+      height: 430px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__top-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__right--available {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 24px;
+  }
+
+  &__available--text {
+    padding-bottom: 10px;
+    font-size: $linkFontSize;
+    font-weight: $buttonWeight;
+    color: $secondaryTextColor;
+  }
+
+  &__button--available {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__available {
+    position: relative;
+    padding: 2px;
+    width: 30px;
+    height: 30px;
+    // border: 2px solid $buttonAvailableColor;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border: 2px solid $buttonActiveColor;
+      border-radius: 50%;
+    }
+
+    &--brown {
+      background-color: $buttonAvailableColor;
+    }
+
+    &--gold {
+      background-color: $goldColor;
+    }
+
+    &--silver {
+      background-color: $silverColor;
+    }
+
+    &--starlight {
+      background-color: $starlightColor;
+    }
+
+    &--midnight {
+      background-color: $midnightColor;
+    }
+
+    &--purple {
+      background-color: $purpleColor;
+    }
+
+    &--space-gray,
+    &--spacegray {
+      background-color: $spaceGrayColor;
+    }
+
+    &--blue {
+      background-color: $blueColor;
+    }
+
+    &--green {
+      background-color: $greenColor;
+    }
+
+    &--rose-gold,
+    &--rosegold {
+      background-color: $roseGoldColor;
+    }
+
+    &--spaceblack {
+      background-color: $spaceblackColor;
+    }
+
+    &--black {
+      background-color: $blackColor;
+      // border: 2px solid $blackColor;
+    }
+
+    &--pink {
+      background-color: $pinkColor;
+    }
+
+    &--red {
+      background-color: $redColor;
+    }
+
+    &--midnightgreen {
+      background-color: $midnightgreenColor;
+    }
+
+    &--sky-blue {
+      background-color: $skyBlueColor;
+    }
+
+    &--graphite {
+      background-color: $graphiteColor;
+    }
+
+    &--coral {
+      background-color: $coralColor;
+    }
+
+    &--sierrablue {
+      background-color: $sierrablueColor;
+    }
+
+    &--yellow {
+      background-color: $yellowColor;
+    }
+
+    &--white {
+      background-color: $whiteColor;
+    }
+  }
+
+  &__right--capacity {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 24px;
+  }
+
+  &__capacity-container {
+    display: flex;
+    gap: 10px;
+
+    &--button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 56px;
+      height: 32px;
+      font-size: $minorButtonFontSize;
+      font-weight: $textWeight;
+      color: $textColor;
+      border: 1px solid $iconsColor;
+
+      &:hover {
+        color: $backgroundColor;
+        background-color: $textColor;
+      }
+    }
+  }
+
+  &__prices--amount {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+  }
+
+  &__amount--main {
+    font-size: $minorTitleFontSize;
+    font-weight: $titleWeight;
+    color: $selectedTextColor;
+  }
+
+  &__amount--cross {
+    font-size: $highTextFontSize;
+    font-weight: $textWeight;
+    text-decoration: line-through;
+    color: $iconsColor;
+  }
+
+  &__prices__button {
+    @include onDesktop() {
+      max-width: 320px;
+    }
+
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 32px;
+    gap: 8px;
+  }
+
+  &__add--button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 40px;
+    font-size: $buttonFontSize;
+    font-weight: $buttonWeight;
+    text-decoration: none;
+    color: $textColor;
+    background-color: $buttonCheckoutColor;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+  }
+
+  &__favorite--button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 40px;
+    font-size: $buttonFontSize;
+    font-weight: $buttonWeight;
+    text-decoration: none;
+    color: $selectedTextColor;
+    background-color: $iconsColor;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+
+    &-sign {
+      line-height: 0;
+    }
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &--screen {
+      display: flex;
+      justify-content: space-between;
+      height: 18px;
+
+      &-type {
+        font-size: $linkFontSize;
+        font-weight: $buttonWeight;
+        color: $secondaryTextColor;
+      }
+
+      &-value {
+        font-size: $linkFontSize;
+        font-weight: $buttonWeight;
+        color: $secondaryTextColor;
+      }
+    }
+  }
+}
+
+.about-skeleton {
+  @include pageGrid();
+
+  &__container {
+    grid-column: 1 / -1;
+
+    @include onDesktop() {
+      grid-column: 1 / 12;
+    }
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: $textFontSize;
+    font-weight: $buttonWeight;
+    color: $secondaryTextColor;
+  }
+
+  &__title--content {
+    --columns: 2;
+
+    display: grid;
+    flex-direction: column;
+    column-gap: 20px;
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    @media (min-width: 744px) {
+      --columns: 2;
+
+      column-gap: 24px;
+    }
+
+    @media (min-width: 1240px) {
+      --columns: 2;
+
+      margin-inline: auto;
+    }
+  }
+
+  &__content--title {
+    display: flex;
+    font-size: $contentTitleFontSize;
+    font-weight: $buttonWeight;
+    color: $textColor;
+    grid-column: span 2;
+
+    @media (min-width: 744px) {
+      grid-column: span 2;
+    }
+
+    @media (min-width: 1260px) {
+      grid-column: span 2;
+    }
+  }
+
+  &__content--text {
+    font-size: $minorTextFontSize;
+    font-weight: $textWeight;
+    color: $iconsColor;
+    grid-column: span 2;
+    @media (min-width: 744px) {
+      grid-column: span 2;
+      padding-top: 0;
+    }
+
+    @media (min-width: 1260px) {
+      grid-column: span 2;
+    }
+  }
+}
+
+.tech-skeleton {
+  grid-column: 1 / -1;
+
+  @include onDesktop() {
+    grid-column: 13 / -1;
+  }
+
+  &__title {
+    font-size: $textFontSize;
+    font-weight: $buttonWeight;
+    color: #75767f;
+  }
+
+  &__content {
+    --columns: 1;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 4px;
+
+    @media (min-width: 744px) {
+      --columns: 1;
+
+      column-gap: 24px;
+    }
+
+    @media (min-width: 1240px) {
+      --columns: 1;
+    }
+
+    &--item {
+      display: flex;
+      justify-content: space-between;
+      height: 18px;
+    }
+  }
+
+  &__item--type {
+    font-size: $linkFontSize;
+    font-weight: $buttonWeight;
+    color: $secondaryTextColor;
+
+    @media (min-width: 744px) {
+      grid-column: span 2;
+    }
+
+    @media (min-width: 1260px) {
+      grid-column: span 2;
+    }
+  }
+
+  &__item--value {
+    font-size: $linkFontSize;
+    font-weight: $buttonWeight;
+    color: $textColor;
+
+    @media (min-width: 744px) {
+      grid-column: span 2;
+      padding-top: 0;
+    }
+
+    @media (min-width: 1260px) {
+      grid-column: span 2;
+    }
+  }
+}
+
+.iss-active {
+  border-color: $whiteColor;
+  transition: border-color 1s;
+  box-sizing: border-box;
+}

@@ -77,7 +77,7 @@ export const Catalog: React.FC = () => {
       .finally(() => {
         setTimeout(() => {
           setIsLoading(false);
-        }, 500);
+        }, 400);
       });
   }, [searchParams, category]);
 
