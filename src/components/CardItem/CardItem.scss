@@ -56,17 +56,19 @@ main {
       position: relative;
       left: 0;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       flex-shrink: 0;
       grid-gap: 7px;
       gap: 7px;
       overflow: hidden;
+      margin-top: 25px;
       padding-right: 2px;
       height: 100%;
       max-height: 442px;
 
-      @media (min-width: 639px) {
+      @media (min-width: 744px) {
         flex-direction: column;
+        margin-top: 0;
       }
 
       &-left:hover {
@@ -77,10 +79,15 @@ main {
 
   &__image--blocks {
     padding: 2px;
-    width: 37px;
-    height: 37px;
+    width: 55px;
+    height: 55px;
     // border: 1px solid $borderColor;
     transition: border-color 0.3s;
+
+    @media (min-width: 480px) {
+      width: 80px;
+      height: 80px;
+    }
 
     @media (min-width: 744px) {
       padding: 5px;
@@ -110,7 +117,13 @@ main {
   &__top--container {
     display: flex;
     justify-content: space-around;
+    flex-direction: column-reverse;
     width: 100%;
+    align-items: center;
+
+    @media (min-width: 744px) {
+      flex-direction: row;
+    }
   }
 
   &__top-center {
@@ -123,7 +136,7 @@ main {
 
   &__image--center {
     display: flex;
-    height: 200px;
+    height: 300px;
     object-fit: cover;
     object-position: center;
 
