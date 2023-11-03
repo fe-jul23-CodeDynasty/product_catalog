@@ -15,7 +15,7 @@ export const PromoSliderSkeletonLoader: React.FC<Props> = ({ isLoading }) => {
   return (
     <div className="promo-slider">
       <h3 className="promo-title">
-        <Skeleton />
+        <Skeleton width={272} />
       </h3>
 
       <Swiper

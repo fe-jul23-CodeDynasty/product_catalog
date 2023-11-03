@@ -18,6 +18,7 @@ import { Product } from '../../types/Product';
 import { ButtonCart } from '../Buttons/ButtonCart/ButtonCart';
 import { ButtonFavourite } from '../Buttons/ButtonFavourite/ButtonFavourite';
 import { StorageContext } from '../StorageContext';
+import { CardItemSkeletonLoader } from './CardItemSkeletonLoader';
 
 type Props = {
   cardProduct: ProductFull;
@@ -42,9 +43,10 @@ export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
       .catch(() => {
         errorNotify('No information found about recomended products');
       })
-
       .finally(() => {
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 400);
       });
   }, [cardProduct]);
 
@@ -117,7 +119,9 @@ export const CardItem: React.FC<Props> = ({ cardProduct, cartProduct }) => {
 
   const jsonString: Description[] = JSON.parse(description);
 
-  return (
+  return isLoading ? (
+    <CardItemSkeletonLoader IsLoading={isLoading} />
+  ) : (
     <main>
       <div className="item">
         <h2 key={id} className="item__title">

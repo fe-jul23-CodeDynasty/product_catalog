@@ -26,7 +26,7 @@ export const FavouritesPageSkeletonLoader: React.FC = () => {
                 Favourites
               </a>
               <h1 className="title">
-                <Skeleton />
+                <Skeleton width={350} />
               </h1>
 
               <p className="items-count">
